@@ -30,7 +30,7 @@ namespace Example
     {
         public void Main()
         {
-            //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud/ (free registration is requited).
+            //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
             var configuration = new Configuration
             {
                 AppSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
