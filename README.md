@@ -69,7 +69,6 @@ All GroupDocs.Viewer for Cloud SDKs are licensed under [MIT License](LICENSE).
 + [**Product Home**](https://products.groupdocs.cloud/viewer/cloud)
 + [**Documentation**](https://docs.groupdocs.cloud/display/viewercloud/Home)
 + [**Free Support Forum**](https://forum.groupdocs.cloud/c/viewer)
-+ [**Paid Support Helpdesk**](https://helpdesk.groupdocs.cloud)
 + [**Blog**](https://blog.groupdocs.cloud/category/groupdocs-products/groupdocs-viewer-product-family)
 
 ## Contact Us
