@@ -53,9 +53,8 @@ namespace Example
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ViewerApi.DeleteFontsCache: " + e.Message);
+                Debug.Print("Something went wrong: " + e.Message);
             }
-
         }
     }
 }
