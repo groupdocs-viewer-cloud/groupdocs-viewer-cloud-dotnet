@@ -108,3 +108,8 @@ hs_err_pid*
 *.xcuserstate*StyleCop.Cache
 *StyleCop.Cache
 .vs/*
+
+.sign-keys
+*.nuspec
+*.Nuget.csproj
+*.nupkg

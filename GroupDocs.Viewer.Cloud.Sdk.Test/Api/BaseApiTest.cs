@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
@@ -79,7 +80,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
         protected Stream SerializeObject(object obj)
         {
-            var json = SerializationHelper.Serialize(obj);
+            var options = new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            };
+            var json = JsonConvert.SerializeObject(obj, options);
+
             var bytes = Encoding.UTF8.GetBytes(json);
 
             return new MemoryStream(bytes);

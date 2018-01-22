@@ -34,8 +34,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GroupDocs.Viewer.Cloud.Sdk.Properties")]
-[assembly: AssemblyCopyright("Copyright © 2017")]
+[assembly: AssemblyProduct("GroupDocs.Viewer.Cloud.Sdk")]
+[assembly: AssemblyCopyright("Copyright 2003-2018 Aspose Pty Ltd")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -53,7 +53,5 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("17.10.0.0")]
-[assembly: AssemblyFileVersion("17.10.0.0")]
-
-[assembly: InternalsVisibleTo("GroupDocs.Viewer.Cloud.Sdk.Test")]
+[assembly: AssemblyVersion("17.11.0.0")]
+[assembly: AssemblyFileVersion("17.11.0.0")]
