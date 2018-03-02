@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="CellsOptions.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -69,7 +69,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public string InternalHyperlinkPrefix { get; set; }
 
         /// <summary>
-        /// Text overflow mode applied when the text is too big to fit into the cell. Supported modes {Overlay|OverlayIfNextIsEmpty|HideText}. Overlay - Overlay next cells even they are not empty. OverlayIfNextIsEmpty - Overlay next cells only if they are not empty HideText - Hide overflow text Default value is OverlayIfNextIsEmpty.
+        /// Text overflow mode applied when the text is too big to fit into the cell. Supported values {Overlay|OverlayIfNextIsEmpty|HideText}: 1. Overlay - overlay next cells even they are not empty. 2. OverlayIfNextIsEmpty - overlay next cells only if they are not empty (default). 3. HideText - hide overflow text.
         /// </summary>  
         public string TextOverflowMode { get; set; }
 

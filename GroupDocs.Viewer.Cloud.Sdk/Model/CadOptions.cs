@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="CadOptions.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,6 +64,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public string LayoutName { get; set; }
 
         /// <summary>
+        /// The list of document layers to render. By default all layers will be rendered. Layer names are case sensitive.
+        /// </summary>  
+        public List<string> Layers { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +81,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  Height: ").Append(this.Height).Append("\n");
           sb.Append("  RenderLayouts: ").Append(this.RenderLayouts).Append("\n");
           sb.Append("  LayoutName: ").Append(this.LayoutName).Append("\n");
+          sb.Append("  Layers: ").Append(this.Layers).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

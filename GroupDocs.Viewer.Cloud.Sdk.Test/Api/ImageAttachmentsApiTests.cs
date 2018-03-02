@@ -3,7 +3,7 @@
     using NUnit.Framework;
     using GroupDocs.Viewer.Cloud.Sdk.Model;
     using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
-    using GroupDocs.Viewer.Cloud.Sdk.Test.Internal;
+    using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;
 
     public class ImageAttachmentsApiTests : BaseApiTest
     {

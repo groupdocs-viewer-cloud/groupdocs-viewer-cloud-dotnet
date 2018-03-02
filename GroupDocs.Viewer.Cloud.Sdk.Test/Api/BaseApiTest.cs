@@ -3,14 +3,13 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
+    using Newtonsoft.Json;
     using NUnit.Framework;
     using GroupDocs.Viewer.Cloud.Sdk.Api;
-    using GroupDocs.Viewer.Cloud.Sdk.Internal;
-    using GroupDocs.Viewer.Cloud.Sdk.Test.Internal;
+    using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;
 
     public class BaseApiTest
     {

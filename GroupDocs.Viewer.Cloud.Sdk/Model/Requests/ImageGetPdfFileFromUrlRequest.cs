@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ImageGetPdfFileFromUrlRequest.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,7 +28,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
   using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
   /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.ImageGetPdfFileFromUrl" /> operation.
+  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.ImageGetPdfFileFromUrl" /> operation.
   /// </summary>  
   public class ImageGetPdfFileFromUrlRequest  
   {

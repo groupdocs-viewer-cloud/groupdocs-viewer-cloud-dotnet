@@ -1,7 +1,6 @@
 ﻿namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using NUnit.Framework;
-    using GroupDocs.Viewer.Cloud.Sdk.Model;
     using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
 
     public class FontsApiTests : BaseApiTest

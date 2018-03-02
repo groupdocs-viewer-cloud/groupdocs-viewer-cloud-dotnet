@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DocumentInfo.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,6 +74,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public List<AttachmentInfo> Attachments { get; set; }
 
         /// <summary>
+        /// The list of layers contained in a CAD document.
+        /// </summary>  
+        public List<string> Layers { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +93,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  DateModified: ").Append(this.DateModified).Append("\n");
           sb.Append("  Pages: ").Append(this.Pages).Append("\n");
           sb.Append("  Attachments: ").Append(this.Attachments).Append("\n");
+          sb.Append("  Layers: ").Append(this.Layers).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

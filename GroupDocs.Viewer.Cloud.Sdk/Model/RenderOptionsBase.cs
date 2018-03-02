@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="RenderOptionsBase.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,7 +64,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderHiddenPages { get; set; }
 
         /// <summary>
-        /// Transforms to apply. Available transforms [\"Rotate\",\"Reorder\",\"AddPrintAction\"]. Rotate - Pages will be rotated on angle if angle was set before. Reorder - For rendering document as PDF only. Pages will be ordered according to rearrangements made before. AddPrintAction - For rendering document as PDF only. An JavaScript action will be added which opens print dialog when PDF document is opened.   
+        /// Transforms to apply. Available transforms [\"Rotate\",\"Reorder\",\"AddPrintAction\"]. 1. Rotate - pages will be rotated on angle if angle was set before. 2. Reorder - for rendering document as PDF only. Pages will be ordered according to rearrangements made before. 3. AddPrintAction - for rendering document as PDF only. An JavaScript action will be added which opens print dialog when PDF document is opened.   
         /// </summary>  
         public List<string> Transforms { get; set; }
 
@@ -109,6 +109,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public SlidesOptions SlidesOptions { get; set; }
 
         /// <summary>
+        /// The Microsoft Project documents rendering options.
+        /// </summary>  
+        public ProjectOptions ProjectOptions { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +135,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  WordsOptions: ").Append(this.WordsOptions).Append("\n");
           sb.Append("  PdfOptions: ").Append(this.PdfOptions).Append("\n");
           sb.Append("  SlidesOptions: ").Append(this.SlidesOptions).Append("\n");
+          sb.Append("  ProjectOptions: ").Append(this.ProjectOptions).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

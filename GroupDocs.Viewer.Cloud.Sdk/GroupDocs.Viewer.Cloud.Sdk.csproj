@@ -129,6 +129,7 @@
     <Compile Include="Model\PdfFileInfo.cs" />
     <Compile Include="Model\PdfFileOptions.cs" />
     <Compile Include="Model\PdfOptions.cs" />
+    <Compile Include="Model\ProjectOptions.cs" />
     <Compile Include="Model\RenderOptions.cs" />
     <Compile Include="Model\RenderOptionsBase.cs" />
     <Compile Include="Model\ReorderOptions.cs" />

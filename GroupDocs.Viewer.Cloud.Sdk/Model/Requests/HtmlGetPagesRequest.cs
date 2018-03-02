@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="HtmlGetPagesRequest.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,7 +28,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
   using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
   /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.HtmlGetPages" /> operation.
+  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.HtmlGetPages" /> operation.
   /// </summary>  
   public class HtmlGetPagesRequest  
   {
@@ -46,6 +46,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         /// <param name="resourcePath">The HTML resource path.</param>
         /// <param name="ignoreResourcePathInResources">When this option enabled ResourcePath won&#39;t be added to resource reference in *.css and *.svg files.</param>
         /// <param name="embedResources">Whether to embed HTML resources or save them separate.</param>
+        /// <param name="enableMinification">Enables content (HTML and SVG) minification.</param>
+        /// <param name="enableResponsiveRendering">Indicates whether rendering will provide responsive web pages, that look well on different device types.</param>
         /// <param name="startPageNumber">The starting document page number to render.</param>
         /// <param name="countPages">The count of document pages to render.</param>
         /// <param name="password">The document password.</param>
@@ -55,12 +57,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         /// <param name="fontsFolder">The folder with custom fonts in storage.</param>
         /// <param name="folder">The folder which contains specified file in storage.</param>
         /// <param name="storage">The file storage which have to be used.</param>
-        public HtmlGetPagesRequest(string fileName, string resourcePath = null, bool? ignoreResourcePathInResources = null, bool? embedResources = null, int? startPageNumber = null, int? countPages = null, string password = null, bool? renderComments = null, bool? renderHiddenPages = null, string defaultFontName = null, string fontsFolder = null, string folder = null, string storage = null)             
+        public HtmlGetPagesRequest(string fileName, string resourcePath = null, bool? ignoreResourcePathInResources = null, bool? embedResources = null, bool? enableMinification = null, bool? enableResponsiveRendering = null, int? startPageNumber = null, int? countPages = null, string password = null, bool? renderComments = null, bool? renderHiddenPages = null, string defaultFontName = null, string fontsFolder = null, string folder = null, string storage = null)             
         {
             this.FileName = fileName;
             this.ResourcePath = resourcePath;
             this.IgnoreResourcePathInResources = ignoreResourcePathInResources;
             this.EmbedResources = embedResources;
+            this.EnableMinification = enableMinification;
+            this.EnableResponsiveRendering = enableResponsiveRendering;
             this.StartPageNumber = startPageNumber;
             this.CountPages = countPages;
             this.Password = password;
@@ -91,6 +95,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         /// Whether to embed HTML resources or save them separate.
         /// </summary>  
         public bool? EmbedResources { get; set; }
+
+        /// <summary>
+        /// Enables content (HTML and SVG) minification.
+        /// </summary>  
+        public bool? EnableMinification { get; set; }
+
+        /// <summary>
+        /// Indicates whether rendering will provide responsive web pages, that look well on different device types.
+        /// </summary>  
+        public bool? EnableResponsiveRendering { get; set; }
 
         /// <summary>
         /// The starting document page number to render.

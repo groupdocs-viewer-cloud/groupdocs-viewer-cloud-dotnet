@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ViewerApi.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -176,8 +176,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontsFolder", request.FontsFolder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -216,7 +216,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontsFolder", request.FontsFolder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -352,7 +352,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontsFolder", request.FontsFolder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -493,8 +493,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             
@@ -524,7 +524,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             
@@ -561,8 +561,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -600,8 +600,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentPassword", request.AttachmentPassword);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
@@ -647,8 +647,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             var postBody = SerializationHelper.Serialize(request.DocumentInfoOptions); // http body (model) parameter
@@ -698,12 +698,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.PageNumber);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "pageNumber", request.PageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -758,10 +760,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.PageNumber);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourceName", request.ResourceName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "pageNumber", request.PageNumber);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "resourceName", request.ResourceName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             
@@ -798,11 +800,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
@@ -848,7 +852,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -887,7 +891,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
@@ -1065,7 +1069,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             var postBody = SerializationHelper.Serialize(request.DocumentInfoOptions); // http body (model) parameter
@@ -1109,11 +1113,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.PageNumber);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "pageNumber", request.PageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
@@ -1161,9 +1167,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.PageNumber);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourceName", request.ResourceName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "pageNumber", request.PageNumber);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "resourceName", request.ResourceName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             
@@ -1194,10 +1200,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -1247,6 +1255,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -1291,7 +1301,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -1370,11 +1380,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
@@ -1413,10 +1425,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resourcePath", request.ResourcePath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreResourcePathInResources", request.IgnoreResourcePathInResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -1454,7 +1468,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             var postBody = SerializationHelper.Serialize(request.TransformOptions); // http body (model) parameter
@@ -1498,8 +1512,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontsFolder", request.FontsFolder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -1538,7 +1552,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontsFolder", request.FontsFolder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -1674,7 +1688,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontsFolder", request.FontsFolder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -1815,8 +1829,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             
@@ -1846,7 +1860,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             
@@ -1883,8 +1897,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -1922,8 +1936,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "extractText", request.ExtractText);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentPassword", request.AttachmentPassword);
@@ -1970,8 +1984,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             var postBody = SerializationHelper.Serialize(request.DocumentInfoOptions); // http body (model) parameter
@@ -2021,9 +2035,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.PageNumber);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "pageNumber", request.PageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.Format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.Width);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.Height);
@@ -2071,8 +2085,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.Format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.Width);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.Height);
@@ -2123,7 +2137,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
@@ -2162,7 +2176,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "extractText", request.ExtractText);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
@@ -2342,7 +2356,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             var postBody = SerializationHelper.Serialize(request.DocumentInfoOptions); // http body (model) parameter
@@ -2386,8 +2400,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "pageNumber", request.PageNumber);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "pageNumber", request.PageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.Format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.Width);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.Height);
@@ -2428,7 +2442,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.Format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.Width);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.Height);
@@ -2529,7 +2543,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -2608,8 +2622,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "attachmentName", request.AttachmentName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "attachmentName", request.AttachmentName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.Format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.Width);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.Height);
@@ -2653,7 +2667,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.Format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "width", request.Width);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "height", request.Height);
@@ -2696,7 +2710,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
                         .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileName", request.FileName);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "fileName", request.FileName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.Folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.Storage);
             var postBody = SerializationHelper.Serialize(request.TransformOptions); // http body (model) parameter

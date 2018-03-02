@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="HtmlOptions.cs">
-//  Copyright (c) 2003-2017 Aspose Pty Ltd
+//  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,6 +54,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? EmbedResources { get; set; }
 
         /// <summary>
+        /// Enables content (HTML and SVG) minification.
+        /// </summary>  
+        public bool? EnableMinification { get; set; }
+
+        /// <summary>
+        /// Indicates whether rendering will provide responsive web pages, that look well on different device types.
+        /// </summary>  
+        public bool? EnableResponsiveRendering { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +74,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  ResourcePath: ").Append(this.ResourcePath).Append("\n");
           sb.Append("  IgnoreResourcePathInResources: ").Append(this.IgnoreResourcePathInResources).Append("\n");
           sb.Append("  EmbedResources: ").Append(this.EmbedResources).Append("\n");
+          sb.Append("  EnableMinification: ").Append(this.EnableMinification).Append("\n");
+          sb.Append("  EnableResponsiveRendering: ").Append(this.EnableResponsiveRendering).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
