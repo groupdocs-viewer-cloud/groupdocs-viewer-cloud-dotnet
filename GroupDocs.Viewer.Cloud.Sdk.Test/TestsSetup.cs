@@ -2,12 +2,14 @@
 using System.Configuration;
 using System.IO;
 using System.Reflection;
-using GroupDocs.Viewer.Cloud.Sdk.Api;
 using NUnit.Framework;
-using Configuration = GroupDocs.Viewer.Cloud.Sdk.Api.Configuration;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test
 {
+    using GroupDocs.Storage.Cloud.Sdk;
+    using GroupDocs.Storage.Cloud.Sdk.Api;
+    using GroupDocs.Storage.Cloud.Sdk.Model.Requests;
+
     [SetUpFixture]
     public class TestsSetup
     {
@@ -45,9 +47,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test
             {
                 var relativeDirPath = dir.Replace(path, string.Empty).Trim(Path.DirectorySeparatorChar);
 
-                var response = _storageApi.IsExist(relativeDirPath);
-                if (!response.FileExist.IsExist)
-                    _storageApi.CreateFolder(relativeDirPath);
+                var response = _storageApi.GetIsExist(new GetIsExistRequest(relativeDirPath));
+                if (!response.FileExist.IsExist.GetValueOrDefault())
+                    _storageApi.PutCreateFolder(new PutCreateFolderRequest(relativeDirPath));
             }
 
             var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
@@ -55,14 +57,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test
             {
                 var relativeFilePath = file.Replace(path, string.Empty).Trim(Path.DirectorySeparatorChar);
 
-                var response = _storageApi.IsExist(relativeFilePath);
-                if (!response.FileExist.IsExist)
+                var response = _storageApi.GetIsExist(new GetIsExistRequest(relativeFilePath));
+                if (!response.FileExist.IsExist.GetValueOrDefault())
                 {
-                    var fileName = Path.GetFileName(file);
-                    var relativeDirPath = relativeFilePath.Replace(fileName, string.Empty).Trim(Path.DirectorySeparatorChar);
-                    var bytes = File.ReadAllBytes(file);
-
-                    _storageApi.CreateFile(fileName, relativeDirPath, bytes);
+                    using (FileStream fs = File.OpenRead(file))
+                    {
+                        var request = new PutCreateRequest(relativeFilePath, fs);
+                        _storageApi.PutCreate(request);
+                    }
                 }
             }
         }

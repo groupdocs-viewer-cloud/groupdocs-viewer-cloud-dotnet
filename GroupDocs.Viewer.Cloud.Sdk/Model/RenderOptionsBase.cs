@@ -59,7 +59,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderComments { get; set; }
 
         /// <summary>
-        /// Enables document hidden pages, sheets or slides rendering.
+        /// Enables rendering of document hidden pages, sheets or slides.
         /// </summary>  
         public bool? RenderHiddenPages { get; set; }
 

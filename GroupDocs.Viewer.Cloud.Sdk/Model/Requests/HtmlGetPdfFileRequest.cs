@@ -44,7 +44,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         /// </summary>
         /// <param name="fileName">The file name.</param>
         /// <param name="renderComments">Allows to render document comments. Not required if PDF document was created before.</param>
-        /// <param name="renderHiddenPages">Enables document hidden pages, sheets or slides rendering.</param>
+        /// <param name="renderHiddenPages">Enables rendering of document hidden pages, sheets or slides.</param>
         /// <param name="password">The document password. Not required if PDF document was created before.</param>
         /// <param name="defaultFontName">The name of the default font.</param>
         /// <param name="fontsFolder">The folder with custom fonts in storage.</param>
@@ -73,7 +73,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         public bool? RenderComments { get; set; }
 
         /// <summary>
-        /// Enables document hidden pages, sheets or slides rendering.
+        /// Enables rendering of document hidden pages, sheets or slides.
         /// </summary>  
         public bool? RenderHiddenPages { get; set; }
 

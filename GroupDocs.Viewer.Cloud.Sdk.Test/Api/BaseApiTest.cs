@@ -3,11 +3,13 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using GroupDocs.Storage.Cloud.Sdk.Model.Requests;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using Newtonsoft.Json;
     using NUnit.Framework;
+    using GroupDocs.Storage.Cloud.Sdk.Api;
     using GroupDocs.Viewer.Cloud.Sdk.Api;
     using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;
 
@@ -28,7 +30,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         {
             var viewerConfig = new Configuration
             {
-                AuthType = AuthType.OAuth2,
+                AuthType = Sdk.Api.AuthType.OAuth2,
                 AppSid = _appSid,
                 AppKey = _appKey,
                 ApiBaseUrl = _apiBaseUrl
@@ -36,9 +38,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             ViewerApi = new ViewerApi(viewerConfig);
 
-            var storageConfig = new Configuration
+            var storageConfig = new Storage.Cloud.Sdk.Configuration
             {
-                AuthType = AuthType.OAuth2,
+                AuthType = Storage.Cloud.Sdk.Api.AuthType.OAuth2,
                 AppSid = _appSid,
                 AppKey = _appKey,
                 ApiBaseUrl = _apiBaseUrl
@@ -55,8 +57,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
         private void RemoveTempFiles()
         {
-            StorageApi.DeleteFolder("cache");
-            StorageApi.DeleteFolder("tests");
+            DeleteFolderFromStorage("cache");
+            DeleteFolderFromStorage("tests");
+        }
+
+        private void DeleteFolderFromStorage(string folderName)
+        {
+            var request = new DeleteFolderRequest(folderName, null, true);
+            var response = StorageApi.DeleteFolder(request);
+
+            Assert.AreEqual("OK", response.Status);
         }
 
         private byte[] GetTestFileBytes(TestFile file)

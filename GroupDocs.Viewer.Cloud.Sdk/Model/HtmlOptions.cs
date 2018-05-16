@@ -54,7 +54,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? EmbedResources { get; set; }
 
         /// <summary>
-        /// Enables content (HTML and SVG) minification.
+        /// Enables content (HTML, CSS and SVG) minification.
         /// </summary>  
         public bool? EnableMinification { get; set; }
 
@@ -62,6 +62,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         /// Indicates whether rendering will provide responsive web pages, that look well on different device types.
         /// </summary>  
         public bool? EnableResponsiveRendering { get; set; }
+
+        /// <summary>
+        /// Prevents adding fonts to the output HTML document.  
+        /// </summary>  
+        public bool? ExcludeFonts { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -76,6 +81,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  EmbedResources: ").Append(this.EmbedResources).Append("\n");
           sb.Append("  EnableMinification: ").Append(this.EnableMinification).Append("\n");
           sb.Append("  EnableResponsiveRendering: ").Append(this.EnableResponsiveRendering).Append("\n");
+          sb.Append("  ExcludeFonts: ").Append(this.ExcludeFonts).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

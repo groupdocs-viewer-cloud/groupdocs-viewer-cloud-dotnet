@@ -69,9 +69,24 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public string InternalHyperlinkPrefix { get; set; }
 
         /// <summary>
-        /// Text overflow mode applied when the text is too big to fit into the cell. Supported values {Overlay|OverlayIfNextIsEmpty|HideText}: 1. Overlay - overlay next cells even they are not empty. 2. OverlayIfNextIsEmpty - overlay next cells only if they are not empty (default). 3. HideText - hide overflow text.
+        /// Text overflow mode applied when the text is too big to fit into the cell. Supported values {Overlay|OverlayIfNextIsEmpty|HideText|AutoFitColumn}: 1. Overlay - overlay next cells even they are not empty. 2. OverlayIfNextIsEmpty - overlay next cells only if they are not empty (default). 3. HideText - hide overflow text. 4. AutoFitColumn - expand cell width to fit overflowed text.
         /// </summary>  
         public string TextOverflowMode { get; set; }
+
+        /// <summary>
+        /// Enables rendering of hidden rows.
+        /// </summary>  
+        public bool? RenderHiddenRows { get; set; }
+
+        /// <summary>
+        /// Enables rendering of hidden columns.
+        /// </summary>  
+        public bool? RenderHiddenColumns { get; set; }
+
+        /// <summary>
+        /// Enables rendering worksheet(s) sections which is defined as print area. Renders each print area in a worksheet as a separate page.
+        /// </summary>  
+        public bool? RenderPrintAreaOnly { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -88,6 +103,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  Encoding: ").Append(this.Encoding).Append("\n");
           sb.Append("  InternalHyperlinkPrefix: ").Append(this.InternalHyperlinkPrefix).Append("\n");
           sb.Append("  TextOverflowMode: ").Append(this.TextOverflowMode).Append("\n");
+          sb.Append("  RenderHiddenRows: ").Append(this.RenderHiddenRows).Append("\n");
+          sb.Append("  RenderHiddenColumns: ").Append(this.RenderHiddenColumns).Append("\n");
+          sb.Append("  RenderPrintAreaOnly: ").Append(this.RenderPrintAreaOnly).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

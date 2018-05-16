@@ -47,7 +47,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         /// <param name="password">The document password.</param>
         /// <param name="extractText">When this options is set to true text contained in document will be extracted and returned along with other information.</param>
         /// <param name="renderComments">Allows to render document comments. Not required if PDF document was created before.</param>
-        /// <param name="renderHiddenPages">Enables document hidden pages, sheets or slides rendering.</param>
+        /// <param name="renderHiddenPages">Enables rendering of document hidden pages, sheets or slides.</param>
         /// <param name="folder">The folder which contains specified file in storage.</param>
         /// <param name="storage">The file storage which have to be used.</param>
         public ImageGetDocumentInfoFromUrlRequest(string url, string fileName = null, string password = null, bool? extractText = null, bool? renderComments = null, bool? renderHiddenPages = null, string folder = null, string storage = null)             
@@ -88,7 +88,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
         public bool? RenderComments { get; set; }
 
         /// <summary>
-        /// Enables document hidden pages, sheets or slides rendering.
+        /// Enables rendering of document hidden pages, sheets or slides.
         /// </summary>  
         public bool? RenderHiddenPages { get; set; }
 

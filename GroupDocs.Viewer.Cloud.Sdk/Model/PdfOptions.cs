@@ -54,6 +54,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderLayersSeparately { get; set; }
 
         /// <summary>
+        /// Specifies output image quality for image resources when rendering as HTML. The default value is Low. Supported values {Low|Medium|High}: 1. Low - satisfying image quality and smallest image size. 2. Medium - better image quality and larger image size. 3. High - best image quality with largest image size.
+        /// </summary>  
+        public string ImageQuality { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +69,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  EnablePreciseRendering: ").Append(this.EnablePreciseRendering).Append("\n");
           sb.Append("  EnableInitialContentOrdering: ").Append(this.EnableInitialContentOrdering).Append("\n");
           sb.Append("  RenderLayersSeparately: ").Append(this.RenderLayersSeparately).Append("\n");
+          sb.Append("  ImageQuality: ").Append(this.ImageQuality).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

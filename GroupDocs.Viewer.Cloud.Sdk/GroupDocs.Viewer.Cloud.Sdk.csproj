@@ -86,7 +86,6 @@
   <ItemGroup>
     <Compile Include="Api\ApiException.cs" />
     <Compile Include="Api\AuthType.cs" />
-    <Compile Include="Api\StorageApi.cs" />
     <Compile Include="Api\ViewerApi.cs" />
     <Compile Include="Internal\ApiInvoker.cs" />
     <Compile Include="Api\Configuration.cs" />

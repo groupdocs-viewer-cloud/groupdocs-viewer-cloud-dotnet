@@ -310,10 +310,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Internal
         {
             var webResponse = (HttpWebResponse)this.GetResponse(client);
             var resultStream = new MemoryStream();
-
-            StreamHelper.CopyTo(webResponse.GetResponseStream(), resultStream);
             try
             {
+                StreamHelper.CopyTo(webResponse.GetResponseStream(), resultStream);
+
                 this.requestHandlers.ForEach(p => p.ProcessResponse(webResponse, resultStream));
 
                 resultStream.Position = 0;
@@ -333,6 +333,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Internal
             {
                 resultStream.Dispose();
                 throw;
+            }
+            finally
+            {
+                webResponse.Close();
             }
         }
 

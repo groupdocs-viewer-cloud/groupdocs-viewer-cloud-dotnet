@@ -706,6 +706,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -807,6 +808,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
@@ -1120,6 +1122,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderHiddenPages", request.RenderHiddenPages);
@@ -1206,6 +1209,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -1257,6 +1261,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);
@@ -1387,6 +1392,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "renderComments", request.RenderComments);
@@ -1431,6 +1437,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "embedResources", request.EmbedResources);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableMinification", request.EnableMinification);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableResponsiveRendering", request.EnableResponsiveRendering);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "excludeFonts", request.ExcludeFonts);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "startPageNumber", request.StartPageNumber);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "countPages", request.CountPages);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "password", request.Password);

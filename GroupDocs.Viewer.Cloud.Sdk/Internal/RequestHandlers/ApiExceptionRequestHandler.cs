@@ -97,6 +97,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Internal.RequestHandlers
             }
             catch (Exception)
             {
+                webResponse.Close();
                 throw new ApiException((int)webResponse.StatusCode, webResponse.StatusDescription);
             }
 
