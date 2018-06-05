@@ -25,19 +25,19 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-  using System;  
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Runtime.Serialization;
-  using System.Text;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  /// <summary>
-  /// The Spreadsheet documents rendering options.
-  /// </summary>  
-  public class CellsOptions 
-  {                       
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
+    /// <summary>
+    /// The Spreadsheet documents rendering options.
+    /// </summary>  
+    public class CellsOptions 
+    {                       
         /// <summary>
         /// Indicates whether to render grid lines.
         /// </summary>  

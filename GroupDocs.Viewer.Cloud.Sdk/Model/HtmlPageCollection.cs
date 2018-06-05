@@ -25,19 +25,19 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-  using System;  
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Runtime.Serialization;
-  using System.Text;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  /// <summary>
-  /// Describes collection of HTML pages.
-  /// </summary>  
-  public class HtmlPageCollection 
-  {                       
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
+    /// <summary>
+    /// Describes collection of HTML pages.
+    /// </summary>  
+    public class HtmlPageCollection 
+    {                       
         /// <summary>
         /// The name of the file.
         /// </summary>  

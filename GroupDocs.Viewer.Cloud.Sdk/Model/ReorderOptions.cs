@@ -25,19 +25,19 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-  using System;  
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Runtime.Serialization;
-  using System.Text;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  /// <summary>
-  /// Provides options for reordering document pages.
-  /// </summary>  
-  public class ReorderOptions : TransformOptionsBase 
-  {                       
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
+    /// <summary>
+    /// Provides options for reordering document pages.
+    /// </summary>  
+    public class ReorderOptions : TransformOptionsBase 
+    {                       
         /// <summary>
         /// The position where page should be placed.
         /// </summary>  

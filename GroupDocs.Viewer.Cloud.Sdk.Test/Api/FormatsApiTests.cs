@@ -1,7 +1,6 @@
 ﻿namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using NUnit.Framework;
-    using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
 
     public class FormatsApiTests : BaseApiTest
     {
@@ -11,9 +10,7 @@
         [Test]
         public void GetSupportedFileFormatsTest()
         {
-            var request = new GetSupportedFileFormatsRequest();
-
-            var response = ViewerApi.GetSupportedFileFormats(request);
+            var response = ViewerApi.GetSupportedFileFormats();
 
             Assert.IsTrue(response.Formats.Count > 0);
             foreach (var entry in response.Formats)

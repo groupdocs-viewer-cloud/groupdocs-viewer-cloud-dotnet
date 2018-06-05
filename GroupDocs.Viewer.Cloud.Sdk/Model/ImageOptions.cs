@@ -25,19 +25,19 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-  using System;  
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Runtime.Serialization;
-  using System.Text;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  /// <summary>
-  /// Provides options for rendering document as image.
-  /// </summary>  
-  public class ImageOptions : RenderOptions 
-  {                       
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
+    /// <summary>
+    /// Provides options for rendering document as image.
+    /// </summary>  
+    public class ImageOptions : RenderOptions 
+    {                       
         /// <summary>
         /// Allows to set image format (png, jpg, bmp). Default value is png.
         /// </summary>  

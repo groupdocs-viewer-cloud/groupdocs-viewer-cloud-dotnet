@@ -23,14 +23,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk
+namespace GroupDocs.Viewer.Cloud.Sdk.Api
 {
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
-
-    using GroupDocs.Viewer.Cloud.Sdk.Api;
-    using GroupDocs.Viewer.Cloud.Sdk.Internal;
-    using GroupDocs.Viewer.Cloud.Sdk.Internal.RequestHandlers;
+    using GroupDocs.Viewer.Cloud.Sdk.Client;
+    using GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers;
     using GroupDocs.Viewer.Cloud.Sdk.Model;
     using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
     
@@ -45,14 +43,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewerApi"/> class.
         /// </summary>
-        /// <param name="apiKey">
-        /// The api Key.
-        /// </param>
-        /// <param name="appSid">
-        /// The app Sid.
-        /// </param>
-        public ViewerApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+        /// <param name="appSid">Application identifier (App SID)</param>
+        /// <param name="appKey">Application private key (App Key)</param>
+        public ViewerApi(string appSid, string appKey)
+            : this(new Configuration(appSid, appKey))
         {
         }
 
@@ -75,8 +69,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk
         /// <summary>
         /// Removes fonts cache. 
         /// </summary>
-        /// <param name="request">Request. <see cref="DeleteFontsCacheRequest" /></param>
-        public void DeleteFontsCache(DeleteFontsCacheRequest request)
+        public void DeleteFontsCache()
         {
             // create path and map variables
             var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/fonts/cache";
@@ -96,9 +89,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
         /// <summary>
         /// List installed fonts. 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetFontsRequest" /></param>
         /// <returns><see cref="FontCollection"/></returns>
-        public FontCollection GetFonts(GetFontsRequest request)
+        public FontCollection GetFonts()
         {
             // create path and map variables
             var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/fonts";
@@ -125,9 +117,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk
         /// <summary>
         /// Retrieves list of supported file formats. 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetSupportedFileFormatsRequest" /></param>
         /// <returns><see cref="FormatCollection"/></returns>
-        public FormatCollection GetSupportedFileFormats(GetSupportedFileFormatsRequest request)
+        public FormatCollection GetSupportedFileFormats()
         {
             // create path and map variables
             var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/formats";

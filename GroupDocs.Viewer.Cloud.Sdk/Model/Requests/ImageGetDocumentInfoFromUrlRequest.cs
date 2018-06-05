@@ -25,81 +25,81 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests 
 {
-  using GroupDocs.Viewer.Cloud.Sdk.Model; 
+    using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
-  /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.ImageGetDocumentInfoFromUrl" /> operation.
-  /// </summary>  
-  public class ImageGetDocumentInfoFromUrlRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageGetDocumentInfoFromUrlRequest"/> class.
-        /// </summary>        
-        public ImageGetDocumentInfoFromUrlRequest()
-        {
-        }
+    /// <summary>
+    /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.ImageGetDocumentInfoFromUrl" /> operation.
+    /// </summary>  
+    public class ImageGetDocumentInfoFromUrlRequest  
+    {
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageGetDocumentInfoFromUrlRequest"/> class.
+          /// </summary>        
+          public ImageGetDocumentInfoFromUrlRequest()
+          {
+          }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageGetDocumentInfoFromUrlRequest"/> class.
-        /// </summary>
-        /// <param name="url">The URL to retrieve document.</param>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="password">The document password.</param>
-        /// <param name="extractText">When this options is set to true text contained in document will be extracted and returned along with other information.</param>
-        /// <param name="renderComments">Allows to render document comments. Not required if PDF document was created before.</param>
-        /// <param name="renderHiddenPages">Enables rendering of document hidden pages, sheets or slides.</param>
-        /// <param name="folder">The folder which contains specified file in storage.</param>
-        /// <param name="storage">The file storage which have to be used.</param>
-        public ImageGetDocumentInfoFromUrlRequest(string url, string fileName = null, string password = null, bool? extractText = null, bool? renderComments = null, bool? renderHiddenPages = null, string folder = null, string storage = null)             
-        {
-            this.Url = url;
-            this.FileName = fileName;
-            this.Password = password;
-            this.ExtractText = extractText;
-            this.RenderComments = renderComments;
-            this.RenderHiddenPages = renderHiddenPages;
-            this.Folder = folder;
-            this.Storage = storage;
-        }
-
-        /// <summary>
-        /// The URL to retrieve document.
-        /// </summary>  
-        public string Url { get; set; }
-
-        /// <summary>
-        /// The file name.
-        /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// The document password.
-        /// </summary>  
-        public string Password { get; set; }
-
-        /// <summary>
-        /// When this options is set to true text contained in document will be extracted and returned along with other information.
-        /// </summary>  
-        public bool? ExtractText { get; set; }
-
-        /// <summary>
-        /// Allows to render document comments. Not required if PDF document was created before.
-        /// </summary>  
-        public bool? RenderComments { get; set; }
-
-        /// <summary>
-        /// Enables rendering of document hidden pages, sheets or slides.
-        /// </summary>  
-        public bool? RenderHiddenPages { get; set; }
-
-        /// <summary>
-        /// The folder which contains specified file in storage.
-        /// </summary>  
-        public string Folder { get; set; }
-
-        /// <summary>
-        /// The file storage which have to be used.
-        /// </summary>  
-        public string Storage { get; set; }
-  }
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageGetDocumentInfoFromUrlRequest"/> class.
+          /// </summary>
+          /// <param name="url">The URL to retrieve document.</param>
+          /// <param name="fileName">The file name.</param>
+          /// <param name="password">The document password.</param>
+          /// <param name="extractText">When this options is set to true text contained in document will be extracted and returned along with other information.</param>
+          /// <param name="renderComments">Allows to render document comments. Not required if PDF document was created before.</param>
+          /// <param name="renderHiddenPages">Enables rendering of document hidden pages, sheets or slides.</param>
+          /// <param name="folder">The folder which contains specified file in storage.</param>
+          /// <param name="storage">The file storage which have to be used.</param>
+          public ImageGetDocumentInfoFromUrlRequest(string url, string fileName = null, string password = null, bool? extractText = null, bool? renderComments = null, bool? renderHiddenPages = null, string folder = null, string storage = null)             
+          {
+              this.Url = url;
+              this.FileName = fileName;
+              this.Password = password;
+              this.ExtractText = extractText;
+              this.RenderComments = renderComments;
+              this.RenderHiddenPages = renderHiddenPages;
+              this.Folder = folder;
+              this.Storage = storage;
+          }
+          
+          /// <summary>
+          /// The URL to retrieve document.
+          /// </summary>  
+          public string Url { get; set; }
+          
+          /// <summary>
+          /// The file name.
+          /// </summary>  
+          public string FileName { get; set; }
+          
+          /// <summary>
+          /// The document password.
+          /// </summary>  
+          public string Password { get; set; }
+          
+          /// <summary>
+          /// When this options is set to true text contained in document will be extracted and returned along with other information.
+          /// </summary>  
+          public bool? ExtractText { get; set; }
+          
+          /// <summary>
+          /// Allows to render document comments. Not required if PDF document was created before.
+          /// </summary>  
+          public bool? RenderComments { get; set; }
+          
+          /// <summary>
+          /// Enables rendering of document hidden pages, sheets or slides.
+          /// </summary>  
+          public bool? RenderHiddenPages { get; set; }
+          
+          /// <summary>
+          /// The folder which contains specified file in storage.
+          /// </summary>  
+          public string Folder { get; set; }
+          
+          /// <summary>
+          /// The file storage which have to be used.
+          /// </summary>  
+          public string Storage { get; set; }
+    }
 }

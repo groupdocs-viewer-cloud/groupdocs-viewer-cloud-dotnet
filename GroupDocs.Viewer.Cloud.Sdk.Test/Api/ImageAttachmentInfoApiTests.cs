@@ -1,7 +1,8 @@
-﻿namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
+﻿using GroupDocs.Viewer.Cloud.Sdk.Client;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using NUnit.Framework;
-    using GroupDocs.Viewer.Cloud.Sdk.Api;
     using GroupDocs.Viewer.Cloud.Sdk.Model;
     using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
     using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;

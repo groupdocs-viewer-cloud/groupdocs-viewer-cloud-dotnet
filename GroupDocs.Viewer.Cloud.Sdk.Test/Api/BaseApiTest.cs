@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using GroupDocs.Storage.Cloud.Sdk.Model.Requests;
+using GroupDocs.Viewer.Cloud.Sdk.Api;
+using Configuration = GroupDocs.Viewer.Cloud.Sdk.Client.Configuration;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using Newtonsoft.Json;
     using NUnit.Framework;
     using GroupDocs.Storage.Cloud.Sdk.Api;
-    using GroupDocs.Viewer.Cloud.Sdk.Api;
     using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;
 
     public class BaseApiTest
@@ -18,9 +18,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         protected const string FromUrlFolder = "tests\\from_url";
         protected const string FromContentFolder = "tests\\from_content";
 
-        private readonly string _appSid = ConfigurationManager.AppSettings["AppSID"];
-        private readonly string _appKey = ConfigurationManager.AppSettings["AppKey"];
-        private readonly string _apiBaseUrl = ConfigurationManager.AppSettings["ApiBaseUrl"];
+        private readonly string _appSid = Config.AppSID;
+        private readonly string _appKey = Config.AppKey;
+        private readonly string _apiBaseUrl = Config.ApiBaseUrl;
 
         protected ViewerApi ViewerApi;
         protected StorageApi StorageApi;
@@ -28,11 +28,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         [SetUp]
         public void BeforeEachTest()
         {
-            var viewerConfig = new Configuration
+            var viewerConfig = new Configuration(_appSid, _appKey)
             {
-                AuthType = Sdk.Api.AuthType.OAuth2,
-                AppSid = _appSid,
-                AppKey = _appKey,
                 ApiBaseUrl = _apiBaseUrl
             };
 
@@ -40,7 +37,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             var storageConfig = new Storage.Cloud.Sdk.Configuration
             {
-                AuthType = Storage.Cloud.Sdk.Api.AuthType.OAuth2,
                 AppSid = _appSid,
                 AppKey = _appKey,
                 ApiBaseUrl = _apiBaseUrl

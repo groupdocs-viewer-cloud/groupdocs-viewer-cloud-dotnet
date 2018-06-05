@@ -25,19 +25,19 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-  using System;  
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Runtime.Serialization;
-  using System.Text;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  /// <summary>
-  /// Provides options for retrieving document information.
-  /// </summary>  
-  public class DocumentInfoOptions : RenderOptionsBase 
-  {                       
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
+    /// <summary>
+    /// Provides options for retrieving document information.
+    /// </summary>  
+    public class DocumentInfoOptions : RenderOptionsBase 
+    {                       
         /// <summary>
         /// Get the string presentation of the object
         /// </summary>

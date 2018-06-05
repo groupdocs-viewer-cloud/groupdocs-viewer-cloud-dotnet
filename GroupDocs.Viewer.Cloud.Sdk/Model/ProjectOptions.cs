@@ -25,19 +25,19 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-  using System;  
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Runtime.Serialization;
-  using System.Text;
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
-
-  /// <summary>
-  /// The Microsoft Project documents rendering options.
-  /// </summary>  
-  public class ProjectOptions 
-  {                       
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
+    /// <summary>
+    /// The Microsoft Project documents rendering options.
+    /// </summary>  
+    public class ProjectOptions 
+    {                       
         /// <summary>
         /// The size of the page. Supported values {Unknown|Letter|A0|A1|A2|A3}: 1. Unknown - the default, unspecified page size. 2. Letter - the size of the Letter page in points is 792 × 612. 3. Ledger - the size of the Letter page in points is 1224 × 792. 4. A0 - the size of the A0 page in points is 3371 × 2384. 5. A1 - the size of the A1 page in points is 2384 × 1685. 6. A2 - the size of the A2 page in points is 1684 × 1190. 7. A3 - the size of the A3 page in points is 1190 × 842. 8. A4 - the size of the A4 page in points is 842 × 595.
         /// </summary>  

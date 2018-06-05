@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.IO;
 using System.Reflection;
 using NUnit.Framework;
@@ -13,9 +12,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test
     [SetUpFixture]
     public class TestsSetup
     {
-        private readonly string _appSid = ConfigurationManager.AppSettings["AppSID"];
-        private readonly string _appKey = ConfigurationManager.AppSettings["AppKey"];
-        private readonly string _apiBaseUrl = ConfigurationManager.AppSettings["ApiBaseUrl"];
+        private readonly string _appSid = Config.AppSID;
+        private readonly string _appKey = Config.AppKey;
+        private readonly string _apiBaseUrl = Config.ApiBaseUrl;
 
         private readonly StorageApi _storageApi;
 

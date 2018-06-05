@@ -80,6 +80,7 @@ OpenAPI spec version: 1.0
     <Compile Include="Api\HtmlAttachmentPagesApiTests.cs" />
     <Compile Include="Api\Internal\TestFile.cs" />
     <Compile Include="Api\Internal\TestFiles.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="TestsSetup.cs" />
   </ItemGroup>
   <ItemGroup>

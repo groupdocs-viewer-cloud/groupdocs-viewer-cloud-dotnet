@@ -25,67 +25,67 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests 
 {
-  using GroupDocs.Viewer.Cloud.Sdk.Model; 
+    using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
-  /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.HtmlCreateAttachmentPagesCache" /> operation.
-  /// </summary>  
-  public class HtmlCreateAttachmentPagesCacheRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlCreateAttachmentPagesCacheRequest"/> class.
-        /// </summary>        
-        public HtmlCreateAttachmentPagesCacheRequest()
-        {
-        }
+    /// <summary>
+    /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.HtmlCreateAttachmentPagesCache" /> operation.
+    /// </summary>  
+    public class HtmlCreateAttachmentPagesCacheRequest  
+    {
+          /// <summary>
+          /// Initializes a new instance of the <see cref="HtmlCreateAttachmentPagesCacheRequest"/> class.
+          /// </summary>        
+          public HtmlCreateAttachmentPagesCacheRequest()
+          {
+          }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlCreateAttachmentPagesCacheRequest"/> class.
-        /// </summary>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="attachmentName">The attachment name.</param>
-        /// <param name="htmlOptions">The HTML rendering options.</param>
-        /// <param name="fontsFolder">The folder with custom fonts in storage.</param>
-        /// <param name="folder">The folder which contains specified file in storage.</param>
-        /// <param name="storage">The file storage which have to be used.</param>
-        public HtmlCreateAttachmentPagesCacheRequest(string fileName, string attachmentName, HtmlOptions htmlOptions = null, string fontsFolder = null, string folder = null, string storage = null)             
-        {
-            this.FileName = fileName;
-            this.AttachmentName = attachmentName;
-            this.HtmlOptions = htmlOptions;
-            this.FontsFolder = fontsFolder;
-            this.Folder = folder;
-            this.Storage = storage;
-        }
-
-        /// <summary>
-        /// The file name.
-        /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// The attachment name.
-        /// </summary>  
-        public string AttachmentName { get; set; }
-
-        /// <summary>
-        /// The HTML rendering options.
-        /// </summary>  
-        public HtmlOptions HtmlOptions { get; set; }
-
-        /// <summary>
-        /// The folder with custom fonts in storage.
-        /// </summary>  
-        public string FontsFolder { get; set; }
-
-        /// <summary>
-        /// The folder which contains specified file in storage.
-        /// </summary>  
-        public string Folder { get; set; }
-
-        /// <summary>
-        /// The file storage which have to be used.
-        /// </summary>  
-        public string Storage { get; set; }
-  }
+          /// <summary>
+          /// Initializes a new instance of the <see cref="HtmlCreateAttachmentPagesCacheRequest"/> class.
+          /// </summary>
+          /// <param name="fileName">The file name.</param>
+          /// <param name="attachmentName">The attachment name.</param>
+          /// <param name="htmlOptions">The HTML rendering options.</param>
+          /// <param name="fontsFolder">The folder with custom fonts in storage.</param>
+          /// <param name="folder">The folder which contains specified file in storage.</param>
+          /// <param name="storage">The file storage which have to be used.</param>
+          public HtmlCreateAttachmentPagesCacheRequest(string fileName, string attachmentName, HtmlOptions htmlOptions = null, string fontsFolder = null, string folder = null, string storage = null)             
+          {
+              this.FileName = fileName;
+              this.AttachmentName = attachmentName;
+              this.HtmlOptions = htmlOptions;
+              this.FontsFolder = fontsFolder;
+              this.Folder = folder;
+              this.Storage = storage;
+          }
+          
+          /// <summary>
+          /// The file name.
+          /// </summary>  
+          public string FileName { get; set; }
+          
+          /// <summary>
+          /// The attachment name.
+          /// </summary>  
+          public string AttachmentName { get; set; }
+          
+          /// <summary>
+          /// The HTML rendering options.
+          /// </summary>  
+          public HtmlOptions HtmlOptions { get; set; }
+          
+          /// <summary>
+          /// The folder with custom fonts in storage.
+          /// </summary>  
+          public string FontsFolder { get; set; }
+          
+          /// <summary>
+          /// The folder which contains specified file in storage.
+          /// </summary>  
+          public string Folder { get; set; }
+          
+          /// <summary>
+          /// The file storage which have to be used.
+          /// </summary>  
+          public string Storage { get; set; }
+    }
 }

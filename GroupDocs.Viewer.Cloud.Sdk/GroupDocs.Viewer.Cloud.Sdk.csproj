@@ -72,7 +72,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -84,24 +83,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\ApiException.cs" />
-    <Compile Include="Api\AuthType.cs" />
     <Compile Include="Api\ViewerApi.cs" />
-    <Compile Include="Internal\ApiInvoker.cs" />
-    <Compile Include="Api\Configuration.cs" />
-    <Compile Include="Internal\NeedRepeatRequestException.cs" />
-    <Compile Include="Internal\FileInfo.cs" />
-    <Compile Include="Internal\IRequestHandler.cs" />
-    <Compile Include="Internal\RequestHandlers\LegacyApiErrorResponse.cs" />
-    <Compile Include="Internal\RequestHandlers\ApiErrorResponse.cs" />
-    <Compile Include="Internal\RequestHandlers\ApiExceptionRequestHandler.cs" />
-    <Compile Include="Internal\RequestHandlers\AuthWithSignatureRequestHandler.cs" />
-    <Compile Include="Internal\RequestHandlers\DebugLogRequestHandler.cs" />
-    <Compile Include="Internal\RequestHandlers\Error.cs" />
-    <Compile Include="Internal\RequestHandlers\OAuthRequestHandler.cs" />
-    <Compile Include="Internal\SerializationHelper.cs" />
-    <Compile Include="Internal\StreamHelper.cs" />
-    <Compile Include="Internal\UrlHelper.cs" />
+    <Compile Include="Client\ApiException.cs" />
+    <Compile Include="Client\ApiInvoker.cs" />
+    <Compile Include="Client\AuthType.cs" />
+    <Compile Include="Client\Configuration.cs" />
+    <Compile Include="Client\FileInfo.cs" />
+    <Compile Include="Client\IRequestHandler.cs" />
+    <Compile Include="Client\NeedRepeatRequestException.cs" />
+    <Compile Include="Client\RequestHandlers\ApiErrorResponse.cs" />
+    <Compile Include="Client\RequestHandlers\ApiExceptionRequestHandler.cs" />
+    <Compile Include="Client\RequestHandlers\AuthWithSignatureRequestHandler.cs" />
+    <Compile Include="Client\RequestHandlers\DebugLogRequestHandler.cs" />
+    <Compile Include="Client\RequestHandlers\Error.cs" />
+    <Compile Include="Client\RequestHandlers\OAuthRequestHandler.cs" />
+    <Compile Include="Client\SerializationHelper.cs" />
+    <Compile Include="Client\StreamHelper.cs" />
+    <Compile Include="Client\UrlHelper.cs" />
     <Compile Include="Model\Attachment.cs" />
     <Compile Include="Model\AttachmentCollection.cs" />
     <Compile Include="Model\AttachmentInfo.cs" />
@@ -132,9 +130,6 @@
     <Compile Include="Model\RenderOptions.cs" />
     <Compile Include="Model\RenderOptionsBase.cs" />
     <Compile Include="Model\ReorderOptions.cs" />
-    <Compile Include="Model\Requests\DeleteFontsCacheRequest.cs" />
-    <Compile Include="Model\Requests\GetFontsRequest.cs" />
-    <Compile Include="Model\Requests\GetSupportedFileFormatsRequest.cs" />
     <Compile Include="Model\Requests\HtmlCreateAttachmentPagesCacheRequest.cs" />
     <Compile Include="Model\Requests\HtmlCreatePagesCacheFromContentRequest.cs" />
     <Compile Include="Model\Requests\HtmlCreatePagesCacheFromUrlRequest.cs" />
@@ -195,9 +190,6 @@
     <Compile Include="Model\Requests\ImageTransformPagesRequest.cs" />
     <Compile Include="Model\Resource.cs" />
     <Compile Include="Model\ResourceUrl.cs" />
-    <Compile Include="Model\Responses\FileExist.cs" />
-    <Compile Include="Model\Responses\FileExistResponse.cs" />
-    <Compile Include="Model\Responses\ResponseMessage.cs" />
     <Compile Include="Model\RotateOptions.cs" />
     <Compile Include="Model\RowInfo.cs" />
     <Compile Include="Model\SlidesOptions.cs" />

@@ -4,15 +4,24 @@ This repository contains GroupDocs.Viewer Cloud SDK for .NET source code. This S
 ## How to use the SDK?
 The complete source code is available in this repository folder, you can either directly use it in your project via NuGet package manager. For more details, please visit our [documentation website](https://docs.groupdocs.cloud/display/viewercloud/Available+SDKs#AvailableSDKs-.NET).
 
+## Frameworks supported
+- .NET Core >=1.0
+- .NET Framework >=4.6
+- Mono/Xamarin >=vNext
+- UWP >=10.0
+
 ## Dependencies
-- .NET Framework 2.0 or later
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json)
-- [StyleCop.MSBuild](https://www.nuget.org/packages/StyleCop.MSBuild)
+- [FubarCoder.RestSharp.Portable.Core](https://www.nuget.org/packages/Newtonsoft.Json) >=4.0.7
+- [FubarCoder.RestSharp.Portable.HttpClient](https://www.nuget.org/packages/StyleCop.MSBuild) >=4.0.7
+- [Newtonsoft.Json](https://www.nuget.org/packages/StyleCop.MSBuild) >=10.0.3
+- [JsonSubTypes](https://www.nuget.org/packages/StyleCop.MSBuild) >=1.1.3
 
 NOTE: The DLLs included in the package may not be up to date. We recommended using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
 ```
+Install-Package FubarCoder.RestSharp.Portable.Core
+Install-Package FubarCoder.RestSharp.Portable.HttpClient
 Install-Package Newtonsoft.Json
-Install-Package StyleCop.MSBuild
+Install-Package JsonSubTypes
 ``` 
 
 ## Getting Started
@@ -20,9 +29,9 @@ Install-Package StyleCop.MSBuild
 ```csharp
 using System;
 using System.Diagnostics;
-using GroupDocs.Viewer.Cloud.Sdk;
 using GroupDocs.Viewer.Cloud.Sdk.Api;
-using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
+using GroupDocs.Viewer.Cloud.Sdk.Client;
+using GroupDocs.Viewer.Cloud.Sdk.Model;
 
 namespace Example
 {
@@ -31,20 +40,15 @@ namespace Example
         public void Main()
         {
             //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
-            var configuration = new Configuration
-            {
-                AppSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-                AppKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-            };
+            
+            var appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            var appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-            var apiInstance = new ViewerApi(configuration);
+            var api = new ViewerApi(appSid, appKey);
 
             try
             {
-                var request = new GetSupportedFileFormatsRequest();
-
-                // Get supported file formats
-                var response = apiInstance.GetSupportedFileFormats(request);
+                var response = api.GetSupportedFileFormats();
 
                 foreach (var format in response.Formats)
                 {

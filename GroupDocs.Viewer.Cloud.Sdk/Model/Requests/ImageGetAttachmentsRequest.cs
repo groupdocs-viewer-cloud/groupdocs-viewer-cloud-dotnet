@@ -25,53 +25,53 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests 
 {
-  using GroupDocs.Viewer.Cloud.Sdk.Model; 
+    using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
-  /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.ImageGetAttachments" /> operation.
-  /// </summary>  
-  public class ImageGetAttachmentsRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageGetAttachmentsRequest"/> class.
-        /// </summary>        
-        public ImageGetAttachmentsRequest()
-        {
-        }
+    /// <summary>
+    /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.ImageGetAttachments" /> operation.
+    /// </summary>  
+    public class ImageGetAttachmentsRequest  
+    {
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageGetAttachmentsRequest"/> class.
+          /// </summary>        
+          public ImageGetAttachmentsRequest()
+          {
+          }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageGetAttachmentsRequest"/> class.
-        /// </summary>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="password">The document password.</param>
-        /// <param name="folder">The folder which contains specified file in storage.</param>
-        /// <param name="storage">The file storage which have to be used.</param>
-        public ImageGetAttachmentsRequest(string fileName, string password = null, string folder = null, string storage = null)             
-        {
-            this.FileName = fileName;
-            this.Password = password;
-            this.Folder = folder;
-            this.Storage = storage;
-        }
-
-        /// <summary>
-        /// The file name.
-        /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// The document password.
-        /// </summary>  
-        public string Password { get; set; }
-
-        /// <summary>
-        /// The folder which contains specified file in storage.
-        /// </summary>  
-        public string Folder { get; set; }
-
-        /// <summary>
-        /// The file storage which have to be used.
-        /// </summary>  
-        public string Storage { get; set; }
-  }
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageGetAttachmentsRequest"/> class.
+          /// </summary>
+          /// <param name="fileName">The file name.</param>
+          /// <param name="password">The document password.</param>
+          /// <param name="folder">The folder which contains specified file in storage.</param>
+          /// <param name="storage">The file storage which have to be used.</param>
+          public ImageGetAttachmentsRequest(string fileName, string password = null, string folder = null, string storage = null)             
+          {
+              this.FileName = fileName;
+              this.Password = password;
+              this.Folder = folder;
+              this.Storage = storage;
+          }
+          
+          /// <summary>
+          /// The file name.
+          /// </summary>  
+          public string FileName { get; set; }
+          
+          /// <summary>
+          /// The document password.
+          /// </summary>  
+          public string Password { get; set; }
+          
+          /// <summary>
+          /// The folder which contains specified file in storage.
+          /// </summary>  
+          public string Folder { get; set; }
+          
+          /// <summary>
+          /// The file storage which have to be used.
+          /// </summary>  
+          public string Storage { get; set; }
+    }
 }

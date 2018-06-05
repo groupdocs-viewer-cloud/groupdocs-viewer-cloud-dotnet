@@ -25,74 +25,74 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests 
 {
-  using GroupDocs.Viewer.Cloud.Sdk.Model; 
+    using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
-  /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.ImageGetAttachmentInfo" /> operation.
-  /// </summary>  
-  public class ImageGetAttachmentInfoRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageGetAttachmentInfoRequest"/> class.
-        /// </summary>        
-        public ImageGetAttachmentInfoRequest()
-        {
-        }
+    /// <summary>
+    /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.ImageGetAttachmentInfo" /> operation.
+    /// </summary>  
+    public class ImageGetAttachmentInfoRequest  
+    {
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageGetAttachmentInfoRequest"/> class.
+          /// </summary>        
+          public ImageGetAttachmentInfoRequest()
+          {
+          }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageGetAttachmentInfoRequest"/> class.
-        /// </summary>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="attachmentName">The attachment name.</param>
-        /// <param name="extractText">When this options is set to true text contained in document will be extracted and returned along with other information.</param>
-        /// <param name="password">The document password.</param>
-        /// <param name="attachmentPassword">The attachment password.</param>
-        /// <param name="folder">The folder which contains specified file in storage.</param>
-        /// <param name="storage">The file storage which have to be used.</param>
-        public ImageGetAttachmentInfoRequest(string fileName, string attachmentName, bool? extractText = null, string password = null, string attachmentPassword = null, string folder = null, string storage = null)             
-        {
-            this.FileName = fileName;
-            this.AttachmentName = attachmentName;
-            this.ExtractText = extractText;
-            this.Password = password;
-            this.AttachmentPassword = attachmentPassword;
-            this.Folder = folder;
-            this.Storage = storage;
-        }
-
-        /// <summary>
-        /// The file name.
-        /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// The attachment name.
-        /// </summary>  
-        public string AttachmentName { get; set; }
-
-        /// <summary>
-        /// When this options is set to true text contained in document will be extracted and returned along with other information.
-        /// </summary>  
-        public bool? ExtractText { get; set; }
-
-        /// <summary>
-        /// The document password.
-        /// </summary>  
-        public string Password { get; set; }
-
-        /// <summary>
-        /// The attachment password.
-        /// </summary>  
-        public string AttachmentPassword { get; set; }
-
-        /// <summary>
-        /// The folder which contains specified file in storage.
-        /// </summary>  
-        public string Folder { get; set; }
-
-        /// <summary>
-        /// The file storage which have to be used.
-        /// </summary>  
-        public string Storage { get; set; }
-  }
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageGetAttachmentInfoRequest"/> class.
+          /// </summary>
+          /// <param name="fileName">The file name.</param>
+          /// <param name="attachmentName">The attachment name.</param>
+          /// <param name="extractText">When this options is set to true text contained in document will be extracted and returned along with other information.</param>
+          /// <param name="password">The document password.</param>
+          /// <param name="attachmentPassword">The attachment password.</param>
+          /// <param name="folder">The folder which contains specified file in storage.</param>
+          /// <param name="storage">The file storage which have to be used.</param>
+          public ImageGetAttachmentInfoRequest(string fileName, string attachmentName, bool? extractText = null, string password = null, string attachmentPassword = null, string folder = null, string storage = null)             
+          {
+              this.FileName = fileName;
+              this.AttachmentName = attachmentName;
+              this.ExtractText = extractText;
+              this.Password = password;
+              this.AttachmentPassword = attachmentPassword;
+              this.Folder = folder;
+              this.Storage = storage;
+          }
+          
+          /// <summary>
+          /// The file name.
+          /// </summary>  
+          public string FileName { get; set; }
+          
+          /// <summary>
+          /// The attachment name.
+          /// </summary>  
+          public string AttachmentName { get; set; }
+          
+          /// <summary>
+          /// When this options is set to true text contained in document will be extracted and returned along with other information.
+          /// </summary>  
+          public bool? ExtractText { get; set; }
+          
+          /// <summary>
+          /// The document password.
+          /// </summary>  
+          public string Password { get; set; }
+          
+          /// <summary>
+          /// The attachment password.
+          /// </summary>  
+          public string AttachmentPassword { get; set; }
+          
+          /// <summary>
+          /// The folder which contains specified file in storage.
+          /// </summary>  
+          public string Folder { get; set; }
+          
+          /// <summary>
+          /// The file storage which have to be used.
+          /// </summary>  
+          public string Storage { get; set; }
+    }
 }

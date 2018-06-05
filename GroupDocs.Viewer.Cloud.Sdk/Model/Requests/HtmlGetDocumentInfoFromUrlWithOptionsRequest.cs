@@ -25,60 +25,60 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests 
 {
-  using GroupDocs.Viewer.Cloud.Sdk.Model; 
+    using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
-  /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.HtmlGetDocumentInfoFromUrlWithOptions" /> operation.
-  /// </summary>  
-  public class HtmlGetDocumentInfoFromUrlWithOptionsRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlGetDocumentInfoFromUrlWithOptionsRequest"/> class.
-        /// </summary>        
-        public HtmlGetDocumentInfoFromUrlWithOptionsRequest()
-        {
-        }
+    /// <summary>
+    /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.HtmlGetDocumentInfoFromUrlWithOptions" /> operation.
+    /// </summary>  
+    public class HtmlGetDocumentInfoFromUrlWithOptionsRequest  
+    {
+          /// <summary>
+          /// Initializes a new instance of the <see cref="HtmlGetDocumentInfoFromUrlWithOptionsRequest"/> class.
+          /// </summary>        
+          public HtmlGetDocumentInfoFromUrlWithOptionsRequest()
+          {
+          }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HtmlGetDocumentInfoFromUrlWithOptionsRequest"/> class.
-        /// </summary>
-        /// <param name="url">The URL to retrieve document.</param>
-        /// <param name="documentInfoOptions">The rendering options.</param>
-        /// <param name="fileName">The document name.</param>
-        /// <param name="folder">The folder which contains specified file in storage.</param>
-        /// <param name="storage">The file storage which have to be used.</param>
-        public HtmlGetDocumentInfoFromUrlWithOptionsRequest(string url, DocumentInfoOptions documentInfoOptions = null, string fileName = null, string folder = null, string storage = null)             
-        {
-            this.Url = url;
-            this.DocumentInfoOptions = documentInfoOptions;
-            this.FileName = fileName;
-            this.Folder = folder;
-            this.Storage = storage;
-        }
-
-        /// <summary>
-        /// The URL to retrieve document.
-        /// </summary>  
-        public string Url { get; set; }
-
-        /// <summary>
-        /// The rendering options.
-        /// </summary>  
-        public DocumentInfoOptions DocumentInfoOptions { get; set; }
-
-        /// <summary>
-        /// The document name.
-        /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// The folder which contains specified file in storage.
-        /// </summary>  
-        public string Folder { get; set; }
-
-        /// <summary>
-        /// The file storage which have to be used.
-        /// </summary>  
-        public string Storage { get; set; }
-  }
+          /// <summary>
+          /// Initializes a new instance of the <see cref="HtmlGetDocumentInfoFromUrlWithOptionsRequest"/> class.
+          /// </summary>
+          /// <param name="url">The URL to retrieve document.</param>
+          /// <param name="documentInfoOptions">The rendering options.</param>
+          /// <param name="fileName">The document name.</param>
+          /// <param name="folder">The folder which contains specified file in storage.</param>
+          /// <param name="storage">The file storage which have to be used.</param>
+          public HtmlGetDocumentInfoFromUrlWithOptionsRequest(string url, DocumentInfoOptions documentInfoOptions = null, string fileName = null, string folder = null, string storage = null)             
+          {
+              this.Url = url;
+              this.DocumentInfoOptions = documentInfoOptions;
+              this.FileName = fileName;
+              this.Folder = folder;
+              this.Storage = storage;
+          }
+          
+          /// <summary>
+          /// The URL to retrieve document.
+          /// </summary>  
+          public string Url { get; set; }
+          
+          /// <summary>
+          /// The rendering options.
+          /// </summary>  
+          public DocumentInfoOptions DocumentInfoOptions { get; set; }
+          
+          /// <summary>
+          /// The document name.
+          /// </summary>  
+          public string FileName { get; set; }
+          
+          /// <summary>
+          /// The folder which contains specified file in storage.
+          /// </summary>  
+          public string Folder { get; set; }
+          
+          /// <summary>
+          /// The file storage which have to be used.
+          /// </summary>  
+          public string Storage { get; set; }
+    }
 }

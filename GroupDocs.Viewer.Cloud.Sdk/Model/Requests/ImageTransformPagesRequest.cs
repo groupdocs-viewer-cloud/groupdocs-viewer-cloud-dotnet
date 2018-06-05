@@ -25,53 +25,53 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests 
 {
-  using GroupDocs.Viewer.Cloud.Sdk.Model; 
+    using GroupDocs.Viewer.Cloud.Sdk.Model; 
 
-  /// <summary>
-  /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.ViewerApi.ImageTransformPages" /> operation.
-  /// </summary>  
-  public class ImageTransformPagesRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageTransformPagesRequest"/> class.
-        /// </summary>        
-        public ImageTransformPagesRequest()
-        {
-        }
+    /// <summary>
+    /// Request model for <see cref="GroupDocs.Viewer.Cloud.Sdk.Api.ViewerApi.ImageTransformPages" /> operation.
+    /// </summary>  
+    public class ImageTransformPagesRequest  
+    {
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageTransformPagesRequest"/> class.
+          /// </summary>        
+          public ImageTransformPagesRequest()
+          {
+          }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ImageTransformPagesRequest"/> class.
-        /// </summary>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="transformOptions">The transformation options.</param>
-        /// <param name="folder">The folder which contains specified file in storage.</param>
-        /// <param name="storage">The file storage which have to be used.</param>
-        public ImageTransformPagesRequest(string fileName, TransformOptionsBase transformOptions = null, string folder = null, string storage = null)             
-        {
-            this.FileName = fileName;
-            this.TransformOptions = transformOptions;
-            this.Folder = folder;
-            this.Storage = storage;
-        }
-
-        /// <summary>
-        /// The file name.
-        /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// The transformation options.
-        /// </summary>  
-        public TransformOptionsBase TransformOptions { get; set; }
-
-        /// <summary>
-        /// The folder which contains specified file in storage.
-        /// </summary>  
-        public string Folder { get; set; }
-
-        /// <summary>
-        /// The file storage which have to be used.
-        /// </summary>  
-        public string Storage { get; set; }
-  }
+          /// <summary>
+          /// Initializes a new instance of the <see cref="ImageTransformPagesRequest"/> class.
+          /// </summary>
+          /// <param name="fileName">The file name.</param>
+          /// <param name="transformOptions">The transformation options.</param>
+          /// <param name="folder">The folder which contains specified file in storage.</param>
+          /// <param name="storage">The file storage which have to be used.</param>
+          public ImageTransformPagesRequest(string fileName, TransformOptionsBase transformOptions = null, string folder = null, string storage = null)             
+          {
+              this.FileName = fileName;
+              this.TransformOptions = transformOptions;
+              this.Folder = folder;
+              this.Storage = storage;
+          }
+          
+          /// <summary>
+          /// The file name.
+          /// </summary>  
+          public string FileName { get; set; }
+          
+          /// <summary>
+          /// The transformation options.
+          /// </summary>  
+          public TransformOptionsBase TransformOptions { get; set; }
+          
+          /// <summary>
+          /// The folder which contains specified file in storage.
+          /// </summary>  
+          public string Folder { get; set; }
+          
+          /// <summary>
+          /// The file storage which have to be used.
+          /// </summary>  
+          public string Storage { get; set; }
+    }
 }
