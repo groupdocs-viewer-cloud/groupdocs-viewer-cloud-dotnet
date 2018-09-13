@@ -39,7 +39,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class ProjectOptions 
     {                       
         /// <summary>
-        /// The size of the page. Supported values {Unknown|Letter|A0|A1|A2|A3}: 1. Unknown - the default, unspecified page size. 2. Letter - the size of the Letter page in points is 792 × 612. 3. Ledger - the size of the Letter page in points is 1224 × 792. 4. A0 - the size of the A0 page in points is 3371 × 2384. 5. A1 - the size of the A1 page in points is 2384 × 1685. 6. A2 - the size of the A2 page in points is 1684 × 1190. 7. A3 - the size of the A3 page in points is 1190 × 842. 8. A4 - the size of the A4 page in points is 842 × 595.
+        /// The size of the page. Supported values {Unknown|Letter|Ledger|A0|A1|A2|A3}: 1. Unknown - the default, unspecified page size. 2. Letter - the size of the Letter page in points is 792x612. 3. Ledger - the size of the Letter page in points is 1224x792. 4. A0 - the size of the A0 page in points is 3371x2384. 5. A1 - the size of the A1 page in points is 2384x1685. 6. A2 - the size of the A2 page in points is 1684x1190. 7. A3 - the size of the A3 page in points is 1190x842. 8. A4 - the size of the A4 page in points is 842x595.
         /// </summary>  
         public string PageSize { get; set; }
 

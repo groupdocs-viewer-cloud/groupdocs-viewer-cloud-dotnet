@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="OAuthRequestHandler.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
@@ -25,13 +25,14 @@
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using Newtonsoft.Json;
 
     internal class OAuthRequestHandler : IRequestHandler
-    {        
+    {
         private readonly Configuration configuration;
         private readonly ApiInvoker apiInvoker;
 
@@ -50,11 +51,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
 
         public string ProcessUrl(string url)
         {
-            if (this.configuration.AuthType != AuthType.OAuth2)
-            {
-                return url;
-            }
-
             if (string.IsNullOrEmpty(this.accessToken))
             {
                 this.RequestToken();
@@ -65,21 +61,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (this.configuration.AuthType != AuthType.OAuth2)
-            {
-                return;
-            }
-
             request.Headers.Add("Authorization", "Bearer " + this.accessToken);
-        }       
+        }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (this.configuration.AuthType != AuthType.OAuth2)
-            {
-                return;
-            }
-
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 this.RefreshToken();
@@ -93,7 +79,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
             var requestUrl = this.configuration.ApiBaseUrl + "/oauth2/token";
 
             var postData = "grant_type=refresh_token";
-            postData += "&refresh_token=" + this.refreshToken;            
+            postData += "&refresh_token=" + this.refreshToken;
 
             var responseString = this.apiInvoker.InvokeApi(
                 requestUrl,
@@ -128,7 +114,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
             this.accessToken = result.AccessToken;
             this.refreshToken = result.RefreshToken;
         }
-        
+
         private class GetAccessTokenResult
         {
             [JsonProperty(PropertyName = "access_token")]
@@ -136,6 +122,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
 
             [JsonProperty(PropertyName = "refresh_token")]
             public string RefreshToken { get; set; }
-        }        
+        }
     }
 }

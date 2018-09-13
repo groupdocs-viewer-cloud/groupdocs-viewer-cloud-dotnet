@@ -1,4 +1,4 @@
-﻿namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
+namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using NUnit.Framework;
     using GroupDocs.Viewer.Cloud.Sdk.Model;
@@ -17,19 +17,19 @@
 
             var request = new HtmlGetPdfFileRequest
             {
-               FileName = file.FileName,
-               RenderComments = null,
-               RenderHiddenPages = null,
-               Password = null,
-               DefaultFontName = null,
-               FontsFolder = null,
-               Folder = file.Folder,
-               Storage = null,
+                FileName = file.FileName,
+                RenderComments = null,
+                RenderHiddenPages = null,
+                Password = null,
+                DefaultFontName = null,
+                FontsFolder = null,
+                Folder = file.Folder,
+                Storage = null,
             };
 
             var response = ViewerApi.HtmlGetPdfFile(request);
 
-            Assert.IsInstanceOf<System.IO.Stream> (response, "Expected response type is System.IO.Stream");
+            Assert.IsInstanceOf<System.IO.Stream>(response, "Expected response type is System.IO.Stream");
             Assert.IsTrue(response.Length > 0);
         }
 
@@ -56,7 +56,7 @@
 
             var response = ViewerApi.HtmlGetPdfFileFromUrl(request);
 
-            Assert.IsInstanceOf<System.IO.Stream> (response, "Expected response type is System.IO.Stream");
+            Assert.IsInstanceOf<System.IO.Stream>(response, "Expected response type is System.IO.Stream");
             Assert.IsTrue(response.Length > 0);
         }
 

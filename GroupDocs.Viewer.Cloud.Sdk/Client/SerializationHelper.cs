@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="SerializationHelper.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
@@ -76,7 +76,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         }
 
         internal abstract class JsonCreationConverter<T> : JsonConverter
-        {            
+        {
             public override bool CanConvert(Type objectType)
             {
                 return typeof(T).IsAssignableFrom(objectType);
@@ -108,6 +108,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             /// </param>
             /// <returns>An instance of objectType.</returns>
             protected abstract T Create(Type objectType, JObject jsonObject);
-        }       
+        }
     }
 }

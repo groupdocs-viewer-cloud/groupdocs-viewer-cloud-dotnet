@@ -52,7 +52,7 @@ namespace Example
 ```
 
 ## Licensing
-All GroupDocs.Viewer for Cloud SDKs are licensed under [MIT License](LICENSE).
+All GroupDocs.Viewer Cloud SDKs are licensed under [MIT License](LICENSE).
 
 ## Resources
 + [**Website**](https://www.groupdocs.cloud)

@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="UrlHelper.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
@@ -41,12 +41,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             }
 
             return url;
-        }        
+        }
 
         public static string AddQueryParameterToUrl(string url, string parameterName, object parameterValue)
         {
             if (url.Contains("{" + parameterName + "}"))
-            {               
+            {
                 url = AddPathParameter(url, parameterName, parameterValue);
                 return url;
             }
@@ -57,7 +57,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                 url = AddPathParameter(url, parameterName, parameterValue);
                 return url;
             }
-           
+
             if (parameterValue == null)
             {
                 return url;
@@ -69,7 +69,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
 
             uriBuilder.Query = string.Format("{0}{1}{2}={3}",
                 query,
-                delimiter, 
+                delimiter,
                 parameterName,
                 Uri.EscapeDataString(parameterValue.ToString()));
 

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="ApiException.cs">
+// <copyright company="Aspose Pty Ltd" file="FieldLabel.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -23,40 +23,43 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Client
+namespace GroupDocs.Viewer.Cloud.Sdk.Model 
 {
-    using System;
-
+    using System;  
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Runtime.Serialization;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    
     /// <summary>
-    /// API exception.
-    /// </summary>
-    public class ApiException : Exception
-    {
-        private readonly int errorCode;
+    /// Represents field label 
+    /// </summary>  
+    public class FieldLabel 
+    {                       
+        /// <summary>
+        /// The field name e.g. \"From\"
+        /// </summary>  
+        public string Field { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiException"/> class.
-        /// </summary>
-        /// <param name="errorCode">
-        /// The error code.
-        /// </param>
-        /// <param name="message">
-        /// The message.
-        /// </param>
-        public ApiException(int errorCode, string message) : base(message)
-        {
-            this.errorCode = errorCode;
-        }
+        /// The label e.g. \"Sender\"
+        /// </summary>  
+        public string Label { get; set; }
 
         /// <summary>
-        /// Error code.
+        /// Get the string presentation of the object
         /// </summary>
-        public int ErrorCode
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()  
         {
-            get
-            {
-                return this.errorCode;
-            }
+          var sb = new StringBuilder();
+          sb.Append("class FieldLabel {\n");
+          sb.Append("  Field: ").Append(this.Field).Append("\n");
+          sb.Append("  Label: ").Append(this.Label).Append("\n");
+          sb.Append("}\n");
+          return sb.ToString();
         }
     }
 }

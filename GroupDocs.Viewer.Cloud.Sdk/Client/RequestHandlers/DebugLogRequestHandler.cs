@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DebugLogRequestHandler.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
@@ -55,14 +55,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
             if (this.configuration.DebugMode)
-            {                
+            {
                 resultStream.Position = 0;
                 this.LogResponse(response, resultStream);
             }
         }
 
         private void LogRequest(WebRequest request, Stream streamToSend)
-        {           
+        {
             var header = string.Format("{0}: {1}", request.Method, request.RequestUri);
             var sb = new StringBuilder();
 
@@ -73,8 +73,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
                 StreamHelper.CopyStreamToStringBuilder(sb, streamToSend);
                 streamToSend.Position = 0;
             }
-            
-            this.Log(header, sb);            
+
+            this.Log(header, sb);
         }
 
         private void LogResponse(HttpWebResponse response, Stream resultStream)

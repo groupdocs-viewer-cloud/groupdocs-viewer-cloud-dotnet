@@ -1,4 +1,4 @@
-﻿namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal
+namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal
 {
     public class TestFile
     {

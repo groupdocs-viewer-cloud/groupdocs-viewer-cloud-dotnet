@@ -1,4 +1,4 @@
-﻿using GroupDocs.Viewer.Cloud.Sdk.Client;
+using GroupDocs.Viewer.Cloud.Sdk.Client;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
@@ -277,7 +277,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new HtmlGetDocumentInfoFromUrlWithOptionsRequest
             {
                 Url = file.Url,
-                
                 DocumentInfoOptions = documentInfoOptions,
                 FileName = file.FileName,
                 Folder = FromUrlFolder,

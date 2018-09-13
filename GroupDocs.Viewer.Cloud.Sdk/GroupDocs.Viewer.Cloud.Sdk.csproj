@@ -86,14 +86,12 @@
     <Compile Include="Api\ViewerApi.cs" />
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiInvoker.cs" />
-    <Compile Include="Client\AuthType.cs" />
     <Compile Include="Client\Configuration.cs" />
     <Compile Include="Client\FileInfo.cs" />
     <Compile Include="Client\IRequestHandler.cs" />
     <Compile Include="Client\NeedRepeatRequestException.cs" />
     <Compile Include="Client\RequestHandlers\ApiErrorResponse.cs" />
     <Compile Include="Client\RequestHandlers\ApiExceptionRequestHandler.cs" />
-    <Compile Include="Client\RequestHandlers\AuthWithSignatureRequestHandler.cs" />
     <Compile Include="Client\RequestHandlers\DebugLogRequestHandler.cs" />
     <Compile Include="Client\RequestHandlers\Error.cs" />
     <Compile Include="Client\RequestHandlers\OAuthRequestHandler.cs" />
@@ -108,6 +106,7 @@
     <Compile Include="Model\DocumentInfo.cs" />
     <Compile Include="Model\DocumentInfoOptions.cs" />
     <Compile Include="Model\EmailOptions.cs" />
+    <Compile Include="Model\FieldLabel.cs" />
     <Compile Include="Model\FileResponse.cs" />
     <Compile Include="Model\FontCollection.cs" />
     <Compile Include="Model\FontFamily.cs" />
@@ -193,6 +192,7 @@
     <Compile Include="Model\RotateOptions.cs" />
     <Compile Include="Model\RowInfo.cs" />
     <Compile Include="Model\SlidesOptions.cs" />
+    <Compile Include="Model\Tile.cs" />
     <Compile Include="Model\TransformOptionsBase.cs" />
     <Compile Include="Model\Watermark.cs" />
     <Compile Include="Model\WordsOptions.cs" />

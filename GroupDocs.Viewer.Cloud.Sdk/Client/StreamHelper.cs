@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="StreamHelper.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
@@ -89,6 +89,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                 sb.AppendLine("Body:");
                 sb.AppendLine(content);
             }
-        }       
+        }
     }
 }

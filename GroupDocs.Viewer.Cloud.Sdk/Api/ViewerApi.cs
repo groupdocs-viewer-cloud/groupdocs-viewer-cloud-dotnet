@@ -33,7 +33,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
     using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
     
     /// <summary>
-    /// GroupDocs.Viewer for Cloud API.
+    /// GroupDocs.Viewer Cloud API.
     /// </summary>
     public class ViewerApi
     {        
@@ -62,7 +62,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             requestHandlers.Add(new OAuthRequestHandler(this.configuration));
             requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
             requestHandlers.Add(new ApiExceptionRequestHandler());
-            requestHandlers.Add(new AuthWithSignatureRequestHandler(this.configuration));
             this.apiInvoker = new ApiInvoker(requestHandlers);
         }                            
 
@@ -72,7 +71,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         public void DeleteFontsCache()
         {
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/fonts/cache";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/fonts/cache";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -93,7 +92,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         public FontCollection GetFonts()
         {
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/fonts";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/fonts";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -121,7 +120,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         public FormatCollection GetSupportedFileFormats()
         {
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/formats";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/formats";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -162,7 +161,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -202,7 +201,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -247,7 +246,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -298,7 +297,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -338,7 +337,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -383,7 +382,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -421,7 +420,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Creates PDF document for document at provided URL and saves it in cache.  Retrieves file from specified URL and tries to detect file type when fileName parameter is not specified. Saves retrieved file in storage. Use fileName and folder parameters to specify desired file name and folder to save file. When file with specified name already exists in storage new unique file name will be used for file. Expects PdfFileOptions﻿ object data in request body. 
+        /// Creates PDF document for document at provided URL and saves it in cache.  Retrieves file from specified URL and tries to detect file type when fileName parameter is not specified. Saves retrieved file in storage. Use fileName and folder parameters to specify desired file name and folder to save file. When file with specified name already exists in storage new unique file name will be used for file. Expects PdfFileOptions object data in request body. 
         /// </summary>
         /// <param name="request">Request. <see cref="HtmlCreatePdfFileFromUrlRequest" /></param>
         /// <returns><see cref="PdfFileInfo"/></returns>
@@ -434,7 +433,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -479,7 +478,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/cache";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/cache";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -510,7 +509,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages/cache";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages/cache";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -547,7 +546,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -586,7 +585,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -633,7 +632,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -684,7 +683,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/{pageNumber}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/{pageNumber}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -747,7 +746,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/{pageNumber}/resources/{resourceName}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/{pageNumber}/resources/{resourceName}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -787,7 +786,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -840,7 +839,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -879,7 +878,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -926,7 +925,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -976,7 +975,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1018,7 +1017,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1057,7 +1056,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1101,7 +1100,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages/{pageNumber}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages/{pageNumber}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1156,7 +1155,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages/{pageNumber}/resources/{resourceName}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages/{pageNumber}/resources/{resourceName}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1189,7 +1188,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1240,7 +1239,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1292,7 +1291,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1328,7 +1327,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/html/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/html/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1371,7 +1370,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/zip";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/attachments/{attachmentName}/pages/zip";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1417,7 +1416,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages/zip";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages/zip";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1461,7 +1460,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/html/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/html/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1505,7 +1504,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1545,7 +1544,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1590,7 +1589,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1641,7 +1640,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1681,7 +1680,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1726,7 +1725,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1764,7 +1763,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Creates PDF document for document at provided URL and saves it in cache.  Retrieves file from specified URL and tries to detect file type when fileName parameter is not specified. Saves retrieved file in storage. Use fileName and folder parameters to specify desired file name and folder to save file. When file with specified name already exists in storage new unique file name will be used for file. Expects PdfFileOptions﻿ object data in request body. 
+        /// Creates PDF document for document at provided URL and saves it in cache.  Retrieves file from specified URL and tries to detect file type when fileName parameter is not specified. Saves retrieved file in storage. Use fileName and folder parameters to specify desired file name and folder to save file. When file with specified name already exists in storage new unique file name will be used for file. Expects PdfFileOptions object data in request body. 
         /// </summary>
         /// <param name="request">Request. <see cref="ImageCreatePdfFileFromUrlRequest" /></param>
         /// <returns><see cref="PdfFileInfo"/></returns>
@@ -1777,7 +1776,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1822,7 +1821,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages/cache";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages/cache";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1853,7 +1852,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pages/cache";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pages/cache";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1890,7 +1889,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1929,7 +1928,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -1977,7 +1976,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2028,7 +2027,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages/{pageNumber}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages/{pageNumber}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2078,7 +2077,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2130,7 +2129,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2169,7 +2168,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2217,7 +2216,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2267,7 +2266,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2310,7 +2309,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2349,7 +2348,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/info";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/info";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2393,7 +2392,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pages/{pageNumber}";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pages/{pageNumber}";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2435,7 +2434,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2485,7 +2484,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2536,7 +2535,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2572,7 +2571,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/image/pdf";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/image/pdf";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2615,7 +2614,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages/zip";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/attachments/{attachmentName}/pages/zip";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2660,7 +2659,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pages/zip";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pages/zip";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")
@@ -2703,7 +2702,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             }
 
             // create path and map variables
-            var resourcePath = this.configuration.GetApiRootUrl() + "/viewer/{fileName}/image/pages";
+            var resourcePath = this.configuration.GetServerUrl() + "/viewer/{fileName}/image/pages";
             resourcePath = Regex
                         .Replace(resourcePath, "\\*", string.Empty)
                         .Replace("&amp;", "&")

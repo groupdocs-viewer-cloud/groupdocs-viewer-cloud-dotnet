@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="CadOptions.cs">
+// <copyright company="Aspose Pty Ltd" file="Tile.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,44 +34,29 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// The CAD documents rendering options.
+    /// The tile represents the region on the CAD drawing, that should be rendered.
     /// </summary>  
-    public class CadOptions 
+    public class Tile 
     {                       
         /// <summary>
-        /// The scale factor affects the size of an output document.        
+        /// The X coordinate of the lowest left point on the drawing where the tile begins.
         /// </summary>  
-        public double? ScaleFactor { get; set; }
+        public int? StartPointX { get; set; }
 
         /// <summary>
-        /// The width of the render result in pixels.        
+        /// The Y coordinate of the lowest left point on the drawing where the tile begins.
+        /// </summary>  
+        public int? StartPointY { get; set; }
+
+        /// <summary>
+        /// The width of the tile.
         /// </summary>  
         public int? Width { get; set; }
 
         /// <summary>
-        /// The height of the render result in pixels.        
+        /// The height of the tile.
         /// </summary>  
         public int? Height { get; set; }
-
-        /// <summary>
-        /// Indicates whether layouts from CAD document should be rendered.
-        /// </summary>  
-        public bool? RenderLayouts { get; set; }
-
-        /// <summary>
-        /// The name of the specific layout to render.
-        /// </summary>  
-        public string LayoutName { get; set; }
-
-        /// <summary>
-        /// The list of document layers to render. By default all layers will be rendered. Layer names are case sensitive.
-        /// </summary>  
-        public List<string> Layers { get; set; }
-
-        /// <summary>
-        /// The coordinates of the drawing regions, that should be rendered. Please note, that this option works only for DWG format. When the list is empty, then whole drawing is rendered. When the list contains at least one tile, then ScaleFactor, Width, Height, RenderLayouts and LayoutName properties are ignored. 
-        /// </summary>  
-        public List<Tile> Tiles { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -80,14 +65,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class CadOptions {\n");
-          sb.Append("  ScaleFactor: ").Append(this.ScaleFactor).Append("\n");
+          sb.Append("class Tile {\n");
+          sb.Append("  StartPointX: ").Append(this.StartPointX).Append("\n");
+          sb.Append("  StartPointY: ").Append(this.StartPointY).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("  RenderLayouts: ").Append(this.RenderLayouts).Append("\n");
-          sb.Append("  LayoutName: ").Append(this.LayoutName).Append("\n");
-          sb.Append("  Layers: ").Append(this.Layers).Append("\n");
-          sb.Append("  Tiles: ").Append(this.Tiles).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

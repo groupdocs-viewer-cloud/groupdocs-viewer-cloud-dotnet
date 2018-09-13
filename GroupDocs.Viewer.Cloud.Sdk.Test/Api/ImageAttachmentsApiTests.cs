@@ -1,4 +1,4 @@
-﻿namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
+namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using NUnit.Framework;
     using GroupDocs.Viewer.Cloud.Sdk.Model;
@@ -25,7 +25,7 @@
 
             var response = ViewerApi.ImageGetAttachment(request);
 
-            Assert.IsInstanceOf<System.IO.Stream> (response, "Expected response type is System.IO.Stream");
+            Assert.IsInstanceOf<System.IO.Stream>(response, "Expected response type is System.IO.Stream");
             Assert.IsTrue(response.Length > 0);
         }
 

@@ -32,12 +32,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
     using System.Text;
 
     internal class ApiInvoker
-    {        
+    {
         private const string GroupDocsClientHeaderName = "x-groupdocs-client";
         private const string GroupDocsClientVersionHeaderName = "x-groupdocs-client-version";
         private readonly Dictionary<string, string> defaultHeaderMap = new Dictionary<string, string>();
-        private readonly List<IRequestHandler> requestHandlers; 
-    
+        private readonly List<IRequestHandler> requestHandlers;
+
         public ApiInvoker(List<IRequestHandler> requestHandlers)
         {
             var sdkVersion = this.GetType().Assembly.GetName().Version;
@@ -45,7 +45,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             this.AddDefaultHeader(GroupDocsClientVersionHeaderName, string.Format("{0}.{1}", sdkVersion.Major, sdkVersion.Minor));
             this.requestHandlers = requestHandlers;
         }
-        
+
         public string InvokeApi(
             string path,
             string method,
@@ -66,8 +66,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             string contentType = "application/json")
         {
             return (Stream)this.InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
-        }                     
-       
+        }
+
         public FileInfo ToFileInfo(Stream stream, string paramName)
         {
             string contentType = paramName.Equals("File", StringComparison.InvariantCultureIgnoreCase)
@@ -80,7 +80,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                 MimeType = contentType,
                 FileContent = StreamHelper.ReadAsBytes(stream)
             };
-        }                 
+        }
 
         private static byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
         {
@@ -179,7 +179,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             {
                 this.defaultHeaderMap.Add(key, value);
             }
-        }    
+        }
 
         private object InvokeInternal(
             string path,
@@ -199,7 +199,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             {
                 headerParams = new Dictionary<string, string>();
             }
-           
+
             this.requestHandlers.ForEach(p => path = p.ProcessUrl(path));
 
             WebRequest request;
@@ -211,10 +211,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             catch (NeedRepeatRequestException)
             {
                 request = this.PrepareRequest(path, method, formParams, headerParams, body, contentType);
-                return this.ReadResponse(request, binaryResponse);               
-            }            
-        }       
-        
+                return this.ReadResponse(request, binaryResponse);
+            }
+        }
+
         private WebRequest PrepareRequest(string path, string method, Dictionary<string, object> formParams, Dictionary<string, string> headerParams, string body, string contentType)
         {
             var client = WebRequest.Create(path);
@@ -278,7 +278,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                             requestWriter.Write(body);
                             requestWriter.Flush();
                         }
-                        
+
                         break;
                     default:
                         throw new ApiException(500, "unknown method type " + method);
@@ -292,7 +292,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                     {
                         StreamHelper.CopyTo(streamToSend, requestStream);
                     }
-                }                
+                }
             }
             finally
             {
@@ -301,7 +301,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                     streamToSend.Dispose();
                 }
             }
-            
+
             return client;
         }
 

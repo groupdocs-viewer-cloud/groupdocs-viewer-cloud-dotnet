@@ -1,4 +1,4 @@
-﻿using GroupDocs.Viewer.Cloud.Sdk.Client;
+using GroupDocs.Viewer.Cloud.Sdk.Client;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {

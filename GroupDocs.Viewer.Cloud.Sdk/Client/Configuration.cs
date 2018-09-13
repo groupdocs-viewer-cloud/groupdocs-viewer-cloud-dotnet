@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="Configuration.cs">
 //  Copyright (c) 2003-2018 Aspose Pty Ltd
 // </copyright>
@@ -32,7 +32,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
     /// </summary>
     public class Configuration
     {
-        private string version = "v1";
+        private string apiVersion = "/v1";
         private string apiBaseUrl = "https://api.groupdocs.cloud";
 
         /// <summary>
@@ -59,39 +59,48 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         }
 
         /// <summary>
-        /// GroupDocs Cloud API base URL.
+        /// Server URL, default value is https://api.groupdocs.cloud
         /// </summary>
         public string ApiBaseUrl
         {
-            get { return this.apiBaseUrl; }
-            set { this.apiBaseUrl = value; }
+            get
+            {
+                return this.apiBaseUrl;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this.apiBaseUrl = value.TrimEnd('/');
+                }
+
+                this.apiBaseUrl = value;
+            }
         }
 
         /// <summary>
-        /// The app key.
-        /// </summary>
-        public string AppKey { get; set; }
-
-        /// <summary>
-        /// The app sid.
+        /// Application identifier (App SID)
         /// </summary>
         public string AppSid { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether debug mode.
+        /// Application private key (App Key)
+        /// </summary>
+        public string AppKey { get; set; }
+
+        /// <summary>
+        /// Enables printing out additional information about each request
         /// </summary>
         public bool DebugMode { get; set; }
 
         /// <summary>
-        /// Authentication type.
-        /// Default is OAuth 2.0
+        /// Retrieves server URL e.g. https://api.groupdocs.cloud/v1
         /// </summary>
-        public AuthType AuthType { get; set; }
-
-        internal string GetApiRootUrl()
+        /// <returns>Server URL</returns>
+        internal string GetServerUrl()
         {
-            var result = this.apiBaseUrl + "/" + this.version;
-            return result.EndsWith("/") ? result.Substring(0, result.Length - 1) : result;
+            return this.apiBaseUrl.TrimEnd('/') + this.apiVersion;
         }
     }
 }
