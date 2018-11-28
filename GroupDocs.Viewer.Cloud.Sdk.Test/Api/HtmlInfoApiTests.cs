@@ -1,3 +1,4 @@
+using System;
 using GroupDocs.Viewer.Cloud.Sdk.Client;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
@@ -288,6 +289,39 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             Assert.AreEqual("with-notes.pptx", response.FileName);
             Assert.AreEqual(".pptx", response.Extension);
             Assert.AreEqual(1, response.Pages.Count);
+        }
+
+        /// <summary>
+        /// Test HtmlGetInfo
+        /// </summary>
+        [Test]
+        public void HtmlGetProjectInfoWithOptionsTest()
+        {
+            var file = TestFiles.ProjectMpp;
+            var documentInfoOptions = new DocumentInfoOptions
+            {
+                ProjectOptions = new ProjectOptions
+                {
+                    PageSize = "Unknown",
+                    TimeUnit = "Months",
+                    StartDate = new DateTime(2008, 7, 1),
+                    EndDate = new DateTime(2008, 7, 31)
+                }
+            };
+
+            var request = new HtmlGetDocumentInfoWithOptionsRequest
+            {
+                FileName = file.FileName,
+                Folder = file.Folder,
+                DocumentInfoOptions = documentInfoOptions
+            };
+
+            var response = ViewerApi.HtmlGetDocumentInfoWithOptions(request);
+
+            Assert.AreEqual("sample.mpp", response.FileName);
+            Assert.AreEqual(2, response.Pages.Count);
+            Assert.AreEqual(new DateTime(2008, 6, 1), response.StartDate.Value);
+            Assert.AreEqual(new DateTime(2008, 9, 3), response.EndDate.Value);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
@@ -316,6 +317,74 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             };
 
             ViewerApi.HtmlDeletePagesCache(request);
+        }
+
+        /// <summary>
+        /// Test HtmlCreatePagesCacheFromContentTest
+        /// </summary>
+        [Test]
+        public void HtmlCreatePagesCacheWithProjectOptionsTest()
+        {
+            var file = TestFiles.ProjectMpp;
+            var htmlOptions = new HtmlOptions
+            {
+                EmbedResources = true,
+                ProjectOptions = new ProjectOptions
+                {
+                    TimeUnit = "Days",
+                    StartDate = new DateTime(2008, 7, 1),
+                    EndDate = new DateTime(2008, 7, 31)
+                }
+            };
+
+            var request = new HtmlCreatePagesCacheFromContentRequest
+            {
+                HtmlOptions = this.SerializeObject(htmlOptions),
+                File = this.GetTestFileStream(file),
+                FileName = null,
+                FontsFolder = null,
+                Folder = FromContentFolder,
+                Storage = null,
+            };
+
+            var response = ViewerApi.HtmlCreatePagesCacheFromContent(request);
+
+            Assert.AreEqual(".mpp", Path.GetExtension(response.FileName));
+            Assert.AreEqual(FromContentFolder, response.Folder);
+            Assert.AreEqual(1, response.Pages.Count);
+        }
+
+        /// <summary>
+        /// Test HtmlCreatePagesCacheFromContentTest
+        /// </summary>
+        [Test]
+        public void HtmlCreatePagesCacheWithOutlookOptionsTest()
+        {
+            var file = TestFiles.OutlookPst;
+            var htmlOptions = new HtmlOptions
+            {
+                EmbedResources = true,
+                OutlookOptions = new OutlookOptions
+                {
+                    MaxItemsInFolder = 5
+                }
+            };
+
+            var request = new HtmlCreatePagesCacheFromContentRequest
+            {
+                HtmlOptions = this.SerializeObject(htmlOptions),
+                File = this.GetTestFileStream(file),
+                FileName = null,
+                FontsFolder = null,
+                Folder = FromContentFolder,
+                Storage = null,
+            };
+
+            var response = ViewerApi.HtmlCreatePagesCacheFromContent(request);
+
+            Assert.AreEqual(".pst", Path.GetExtension(response.FileName));
+            Assert.AreEqual(FromContentFolder, response.Folder);
+            Assert.Greater(response.Pages.Count, 0);
         }
     }
 }

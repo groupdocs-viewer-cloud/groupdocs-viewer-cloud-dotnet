@@ -69,6 +69,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? ExcludeFonts { get; set; }
 
         /// <summary>
+        /// The list of font names, that will be excluded from HTML.
+        /// </summary>  
+        public List<string> ExcludeFontsList { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +87,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  EnableMinification: ").Append(this.EnableMinification).Append("\n");
           sb.Append("  EnableResponsiveRendering: ").Append(this.EnableResponsiveRendering).Append("\n");
           sb.Append("  ExcludeFonts: ").Append(this.ExcludeFonts).Append("\n");
+          sb.Append("  ExcludeFontsList: ").Append(this.ExcludeFontsList).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

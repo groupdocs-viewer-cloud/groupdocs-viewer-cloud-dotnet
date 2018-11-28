@@ -54,7 +54,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             {
                 if (json.StartsWith("{") || json.StartsWith("["))
                 {
-                    return JsonConvert.DeserializeObject(json, type);
+                    try
+                    {
+                        return JsonConvert.DeserializeObject(json, type);
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
                 }
 
                 System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();

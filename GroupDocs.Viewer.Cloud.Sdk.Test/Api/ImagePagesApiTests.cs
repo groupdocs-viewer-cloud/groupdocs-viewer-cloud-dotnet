@@ -454,5 +454,33 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             ViewerApi.ImageDeletePagesCache(request);
         }
+
+        /// <summary>
+        /// Test ImageCreatePagesCache
+        /// </summary>
+        [Test]
+        public void ImageCreatePagesCacheForFileFormatsTest()
+        {
+            foreach (var file in TestFiles.Supported)
+            {
+                var request = new ImageCreatePagesCacheRequest
+                {
+                    FileName = file.FileName,
+                    ImageOptions = new ImageOptions
+                    {
+                        Format = "jpg"
+                    },
+                    FontsFolder = null,
+                    Folder = file.Folder,
+                    Storage = null
+                };
+
+                var response = ViewerApi.ImageCreatePagesCache(request);
+
+                Assert.AreEqual(file.FileName, response.FileName);
+                Assert.AreEqual(file.Folder, response.Folder);
+                Assert.Greater(response.Pages.Count, 0);
+            }
+        }
     }
 }

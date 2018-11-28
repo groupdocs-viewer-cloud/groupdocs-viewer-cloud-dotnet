@@ -114,6 +114,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public ProjectOptions ProjectOptions { get; set; }
 
         /// <summary>
+        /// The Outlook Data File document (PST/OST) rendering options.
+        /// </summary>  
+        public OutlookOptions OutlookOptions { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +141,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  PdfOptions: ").Append(this.PdfOptions).Append("\n");
           sb.Append("  SlidesOptions: ").Append(this.SlidesOptions).Append("\n");
           sb.Append("  ProjectOptions: ").Append(this.ProjectOptions).Append("\n");
+          sb.Append("  OutlookOptions: ").Append(this.OutlookOptions).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

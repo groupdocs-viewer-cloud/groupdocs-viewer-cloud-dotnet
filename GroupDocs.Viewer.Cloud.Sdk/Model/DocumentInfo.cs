@@ -79,6 +79,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public List<string> Layers { get; set; }
 
         /// <summary>
+        /// For MS Project documents, The date time from which the project started.
+        /// </summary>  
+        public DateTime? StartDate { get; set; }
+
+        /// <summary>
+        /// For MS Project documents, the date time when the project is to be completed.
+        /// </summary>  
+        public DateTime? EndDate { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +104,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  Pages: ").Append(this.Pages).Append("\n");
           sb.Append("  Attachments: ").Append(this.Attachments).Append("\n");
           sb.Append("  Layers: ").Append(this.Layers).Append("\n");
+          sb.Append("  StartDate: ").Append(this.StartDate).Append("\n");
+          sb.Append("  EndDate: ").Append(this.EndDate).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

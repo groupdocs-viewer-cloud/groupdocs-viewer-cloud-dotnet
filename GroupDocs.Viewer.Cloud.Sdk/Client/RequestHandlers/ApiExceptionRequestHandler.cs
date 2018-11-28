@@ -68,39 +68,36 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
 
         private void ThrowApiException(HttpWebResponse webResponse, Stream resultStream)
         {
-            Exception resutException;
+            int statusCode = (int)webResponse.StatusCode;
+
             try
             {
                 resultStream.Position = 0;
                 using (var responseReader = new StreamReader(resultStream))
                 {
                     var responseData = responseReader.ReadToEnd();
-                    var errorResponse = (ApiErrorResponse)SerializationHelper.Deserialize(responseData, typeof(ApiErrorResponse));
-                    if (errorResponse == null)
+
+                    var authErrorResponse = SerializationHelper
+                        .Deserialize(responseData, typeof(AuthErrorResponse)) as AuthErrorResponse;
+                    if (authErrorResponse != null && authErrorResponse.ErrorMessage != null)
                     {
-                        errorResponse = new ApiErrorResponse { Error = new Error() };
+                        throw new ApiException(statusCode, authErrorResponse.ErrorMessage);
                     }
 
-                    if (errorResponse.Error == null)
+                    var apiErrorResponse = SerializationHelper
+                        .Deserialize(responseData, typeof(ApiErrorResponse)) as ApiErrorResponse;
+                    if (apiErrorResponse != null)
                     {
-                        errorResponse.Error = new Error();
+                        throw new ApiException(statusCode, apiErrorResponse.Error.Message);
                     }
-
-                    if (string.IsNullOrEmpty(errorResponse.Error.Message))
-                    {
-                        errorResponse.Error.Message = responseData;
-                    }
-
-                    resutException = new ApiException((int)webResponse.StatusCode, errorResponse.Error.Message);
                 }
+
+                throw new ApiException(statusCode, webResponse.StatusDescription);
             }
-            catch (Exception)
+            finally
             {
                 webResponse.Close();
-                throw new ApiException((int)webResponse.StatusCode, webResponse.StatusDescription);
             }
-
-            throw resutException;
         }
     }
 }

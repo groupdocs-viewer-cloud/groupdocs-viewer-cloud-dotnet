@@ -49,6 +49,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public string TimeUnit { get; set; }
 
         /// <summary>
+        /// The start date of a Gantt Chart View to render.        
+        /// </summary>  
+        public DateTime? StartDate { get; set; }
+
+        /// <summary>
+        /// The end date of a Gantt Chart View to render.
+        /// </summary>  
+        public DateTime? EndDate { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -58,6 +68,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("class ProjectOptions {\n");
           sb.Append("  PageSize: ").Append(this.PageSize).Append("\n");
           sb.Append("  TimeUnit: ").Append(this.TimeUnit).Append("\n");
+          sb.Append("  StartDate: ").Append(this.StartDate).Append("\n");
+          sb.Append("  EndDate: ").Append(this.EndDate).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

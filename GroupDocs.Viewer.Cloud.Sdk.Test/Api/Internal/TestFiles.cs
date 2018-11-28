@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal
 {
     public static class TestFiles
@@ -38,5 +40,31 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal
         public static readonly TestFile TwoHiddenPagesVsd = new TestFile("two-hidden-pages.vsd", "diagram\\vsd");
 
         public static readonly TestFile CorruptedPdf = new TestFile("corrupted.pdf", "pdf\\pdf");
+
+        public static readonly TestFile ProjectMpp = new TestFile("sample.mpp", "project\\mpp");
+
+        public static readonly TestFile OutlookPst = new TestFile("sample.pst", "email\\outlook");
+
+        public static readonly TestFile ImageCgm = new TestFile("nasa.cgm", "image");
+
+        public static readonly TestFile PrintPs = new TestFile("sample.ps", "print");
+
+        public static readonly TestFile PrintPcl = new TestFile("print.pcl", "print");
+
+        public static IEnumerable<TestFile> Supported
+        {
+            get
+            {
+                yield return WithAttachmentMsg;
+                yield return FromUrlOnePageDocx;
+                yield return WithAttachmentPdf;
+                yield return TwoHiddenPagesVsd;
+                yield return ProjectMpp;
+                yield return OutlookPst;
+                yield return ImageCgm;
+                yield return PrintPs;
+                yield return PrintPcl;
+            }
+        }
     }
 }
