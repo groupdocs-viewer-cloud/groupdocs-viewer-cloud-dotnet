@@ -56,7 +56,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal
             get
             {
                 yield return WithAttachmentMsg;
-                yield return FromUrlOnePageDocx;
+                yield return OnePageDocx;
                 yield return WithAttachmentPdf;
                 yield return TwoHiddenPagesVsd;
                 yield return ProjectMpp;
