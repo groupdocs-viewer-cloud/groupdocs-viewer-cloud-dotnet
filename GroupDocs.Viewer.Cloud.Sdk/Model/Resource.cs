@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="Resource.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,14 +34,19 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Describes resource.
+    /// Reference to resource
     /// </summary>  
-    public class Resource : ResourceUrl 
+    public class Resource 
     {                       
         /// <summary>
-        /// HTML resource (image, style, graphics or font) file name.
+        /// Path of resource file in storage
         /// </summary>  
-        public string Name { get; set; }
+        public string Path { get; set; }
+
+        /// <summary>
+        /// ULR to retrieve resource.
+        /// </summary>  
+        public string DownloadUrl { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -51,7 +56,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class Resource {\n");
-          sb.Append("  Name: ").Append(this.Name).Append("\n");
+          sb.Append("  Path: ").Append(this.Path).Append("\n");
+          sb.Append("  DownloadUrl: ").Append(this.DownloadUrl).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

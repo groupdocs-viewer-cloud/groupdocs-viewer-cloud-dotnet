@@ -1,68 +1,96 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright company="Aspose Pty Ltd">
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
+// </copyright>
+// <summary>
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+// 
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+// 
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
 using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using GroupDocs.Storage.Cloud.Sdk.Model.Requests;
 using GroupDocs.Viewer.Cloud.Sdk.Api;
+using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
 using Configuration = GroupDocs.Viewer.Cloud.Sdk.Client.Configuration;
 
 namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using Newtonsoft.Json;
     using NUnit.Framework;
-    using GroupDocs.Storage.Cloud.Sdk.Api;
-    using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;
+    using Internal;
 
     public class BaseApiTest
     {
-        protected const string FromUrlFolder = "tests\\from_url";
-        protected const string FromContentFolder = "tests\\from_content";
-
-        private readonly string _appSid = Config.AppSID;
+        private readonly string _appSid = Config.AppSid;
         private readonly string _appKey = Config.AppKey;
         private readonly string _apiBaseUrl = Config.ApiBaseUrl;
 
         protected ViewerApi ViewerApi;
+        protected FileApi FileApi;
+        protected FolderApi FolderApi;
         protected StorageApi StorageApi;
 
-        [SetUp]
-        public void BeforeEachTest()
+        [OneTimeSetUp]
+        public void BeforeAllTests()
         {
-            var viewerConfig = new Configuration(_appSid, _appKey)
+            var config = new Configuration(_appSid, _appKey)
             {
                 ApiBaseUrl = _apiBaseUrl
             };
 
-            ViewerApi = new ViewerApi(viewerConfig);
+            ViewerApi = new ViewerApi(config);
+            FileApi = new FileApi(config);
+            FolderApi = new FolderApi(config);
+            StorageApi = new StorageApi(config);
 
-            var storageConfig = new Storage.Cloud.Sdk.Configuration
-            {
-                AppSid = _appSid,
-                AppKey = _appKey,
-                ApiBaseUrl = _apiBaseUrl
-            };
-
-            StorageApi = new StorageApi(storageConfig);
+            UploadTestFiles();
         }
 
         [TearDown]
         public void AfterEachTest()
         {
-            RemoveTempFiles();
+            Cleanup();
         }
 
-        private void RemoveTempFiles()
+        private void UploadTestFiles()
         {
-            DeleteFolderFromStorage("cache");
-            DeleteFolderFromStorage("tests");
+            foreach (var testFile in TestFiles.TestFilesList)
+            {
+                var existRequest = new ObjectExistsRequest(testFile.FullName);
+                var existResponse = StorageApi.ObjectExists(existRequest);
+                if(existResponse.Exists == true) continue;
+                var request = new UploadFileRequest(testFile.FullName, GetTestFileStream(testFile));
+                FileApi.UploadFile(request);
+            }
+        }
+
+        private void Cleanup()
+        {
+            DeleteFolderFromStorage("viewer");
         }
 
         private void DeleteFolderFromStorage(string folderName)
         {
             var request = new DeleteFolderRequest(folderName, null, true);
-            var response = StorageApi.DeleteFolder(request);
-
-            Assert.AreEqual("OK", response.Status);
+            FolderApi.DeleteFolder(request);                        
         }
 
         private byte[] GetTestFileBytes(TestFile file)
@@ -83,6 +111,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             return new MemoryStream(bytes);
         }
 
+        // ReSharper disable once UnusedMember.Global
         protected Stream SerializeObject(object obj)
         {
             var options = new JsonSerializerSettings
@@ -96,12 +125,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             return new MemoryStream(bytes);
         }
 
-        private string GetTestDataPath()
+        private static string GetTestDataPath()
         {
             var uri = new Uri(Assembly.GetExecutingAssembly().CodeBase);
-            var workingDir = Path.GetDirectoryName(uri.LocalPath);
-            if (workingDir == null)
-                workingDir = Directory.GetCurrentDirectory();
+            var workingDir = Path.GetDirectoryName(uri.LocalPath) ?? Directory.GetCurrentDirectory();
 
             var baseDir = Path.Combine(workingDir, "Resources", "TestData");
 

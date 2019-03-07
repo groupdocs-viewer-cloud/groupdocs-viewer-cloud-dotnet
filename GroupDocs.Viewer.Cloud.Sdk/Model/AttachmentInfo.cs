@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AttachmentInfo.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,24 +34,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Describes attachment information
+    /// Attachment information
     /// </summary>  
     public class AttachmentInfo 
     {                       
         /// <summary>
-        /// Attachment name.
+        /// Attachment name
         /// </summary>  
         public string Name { get; set; }
-
-        /// <summary>
-        /// Attachment extension.
-        /// </summary>  
-        public string Extension { get; set; }
-
-        /// <summary>
-        /// File format.
-        /// </summary>  
-        public string FileFormat { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -62,8 +52,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           var sb = new StringBuilder();
           sb.Append("class AttachmentInfo {\n");
           sb.Append("  Name: ").Append(this.Name).Append("\n");
-          sb.Append("  Extension: ").Append(this.Extension).Append("\n");
-          sb.Append("  FileFormat: ").Append(this.FileFormat).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

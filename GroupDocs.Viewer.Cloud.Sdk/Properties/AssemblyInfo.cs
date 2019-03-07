@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="AssemblyInfo.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Aspose Pty Ltd")]
 [assembly: AssemblyProduct("GroupDocs.Viewer.Cloud.Sdk")]
-[assembly: AssemblyCopyright("Copyright 2003-2018 Aspose Pty Ltd")]
+[assembly: AssemblyCopyright("Copyright 2003-2019 Aspose Pty Ltd")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -53,5 +53,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("18.11.0")]
-[assembly: AssemblyFileVersion("18.11.0")]
+[assembly: AssemblyVersion("19.3.0")]
+[assembly: AssemblyFileVersion("19.3.0")]

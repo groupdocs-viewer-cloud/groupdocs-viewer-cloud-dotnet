@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ApiInvoker.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,13 +37,15 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         private const string GroupDocsClientVersionHeaderName = "x-groupdocs-client-version";
         private readonly Dictionary<string, string> defaultHeaderMap = new Dictionary<string, string>();
         private readonly List<IRequestHandler> requestHandlers;
+        private readonly int _timeout;
 
-        public ApiInvoker(List<IRequestHandler> requestHandlers)
+        public ApiInvoker(List<IRequestHandler> requestHandlers, int timeout)
         {
             var sdkVersion = this.GetType().Assembly.GetName().Version;
             this.AddDefaultHeader(GroupDocsClientHeaderName, ".net sdk");
             this.AddDefaultHeader(GroupDocsClientVersionHeaderName, string.Format("{0}.{1}", sdkVersion.Major, sdkVersion.Minor));
             this.requestHandlers = requestHandlers;
+            this._timeout = timeout;
         }
 
         public string InvokeApi(
@@ -219,6 +221,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         {
             var client = WebRequest.Create(path);
             client.Method = method;
+            client.Timeout = _timeout;
 
             byte[] formData = null;
             if (formParams.Count > 0)

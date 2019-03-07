@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="Watermark.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,22 +34,22 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Provides options to configure watermark appearance. 
+    /// Text watermark
     /// </summary>  
     public class Watermark 
     {                       
         /// <summary>
-        /// The watermark text.
+        /// Watermark text.
         /// </summary>  
         public string Text { get; set; }
 
         /// <summary>
-        /// The watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \"Red\".
+        /// Watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \"Red\".
         /// </summary>  
         public string Color { get; set; }
 
         /// <summary>
-        /// The watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \"Diagonal\".
+        /// Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \"Diagonal\".
         /// </summary>  
         public string Position { get; set; }
 

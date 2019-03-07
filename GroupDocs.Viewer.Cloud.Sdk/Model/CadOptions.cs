@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="CadOptions.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,44 +34,24 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// The CAD documents rendering options. Rendering of CAD file formats is not supported at the moment.
+    /// Rendering options for CAD file formats. CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl
     /// </summary>  
     public class CadOptions 
     {                       
         /// <summary>
-        /// The scale factor affects the size of an output document.        
+        /// Scale factor allows to change the size of the output document. Values higher than 1 will enlarge output result and values between 0 and 1 will make output result smaller. This option is ignored when either Height or Width options are set. 
         /// </summary>  
         public double? ScaleFactor { get; set; }
 
         /// <summary>
-        /// The width of the render result in pixels.        
+        /// Width of the output result in pixels        
         /// </summary>  
         public int? Width { get; set; }
 
         /// <summary>
-        /// The height of the render result in pixels.        
+        /// Height of the output result in pixels     
         /// </summary>  
         public int? Height { get; set; }
-
-        /// <summary>
-        /// Indicates whether layouts from CAD document should be rendered.
-        /// </summary>  
-        public bool? RenderLayouts { get; set; }
-
-        /// <summary>
-        /// The name of the specific layout to render.
-        /// </summary>  
-        public string LayoutName { get; set; }
-
-        /// <summary>
-        /// The list of document layers to render. By default all layers will be rendered. Layer names are case sensitive.
-        /// </summary>  
-        public List<string> Layers { get; set; }
-
-        /// <summary>
-        /// The coordinates of the drawing regions, that should be rendered. Please note, that this option works only for DWG format. When the list is empty, then whole drawing is rendered. When the list contains at least one tile, then ScaleFactor, Width, Height, RenderLayouts and LayoutName properties are ignored. 
-        /// </summary>  
-        public List<Tile> Tiles { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -84,10 +64,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  ScaleFactor: ").Append(this.ScaleFactor).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("  RenderLayouts: ").Append(this.RenderLayouts).Append("\n");
-          sb.Append("  LayoutName: ").Append(this.LayoutName).Append("\n");
-          sb.Append("  Layers: ").Append(this.Layers).Append("\n");
-          sb.Append("  Tiles: ").Append(this.Tiles).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

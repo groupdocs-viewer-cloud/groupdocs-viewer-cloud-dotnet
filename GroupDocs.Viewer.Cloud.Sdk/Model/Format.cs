@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="Format.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,19 +34,19 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Format description.
+    /// File-format
     /// </summary>  
     public class Format 
     {                       
         /// <summary>
-        /// File format.
-        /// </summary>  
-        public string FileFormat { get; set; }
-
-        /// <summary>
-        /// File extension.
+        /// File extension
         /// </summary>  
         public string Extension { get; set; }
+
+        /// <summary>
+        /// File format
+        /// </summary>  
+        public string FileFormat { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -56,8 +56,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class Format {\n");
-          sb.Append("  FileFormat: ").Append(this.FileFormat).Append("\n");
           sb.Append("  Extension: ").Append(this.Extension).Append("\n");
+          sb.Append("  FileFormat: ").Append(this.FileFormat).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

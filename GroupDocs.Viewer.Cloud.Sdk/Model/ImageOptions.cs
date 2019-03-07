@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ImageOptions.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,20 +34,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Provides options for rendering document as image.
+    /// Options for rendering document into image
     /// </summary>  
     public class ImageOptions : RenderOptions 
     {                       
-        /// <summary>
-        /// Allows to set image format (png, jpg, bmp). Default value is png.
-        /// </summary>  
-        public string Format { get; set; }
-
-        /// <summary>
-        /// Allows to specify quality when rendering as JPG. Valid values are between 1 and 100.  Default value is 90.
-        /// </summary>  
-        public int? Quality { get; set; }
-
         /// <summary>
         /// Allows to specify output image width.  Specify image width in case when you want to change output image dimensions. When Width has value and Height value is 0 then Height value will be calculated  to save image proportions. 
         /// </summary>  
@@ -59,6 +49,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public int? Height { get; set; }
 
         /// <summary>
+        /// When enabled Viewer will extract text when it's possible (e.g. raster formats don't have text layer) and return it in the viewing result. This option might be useful when you want to add selectable text layer over the image. 
+        /// </summary>  
+        public bool? ExtractText { get; set; }
+
+        /// <summary>
+        /// Allows to specify quality when rendering as JPG. Valid values are between 1 and 100.  Default value is 90.
+        /// </summary>  
+        public int? JpegQuality { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,10 +66,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class ImageOptions {\n");
-          sb.Append("  Format: ").Append(this.Format).Append("\n");
-          sb.Append("  Quality: ").Append(this.Quality).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
+          sb.Append("  ExtractText: ").Append(this.ExtractText).Append("\n");
+          sb.Append("  JpegQuality: ").Append(this.JpegQuality).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

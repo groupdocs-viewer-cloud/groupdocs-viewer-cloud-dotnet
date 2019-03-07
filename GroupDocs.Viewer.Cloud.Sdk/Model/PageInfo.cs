@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PageInfo.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,44 +34,29 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Page information.
+    /// Page information
     /// </summary>  
     public class PageInfo 
     {                       
         /// <summary>
-        /// Page number.
+        /// Page number
         /// </summary>  
         public int? Number { get; set; }
 
         /// <summary>
-        /// Page name.
-        /// </summary>  
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Page width.
+        /// Image Page width
         /// </summary>  
         public int? Width { get; set; }
 
         /// <summary>
-        /// Page height.
+        /// Image Page height
         /// </summary>  
         public int? Height { get; set; }
 
         /// <summary>
-        /// Page angle.
+        /// Image Page rows
         /// </summary>  
-        public int? Angle { get; set; }
-
-        /// <summary>
-        /// Page visibility.
-        /// </summary>  
-        public bool? Visible { get; set; }
-
-        /// <summary>
-        /// Page rows.
-        /// </summary>  
-        public List<RowInfo> Rows { get; set; }
+        public List<Row> Rows { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -82,11 +67,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           var sb = new StringBuilder();
           sb.Append("class PageInfo {\n");
           sb.Append("  Number: ").Append(this.Number).Append("\n");
-          sb.Append("  Name: ").Append(this.Name).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("  Angle: ").Append(this.Angle).Append("\n");
-          sb.Append("  Visible: ").Append(this.Visible).Append("\n");
           sb.Append("  Rows: ").Append(this.Rows).Append("\n");
           sb.Append("}\n");
           return sb.ToString();

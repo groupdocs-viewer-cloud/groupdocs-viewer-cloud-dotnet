@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="Configuration.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,8 +32,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
     /// </summary>
     public class Configuration
     {
-        private string apiVersion = "/v1";
-        private string apiBaseUrl = "https://api.groupdocs.cloud";
+        private const string ApiVersion = "/v2.0";
+        private string _apiBaseUrl = "https://api.groupdocs.cloud";
+
+        /// <summary>
+        /// Request timeout, default value is 100000 ms 
+        /// </summary>
+        public int Timeout { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Configuration" /> class.
@@ -44,18 +49,19 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         {
             if (string.IsNullOrEmpty(appSid))
             {
-                throw new ArgumentNullException("appSid",
+                throw new ArgumentNullException(nameof(appSid),
                     "Get your App SID and App Key at https://dashboard.groupdocs.cloud");
             }
 
             if (string.IsNullOrEmpty(appKey))
             {
-                throw new ArgumentNullException("appKey",
+                throw new ArgumentNullException(nameof(appKey),
                     "Get your App SID and App Key at https://dashboard.groupdocs.cloud");
             }
 
-            this.AppSid = appSid;
-            this.AppKey = appKey;
+            AppSid = appSid;
+            AppKey = appKey;
+            Timeout = 100000;
         }
 
         /// <summary>
@@ -63,19 +69,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         /// </summary>
         public string ApiBaseUrl
         {
-            get
-            {
-                return this.apiBaseUrl;
-            }
+            get => _apiBaseUrl;
 
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    this.apiBaseUrl = value.TrimEnd('/');
+                    _apiBaseUrl = value.TrimEnd('/');
                 }
 
-                this.apiBaseUrl = value;
+                _apiBaseUrl = value;
             }
         }
 
@@ -100,7 +103,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         /// <returns>Server URL</returns>
         internal string GetServerUrl()
         {
-            return this.apiBaseUrl.TrimEnd('/') + this.apiVersion;
+            return _apiBaseUrl.TrimEnd('/') + ApiVersion;
         }
     }
 }

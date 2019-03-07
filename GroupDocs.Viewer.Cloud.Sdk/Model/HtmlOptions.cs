@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="HtmlOptions.cs">
-//  Copyright (c) 2003-2018 Aspose Pty Ltd
+//  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,44 +34,19 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Provides options for rendering document pages as HTML.
+    /// Options for rendering document into HTML
     /// </summary>  
     public class HtmlOptions : RenderOptions 
     {                       
         /// <summary>
-        /// Allows to specify HTML resources (styles, images and fonts) path. For example when resource path is http://example.com/api/pages/{page-number}/resources/{resource-name} the {page-number} and {resource-name} templates will be replaced with page number and resource name accordingly. Ignored when EmbedResources option is set to true.
+        /// Controls output HTML document resources (styles, images and fonts) linking. By default this option is disabled and all the resources are embedded into HTML document.
+        /// </summary>  
+        public bool? ExternalResources { get; set; }
+
+        /// <summary>
+        /// Path for the HTML resources (styles, images and fonts). For example when resource path is http://example.com/api/pages/{page-number}/resources/{resource-name} the {page-number} and {resource-name} templates will be replaced with page number and resource name accordingly. This option is ignored when ExternalResources option is disabled.
         /// </summary>  
         public string ResourcePath { get; set; }
-
-        /// <summary>
-        /// Allows to ignore ResourcePath when processing *.css files.  When this options is enabled ResourcePath won't be added to resource references in *.css file.
-        /// </summary>  
-        public bool? IgnoreResourcePathInResources { get; set; }
-
-        /// <summary>
-        /// Controls output HTML document resources (styles, images and fonts) saving. When this options set to true all resources will be embedded into HTML document and ResourcePath option value will be ignored.
-        /// </summary>  
-        public bool? EmbedResources { get; set; }
-
-        /// <summary>
-        /// Enables content (HTML, CSS and SVG) minification.
-        /// </summary>  
-        public bool? EnableMinification { get; set; }
-
-        /// <summary>
-        /// Indicates whether rendering will provide responsive web pages, that look well on different device types.
-        /// </summary>  
-        public bool? EnableResponsiveRendering { get; set; }
-
-        /// <summary>
-        /// Prevents adding fonts to the output HTML document.  
-        /// </summary>  
-        public bool? ExcludeFonts { get; set; }
-
-        /// <summary>
-        /// The list of font names, that will be excluded from HTML.
-        /// </summary>  
-        public List<string> ExcludeFontsList { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -81,13 +56,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class HtmlOptions {\n");
+          sb.Append("  ExternalResources: ").Append(this.ExternalResources).Append("\n");
           sb.Append("  ResourcePath: ").Append(this.ResourcePath).Append("\n");
-          sb.Append("  IgnoreResourcePathInResources: ").Append(this.IgnoreResourcePathInResources).Append("\n");
-          sb.Append("  EmbedResources: ").Append(this.EmbedResources).Append("\n");
-          sb.Append("  EnableMinification: ").Append(this.EnableMinification).Append("\n");
-          sb.Append("  EnableResponsiveRendering: ").Append(this.EnableResponsiveRendering).Append("\n");
-          sb.Append("  ExcludeFonts: ").Append(this.ExcludeFonts).Append("\n");
-          sb.Append("  ExcludeFontsList: ").Append(this.ExcludeFontsList).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
