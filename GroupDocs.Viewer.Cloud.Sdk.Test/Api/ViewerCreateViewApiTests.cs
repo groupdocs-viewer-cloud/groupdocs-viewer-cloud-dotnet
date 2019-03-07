@@ -236,7 +236,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 {
                     CadOptions = new CadOptions
                     {
-                        ScaleFactor = 5f
+                        Width = 800
                     }
                 }
             };
