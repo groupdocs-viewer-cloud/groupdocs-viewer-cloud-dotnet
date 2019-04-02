@@ -23,73 +23,101 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Page row with text
-    /// </summary>  
-    public class Row 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class Row
+    {
         /// <summary>
         /// Row text
-        /// </summary>  
+        /// </summary>
+        /// <value>Row text</value>
+        [DataMember(Name="Text", EmitDefaultValue=false)]
         public string Text { get; set; }
 
         /// <summary>
         /// Row left coordinate
-        /// </summary>  
+        /// </summary>
+        /// <value>Row left coordinate</value>
+        [DataMember(Name="RowLeft", EmitDefaultValue=false)]
         public double? RowLeft { get; set; }
 
         /// <summary>
         /// Row top coordinate
-        /// </summary>  
+        /// </summary>
+        /// <value>Row top coordinate</value>
+        [DataMember(Name="RowTop", EmitDefaultValue=false)]
         public double? RowTop { get; set; }
 
         /// <summary>
         /// Row width
-        /// </summary>  
+        /// </summary>
+        /// <value>Row width</value>
+        [DataMember(Name="RowWidth", EmitDefaultValue=false)]
         public double? RowWidth { get; set; }
 
         /// <summary>
         /// Row height
-        /// </summary>  
+        /// </summary>
+        /// <value>Row height</value>
+        [DataMember(Name="RowHeight", EmitDefaultValue=false)]
         public double? RowHeight { get; set; }
 
         /// <summary>
         /// Text coordinates
-        /// </summary>  
+        /// </summary>
+        /// <value>Text coordinates</value>
+        [DataMember(Name="TextCoordinates", EmitDefaultValue=false)]
         public List<double?> TextCoordinates { get; set; }
 
         /// <summary>
         /// Characters coordinates
-        /// </summary>  
+        /// </summary>
+        /// <value>Characters coordinates</value>
+        [DataMember(Name="CharacterCoordinates", EmitDefaultValue=false)]
         public List<double?> CharacterCoordinates { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Row {\n");
-          sb.Append("  Text: ").Append(this.Text).Append("\n");
-          sb.Append("  RowLeft: ").Append(this.RowLeft).Append("\n");
-          sb.Append("  RowTop: ").Append(this.RowTop).Append("\n");
-          sb.Append("  RowWidth: ").Append(this.RowWidth).Append("\n");
-          sb.Append("  RowHeight: ").Append(this.RowHeight).Append("\n");
-          sb.Append("  TextCoordinates: ").Append(this.TextCoordinates).Append("\n");
-          sb.Append("  CharacterCoordinates: ").Append(this.CharacterCoordinates).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Row {\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  RowLeft: ").Append(RowLeft).Append("\n");
+            sb.Append("  RowTop: ").Append(RowTop).Append("\n");
+            sb.Append("  RowWidth: ").Append(RowWidth).Append("\n");
+            sb.Append("  RowHeight: ").Append(RowHeight).Append("\n");
+            sb.Append("  TextCoordinates: ").Append(TextCoordinates).Append("\n");
+            sb.Append("  CharacterCoordinates: ").Append(CharacterCoordinates).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

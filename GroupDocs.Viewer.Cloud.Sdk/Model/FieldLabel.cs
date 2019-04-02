@@ -23,43 +23,61 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Represents field label 
-    /// </summary>  
-    public class FieldLabel 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class FieldLabel
+    {
         /// <summary>
-        /// The field name e.g. \"From\"
-        /// </summary>  
+        /// The field name e.g. \&quot;From\&quot;
+        /// </summary>
+        /// <value>The field name e.g. \&quot;From\&quot;</value>
+        [DataMember(Name="Field", EmitDefaultValue=false)]
         public string Field { get; set; }
 
         /// <summary>
-        /// The label e.g. \"Sender\"
-        /// </summary>  
+        /// The label e.g. \&quot;Sender\&quot;
+        /// </summary>
+        /// <value>The label e.g. \&quot;Sender\&quot;</value>
+        [DataMember(Name="Label", EmitDefaultValue=false)]
         public string Label { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class FieldLabel {\n");
-          sb.Append("  Field: ").Append(this.Field).Append("\n");
-          sb.Append("  Label: ").Append(this.Label).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class FieldLabel {\n");
+            sb.Append("  Field: ").Append(Field).Append("\n");
+            sb.Append("  Label: ").Append(Label).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

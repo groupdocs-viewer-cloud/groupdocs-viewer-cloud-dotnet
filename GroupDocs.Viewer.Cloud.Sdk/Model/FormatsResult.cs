@@ -23,37 +23,53 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Describes object which contains list of supported file formats.
-    /// </summary>  
-    public class FormatsResult 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class FormatsResult
+    {
         /// <summary>
         /// Supported file formats.
-        /// </summary>  
+        /// </summary>
+        /// <value>Supported file formats.</value>
+        [DataMember(Name="Formats", EmitDefaultValue=false)]
         public List<Format> Formats { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class FormatsResult {\n");
-          sb.Append("  Formats: ").Append(this.Formats).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class FormatsResult {\n");
+            sb.Append("  Formats: ").Append(Formats).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

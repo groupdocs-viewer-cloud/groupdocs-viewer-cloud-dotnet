@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="Config.cs">
+// <copyright company="Aspose Pty Ltd" file="IAuthorization.cs">
 //  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -23,13 +23,13 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Test
+using System;
+using System.Collections.Generic;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Client
 {
-    public static class Config
+    public interface IAuthorization
     {
-        /* Get your AppSID and AppKey at https://dashboard.groupdocs.cloud/ (free registration is required) */
-        public static string AppSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-        public static string AppKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-        public static string ApiBaseUrl = "https://api.groupdocs.cloud";
+        void ApplyToParams(List<KeyValuePair<String, String>> queryParams, Dictionary<string, string> headerParams);
     }
 }

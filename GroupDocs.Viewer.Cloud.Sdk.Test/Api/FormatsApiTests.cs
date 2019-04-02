@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="AssemblyInfo.cs">
+// <copyright company="Aspose Pty Ltd">
 //  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -23,35 +23,26 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Reflection;
-using System.Runtime.InteropServices;
+namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
+{
+    using NUnit.Framework;
 
-// General Information about an assembly is controlled through the following
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-[assembly: AssemblyTitle("GroupDocs.Viewer.Cloud.Sdk")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Aspose Pty Ltd")]
-[assembly: AssemblyProduct("GroupDocs.Viewer.Cloud.Sdk")]
-[assembly: AssemblyCopyright("Copyright 2003-2019 Aspose Pty Ltd")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+    public class FormatsApiTests : BaseApiTest
+    {
+        /// <summary>
+        /// Test GetSupportedFileFormats
+        /// </summary>
+        [Test]
+        public void GetSupportedFileFormatsTest()
+        {
+            var response = ViewerApi.GetSupportedFileFormats();
 
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("19.3.1")]
-[assembly: AssemblyFileVersion("19.3.1")]
+            Assert.IsTrue(response.Formats.Count > 0);
+            foreach (var entry in response.Formats)
+            {
+                Assert.IsNotEmpty(entry.Extension);
+                Assert.IsNotEmpty(entry.FileFormat);
+            }
+        }
+    }
+}

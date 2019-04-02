@@ -23,22 +23,301 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RestSharp.Portable;
+using GroupDocs.Viewer.Cloud.Sdk.Client;
+using GroupDocs.Viewer.Cloud.Sdk.Model;
+using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
+
 namespace GroupDocs.Viewer.Cloud.Sdk.Api
 {
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
-    using GroupDocs.Viewer.Cloud.Sdk.Client;
-    using GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers;
-    using GroupDocs.Viewer.Cloud.Sdk.Model;
-    using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
-    
     /// <summary>
-    /// GroupDocs.Viewer Cloud API.
+    /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public class FolderApi
-    {        
-        private readonly ApiInvoker apiInvoker;
-        private readonly Configuration configuration;     
+    public interface IFolderApi
+    {
+        #region Synchronous Operations
+        /// <summary>
+        /// Copy folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns></returns>
+        void CopyFolder(CopyFolderRequest request);
+
+        /// <summary>
+        /// Copy folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CopyFolderWithHttpInfo (CopyFolderRequest request);
+        /// <summary>
+        /// Create the folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns></returns>
+        void CreateFolder(CreateFolderRequest request);
+
+        /// <summary>
+        /// Create the folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> CreateFolderWithHttpInfo (CreateFolderRequest request);
+        /// <summary>
+        /// Delete folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns></returns>
+        void DeleteFolder(DeleteFolderRequest request);
+
+        /// <summary>
+        /// Delete folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteFolderWithHttpInfo (DeleteFolderRequest request);
+        /// <summary>
+        /// Get all files and folders within a folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>FilesList</returns>
+        FilesList GetFilesList(GetFilesListRequest request);
+
+        /// <summary>
+        /// Get all files and folders within a folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of FilesList</returns>
+        ApiResponse<FilesList> GetFilesListWithHttpInfo (GetFilesListRequest request);
+        /// <summary>
+        /// Move folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns></returns>
+        void MoveFolder(MoveFolderRequest request);
+
+        /// <summary>
+        /// Move folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> MoveFolderWithHttpInfo (MoveFolderRequest request);
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
+        /// <summary>
+        /// Copy folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CopyFolderAsync(CopyFolderRequest request);
+
+        /// <summary>
+        /// Copy folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CopyFolderAsyncWithHttpInfo(CopyFolderRequest request);
+        /// <summary>
+        /// Create the folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task CreateFolderAsync(CreateFolderRequest request);
+
+        /// <summary>
+        /// Create the folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateFolderAsyncWithHttpInfo(CreateFolderRequest request);
+        /// <summary>
+        /// Delete folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteFolderAsync(DeleteFolderRequest request);
+
+        /// <summary>
+        /// Delete folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFolderAsyncWithHttpInfo(DeleteFolderRequest request);
+        /// <summary>
+        /// Get all files and folders within a folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of FilesList</returns>
+        System.Threading.Tasks.Task<FilesList> GetFilesListAsync(GetFilesListRequest request);
+
+        /// <summary>
+        /// Get all files and folders within a folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse (FilesList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FilesList>> GetFilesListAsyncWithHttpInfo(GetFilesListRequest request);
+        /// <summary>
+        /// Move folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task MoveFolderAsync(MoveFolderRequest request);
+
+        /// <summary>
+        /// Move folder
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> MoveFolderAsyncWithHttpInfo(MoveFolderRequest request);
+        #endregion Asynchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public partial class FolderApi : IFolderApi
+    {
+        private GroupDocs.Viewer.Cloud.Sdk.Client.ExceptionFactoryDelegate _exceptionFactory = GroupDocs.Viewer.Cloud.Sdk.Client.ExceptionFactory.Default;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.Configuration _configuration;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.ApiClient _apiClient;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.IAuthorization _authorization;
+        private List<Parameter> _defaultParameters = new List<Parameter>
+        {
+            new Parameter
+            {
+                Type = ParameterType.HttpHeader,
+                Name = "x-groupdocs-client",
+                Value = ".net standard sdk"
+            },
+            new Parameter
+            {
+                Type = ParameterType.HttpHeader,
+                Name = "x-groupdocs-client-version",
+                Value = "19.3.1"
+            }
+        };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderApi"/> class.
@@ -51,189 +330,777 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FolderApi"/> class.
-        /// </summary>    
-        /// <param name="configuration">Configuration settings</param>
+        /// Initializes a new instance of the <see cref="FolderApi"/> class
+        /// using Configuration object
+        /// </summary>
+        /// <param name="configuration">An instance of Configuration</param>
+        /// <returns></returns>
         public FolderApi(Configuration configuration)
         {
-            this.configuration = configuration;
-            
-            var requestHandlers = new List<IRequestHandler>();
-            requestHandlers.Add(new AuthRequestHandler(this.configuration));
-            requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
-            requestHandlers.Add(new ApiExceptionRequestHandler());
-            this.apiInvoker = new ApiInvoker(requestHandlers, this.configuration.Timeout);
-        }                            
+            this._configuration = configuration;
+            this._apiClient = new ApiClient(configuration, _defaultParameters);
+            this._authorization = new Auth(configuration, _defaultParameters);
+        }
 
         /// <summary>
         /// Copy folder 
         /// </summary>
-        /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns></returns>
         public void CopyFolder(CopyFolderRequest request)
         {
-            // verify the required parameter 'srcPath' is set
-            if (request.srcPath == null) 
+             CopyFolderWithHttpInfo(request);
+        }
+
+        /// <summary>
+        /// Copy folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CopyFolderWithHttpInfo(CopyFolderRequest request)
+        {
+            // verify the required parameter 'CopyFolder.srcPath' is set
+            if (request.srcPath == null)
+                throw new ApiException(400, "Missing required parameter 'CopyFolder.srcPath' when calling FolderApi->CopyFolder");
+            // verify the required parameter 'CopyFolder.destPath' is set
+            if (request.destPath == null)
+                throw new ApiException(400, "Missing required parameter 'CopyFolder.destPath' when calling FolderApi->CopyFolder");
+
+            var localVarPath = "./viewer/storage/folder/copy/{srcPath}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.srcPath != null) localVarPathParams.Add("srcPath", _apiClient.ParameterToString(request.srcPath)); // path parameter
+            if (request.destPath != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destPath", request.destPath)); // query parameter
+            if (request.srcStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "srcStorageName", request.srcStorageName)); // query parameter
+            if (request.destStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destStorageName", request.destStorageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'srcPath' when calling CopyFolder");
+                Exception exception = _exceptionFactory("CopyFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // verify the required parameter 'destPath' is set
-            if (request.destPath == null) 
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Copy folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CopyFolderAsync(CopyFolderRequest request)
+        {
+             await CopyFolderAsyncWithHttpInfo(request);
+
+        }
+
+        /// <summary>
+        /// Copy folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
+        /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CopyFolderAsyncWithHttpInfo(CopyFolderRequest request)
+        {
+            // verify the required parameter 'CopyFolder.srcPath' is set
+            if (request.srcPath == null)
+                throw new ApiException(400, "Missing required parameter 'CopyFolder.srcPath' when calling FolderApi->CopyFolder");
+            // verify the required parameter 'CopyFolder.destPath' is set
+            if (request.destPath == null)
+                throw new ApiException(400, "Missing required parameter 'CopyFolder.destPath' when calling FolderApi->CopyFolder");
+
+            var localVarPath = "./viewer/storage/folder/copy/{srcPath}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.srcPath != null) localVarPathParams.Add("srcPath", _apiClient.ParameterToString(request.srcPath)); // path parameter
+            if (request.destPath != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destPath", request.destPath)); // query parameter
+            if (request.srcStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "srcStorageName", request.srcStorageName)); // query parameter
+            if (request.destStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destStorageName", request.destStorageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFolder");
+                Exception exception = _exceptionFactory("CopyFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/folder/copy/{srcPath}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
-            
-            this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "PUT", 
-                null, 
-                null, 
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
         /// Create the folder 
         /// </summary>
-        /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns></returns>
         public void CreateFolder(CreateFolderRequest request)
         {
-            // verify the required parameter 'path' is set
-            if (request.path == null) 
+             CreateFolderWithHttpInfo(request);
+        }
+
+        /// <summary>
+        /// Create the folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> CreateFolderWithHttpInfo(CreateFolderRequest request)
+        {
+            // verify the required parameter 'CreateFolder.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'CreateFolder.path' when calling FolderApi->CreateFolder");
+
+            var localVarPath = "./viewer/storage/folder/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'path' when calling CreateFolder");
+                Exception exception = _exceptionFactory("CreateFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/folder/{path}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
-            this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "POST", 
-                null, 
-                null, 
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Create the folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task CreateFolderAsync(CreateFolderRequest request)
+        {
+             await CreateFolderAsyncWithHttpInfo(request);
+
+        }
+
+        /// <summary>
+        /// Create the folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> CreateFolderAsyncWithHttpInfo(CreateFolderRequest request)
+        {
+            // verify the required parameter 'CreateFolder.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'CreateFolder.path' when calling FolderApi->CreateFolder");
+
+            var localVarPath = "./viewer/storage/folder/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("CreateFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
         /// Delete folder 
         /// </summary>
-        /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns></returns>
         public void DeleteFolder(DeleteFolderRequest request)
         {
-            // verify the required parameter 'path' is set
-            if (request.path == null) 
+             DeleteFolderWithHttpInfo(request);
+        }
+
+        /// <summary>
+        /// Delete folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteFolderWithHttpInfo(DeleteFolderRequest request)
+        {
+            // verify the required parameter 'DeleteFolder.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'DeleteFolder.path' when calling FolderApi->DeleteFolder");
+
+            var localVarPath = "./viewer/storage/folder/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            if (request.recursive != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "recursive", request.recursive)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFolder");
+                Exception exception = _exceptionFactory("DeleteFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/folder/{path}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
-            
-            this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "DELETE", 
-                null, 
-                null, 
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteFolderAsync(DeleteFolderRequest request)
+        {
+             await DeleteFolderAsyncWithHttpInfo(request);
+
+        }
+
+        /// <summary>
+        /// Delete folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="recursive">Enable to delete folders, subfolders and files (optional, default to false)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFolderAsyncWithHttpInfo(DeleteFolderRequest request)
+        {
+            // verify the required parameter 'DeleteFolder.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'DeleteFolder.path' when calling FolderApi->DeleteFolder");
+
+            var localVarPath = "./viewer/storage/folder/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            if (request.recursive != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "recursive", request.recursive)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("DeleteFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
         /// Get all files and folders within a folder 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
-        /// <returns><see cref="FilesList"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>FilesList</returns>
         public FilesList GetFilesList(GetFilesListRequest request)
         {
-            // verify the required parameter 'path' is set
-            if (request.path == null) 
+             ApiResponse<FilesList> localVarResponse = GetFilesListWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all files and folders within a folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of FilesList</returns>
+        public ApiResponse<FilesList> GetFilesListWithHttpInfo(GetFilesListRequest request)
+        {
+            // verify the required parameter 'GetFilesList.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'GetFilesList.path' when calling FolderApi->GetFilesList");
+
+            var localVarPath = "./viewer/storage/folder/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'path' when calling GetFilesList");
+                Exception exception = _exceptionFactory("GetFilesList", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/folder/{path}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "GET", 
-                null, 
-                null, 
-                null);
+            return new ApiResponse<FilesList>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (FilesList) _apiClient.Deserialize(localVarResponse, typeof(FilesList)));
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Get all files and folders within a folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of FilesList</returns>
+        public async System.Threading.Tasks.Task<FilesList> GetFilesListAsync(GetFilesListRequest request)
+        {
+             ApiResponse<FilesList> localVarResponse = await GetFilesListAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all files and folders within a folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse (FilesList)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FilesList>> GetFilesListAsyncWithHttpInfo(GetFilesListRequest request)
+        {
+            // verify the required parameter 'GetFilesList.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'GetFilesList.path' when calling FolderApi->GetFilesList");
+
+            var localVarPath = "./viewer/storage/folder/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                return (FilesList)SerializationHelper.Deserialize(response, typeof(FilesList));
+                Exception exception = _exceptionFactory("GetFilesList", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<FilesList>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (FilesList) _apiClient.Deserialize(localVarResponse, typeof(FilesList)));
         }
 
         /// <summary>
         /// Move folder 
         /// </summary>
-        /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns></returns>
         public void MoveFolder(MoveFolderRequest request)
         {
-            // verify the required parameter 'srcPath' is set
-            if (request.srcPath == null) 
+             MoveFolderWithHttpInfo(request);
+        }
+
+        /// <summary>
+        /// Move folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> MoveFolderWithHttpInfo(MoveFolderRequest request)
+        {
+            // verify the required parameter 'MoveFolder.srcPath' is set
+            if (request.srcPath == null)
+                throw new ApiException(400, "Missing required parameter 'MoveFolder.srcPath' when calling FolderApi->MoveFolder");
+            // verify the required parameter 'MoveFolder.destPath' is set
+            if (request.destPath == null)
+                throw new ApiException(400, "Missing required parameter 'MoveFolder.destPath' when calling FolderApi->MoveFolder");
+
+            var localVarPath = "./viewer/storage/folder/move/{srcPath}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.srcPath != null) localVarPathParams.Add("srcPath", _apiClient.ParameterToString(request.srcPath)); // path parameter
+            if (request.destPath != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destPath", request.destPath)); // query parameter
+            if (request.srcStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "srcStorageName", request.srcStorageName)); // query parameter
+            if (request.destStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destStorageName", request.destStorageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'srcPath' when calling MoveFolder");
+                Exception exception = _exceptionFactory("MoveFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // verify the required parameter 'destPath' is set
-            if (request.destPath == null) 
-            {
-                throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFolder");
-            }
-
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/folder/move/{srcPath}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
-            
-            this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "PUT", 
-                null, 
-                null, 
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
+
+        /// <summary>
+        /// Move folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task MoveFolderAsync(MoveFolderRequest request)
+        {
+             await MoveFolderAsyncWithHttpInfo(request);
+
+        }
+
+        /// <summary>
+        /// Move folder 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="srcPath">Folder path to move e.g. &#39;/folder&#39;</param>
+        /// <param name="destPath">Destination folder path to move to e.g &#39;/dst&#39;</param>
+        /// <param name="srcStorageName">Source storage name (optional)</param>
+        /// <param name="destStorageName">Destination storage name (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> MoveFolderAsyncWithHttpInfo(MoveFolderRequest request)
+        {
+            // verify the required parameter 'MoveFolder.srcPath' is set
+            if (request.srcPath == null)
+                throw new ApiException(400, "Missing required parameter 'MoveFolder.srcPath' when calling FolderApi->MoveFolder");
+            // verify the required parameter 'MoveFolder.destPath' is set
+            if (request.destPath == null)
+                throw new ApiException(400, "Missing required parameter 'MoveFolder.destPath' when calling FolderApi->MoveFolder");
+
+            var localVarPath = "./viewer/storage/folder/move/{srcPath}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.srcPath != null) localVarPathParams.Add("srcPath", _apiClient.ParameterToString(request.srcPath)); // path parameter
+            if (request.destPath != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destPath", request.destPath)); // query parameter
+            if (request.srcStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "srcStorageName", request.srcStorageName)); // query parameter
+            if (request.destStorageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "destStorageName", request.destStorageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("MoveFolder", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -291,7 +1158,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.srcStorageName = srcStorageName;
               this.destStorageName = destStorageName;
           }
-          
+
           /// <summary>
           /// Source folder path e.g. '/src'
           /// </summary>  
@@ -364,7 +1231,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.path = path;
               this.storageName = storageName;
           }
-          
+
           /// <summary>
           /// Folder path to create e.g. 'folder_1/folder_2/'
           /// </summary>  
@@ -429,7 +1296,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.storageName = storageName;
               this.recursive = recursive;
           }
-          
+
           /// <summary>
           /// Folder path e.g. '/folder'
           /// </summary>  
@@ -497,7 +1364,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.path = path;
               this.storageName = storageName;
           }
-          
+
           /// <summary>
           /// Folder path e.g. '/folder'
           /// </summary>  
@@ -564,7 +1431,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.srcStorageName = srcStorageName;
               this.destStorageName = destStorageName;
           }
-          
+
           /// <summary>
           /// Folder path to move e.g. '/folder'
           /// </summary>  

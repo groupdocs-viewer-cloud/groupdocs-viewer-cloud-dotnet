@@ -23,49 +23,69 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Rendering options for CAD file formats. CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl
-    /// </summary>  
-    public class CadOptions 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class CadOptions
+    {
         /// <summary>
         /// Scale factor allows to change the size of the output document. Values higher than 1 will enlarge output result and values between 0 and 1 will make output result smaller. This option is ignored when either Height or Width options are set. 
-        /// </summary>  
+        /// </summary>
+        /// <value>Scale factor allows to change the size of the output document. Values higher than 1 will enlarge output result and values between 0 and 1 will make output result smaller. This option is ignored when either Height or Width options are set. </value>
+        [DataMember(Name="ScaleFactor", EmitDefaultValue=false)]
         public double? ScaleFactor { get; set; }
 
         /// <summary>
         /// Width of the output result in pixels        
-        /// </summary>  
+        /// </summary>
+        /// <value>Width of the output result in pixels        </value>
+        [DataMember(Name="Width", EmitDefaultValue=false)]
         public int? Width { get; set; }
 
         /// <summary>
         /// Height of the output result in pixels     
-        /// </summary>  
+        /// </summary>
+        /// <value>Height of the output result in pixels     </value>
+        [DataMember(Name="Height", EmitDefaultValue=false)]
         public int? Height { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class CadOptions {\n");
-          sb.Append("  ScaleFactor: ").Append(this.ScaleFactor).Append("\n");
-          sb.Append("  Width: ").Append(this.Width).Append("\n");
-          sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class CadOptions {\n");
+            sb.Append("  ScaleFactor: ").Append(ScaleFactor).Append("\n");
+            sb.Append("  Width: ").Append(Width).Append("\n");
+            sb.Append("  Height: ").Append(Height).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

@@ -23,43 +23,61 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Class for disc space information.
-    /// </summary>  
-    public class DiscUsage 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class DiscUsage
+    {
         /// <summary>
         /// Application used disc space.
-        /// </summary>  
+        /// </summary>
+        /// <value>Application used disc space.</value>
+        [DataMember(Name="UsedSize", EmitDefaultValue=false)]
         public long? UsedSize { get; set; }
 
         /// <summary>
         /// Total disc space.
-        /// </summary>  
+        /// </summary>
+        /// <value>Total disc space.</value>
+        [DataMember(Name="TotalSize", EmitDefaultValue=false)]
         public long? TotalSize { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class DiscUsage {\n");
-          sb.Append("  UsedSize: ").Append(this.UsedSize).Append("\n");
-          sb.Append("  TotalSize: ").Append(this.TotalSize).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class DiscUsage {\n");
+            sb.Append("  UsedSize: ").Append(UsedSize).Append("\n");
+            sb.Append("  TotalSize: ").Append(TotalSize).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

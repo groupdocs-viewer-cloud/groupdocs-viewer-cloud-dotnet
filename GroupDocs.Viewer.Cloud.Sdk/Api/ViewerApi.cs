@@ -23,22 +23,215 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RestSharp.Portable;
+using GroupDocs.Viewer.Cloud.Sdk.Client;
+using GroupDocs.Viewer.Cloud.Sdk.Model;
+using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
+
 namespace GroupDocs.Viewer.Cloud.Sdk.Api
 {
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
-    using GroupDocs.Viewer.Cloud.Sdk.Client;
-    using GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers;
-    using GroupDocs.Viewer.Cloud.Sdk.Model;
-    using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
-    
     /// <summary>
-    /// GroupDocs.Viewer Cloud API.
+    /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public class ViewerApi
-    {        
-        private readonly ApiInvoker apiInvoker;
-        private readonly Configuration configuration;     
+    public interface IViewerApi
+    {
+        #region Synchronous Operations
+        /// <summary>
+        /// Create new view if it not exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>ViewResult</returns>
+        ViewResult CreateView(CreateViewRequest request);
+
+        /// <summary>
+        /// Create new view if it not exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>ApiResponse of ViewResult</returns>
+        ApiResponse<ViewResult> CreateViewWithHttpInfo (CreateViewRequest request);
+        /// <summary>
+        /// Delete view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns></returns>
+        void DeleteView(DeleteViewRequest request);
+
+        /// <summary>
+        /// Delete view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteViewWithHttpInfo (DeleteViewRequest request);
+        /// <summary>
+        /// Get information about view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>InfoResult</returns>
+        InfoResult GetInfo(GetInfoRequest request);
+
+        /// <summary>
+        /// Get information about view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>ApiResponse of InfoResult</returns>
+        ApiResponse<InfoResult> GetInfoWithHttpInfo (GetInfoRequest request);
+        /// <summary>
+        /// Get supported file formats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>FormatsResult</returns>
+        FormatsResult GetSupportedFileFormats();
+
+        /// <summary>
+        /// Get supported file formats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of FormatsResult</returns>
+        ApiResponse<FormatsResult> GetSupportedFileFormatsWithHttpInfo ();
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
+        /// <summary>
+        /// Create new view if it not exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of ViewResult</returns>
+        System.Threading.Tasks.Task<ViewResult> CreateViewAsync(CreateViewRequest request);
+
+        /// <summary>
+        /// Create new view if it not exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of ApiResponse (ViewResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ViewResult>> CreateViewAsyncWithHttpInfo(CreateViewRequest request);
+        /// <summary>
+        /// Delete view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteViewAsync(DeleteViewRequest request);
+
+        /// <summary>
+        /// Delete view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteViewAsyncWithHttpInfo(DeleteViewRequest request);
+        /// <summary>
+        /// Get information about view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of InfoResult</returns>
+        System.Threading.Tasks.Task<InfoResult> GetInfoAsync(GetInfoRequest request);
+
+        /// <summary>
+        /// Get information about view
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of ApiResponse (InfoResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InfoResult>> GetInfoAsyncWithHttpInfo(GetInfoRequest request);
+        /// <summary>
+        /// Get supported file formats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of FormatsResult</returns>
+        System.Threading.Tasks.Task<FormatsResult> GetSupportedFileFormatsAsync();
+
+        /// <summary>
+        /// Get supported file formats
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (FormatsResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FormatsResult>> GetSupportedFileFormatsAsyncWithHttpInfo();
+        #endregion Asynchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public partial class ViewerApi : IViewerApi
+    {
+        private GroupDocs.Viewer.Cloud.Sdk.Client.ExceptionFactoryDelegate _exceptionFactory = GroupDocs.Viewer.Cloud.Sdk.Client.ExceptionFactory.Default;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.Configuration _configuration;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.ApiClient _apiClient;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.IAuthorization _authorization;
+        private List<Parameter> _defaultParameters = new List<Parameter>
+        {
+            new Parameter
+            {
+                Type = ParameterType.HttpHeader,
+                Name = "x-groupdocs-client",
+                Value = ".net standard sdk"
+            },
+            new Parameter
+            {
+                Type = ParameterType.HttpHeader,
+                Name = "x-groupdocs-client-version",
+                Value = "19.3.1"
+            }
+        };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ViewerApi"/> class.
@@ -51,144 +244,602 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ViewerApi"/> class.
-        /// </summary>    
-        /// <param name="configuration">Configuration settings</param>
+        /// Initializes a new instance of the <see cref="ViewerApi"/> class
+        /// using Configuration object
+        /// </summary>
+        /// <param name="configuration">An instance of Configuration</param>
+        /// <returns></returns>
         public ViewerApi(Configuration configuration)
         {
-            this.configuration = configuration;
-            
-            var requestHandlers = new List<IRequestHandler>();
-            requestHandlers.Add(new AuthRequestHandler(this.configuration));
-            requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
-            requestHandlers.Add(new ApiExceptionRequestHandler());
-            this.apiInvoker = new ApiInvoker(requestHandlers, this.configuration.Timeout);
-        }                            
+            this._configuration = configuration;
+            this._apiClient = new ApiClient(configuration, _defaultParameters);
+            this._authorization = new Auth(configuration, _defaultParameters);
+        }
 
         /// <summary>
         /// Create new view if it not exists 
         /// </summary>
-        /// <param name="request">Request. <see cref="CreateViewRequest" /></param>
-        /// <returns><see cref="ViewResult"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>ViewResult</returns>
         public ViewResult CreateView(CreateViewRequest request)
         {
-            // verify the required parameter 'viewOptions' is set
-            if (request.viewOptions == null) 
+             ApiResponse<ViewResult> localVarResponse = CreateViewWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create new view if it not exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>ApiResponse of ViewResult</returns>
+        public ApiResponse<ViewResult> CreateViewWithHttpInfo(CreateViewRequest request)
+        {
+            // verify the required parameter 'CreateView.viewOptions' is set
+            if (request.viewOptions == null)
+                throw new ApiException(400, "Missing required parameter 'CreateView.viewOptions' when calling ViewerApi->CreateView");
+
+            var localVarPath = "./viewer/view";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.viewOptions != null && request.viewOptions.GetType() != typeof(byte[]))
             {
-                throw new ApiException(400, "Missing required parameter 'viewOptions' when calling CreateView");
+                localVarPostBody = _apiClient.Serialize(request.viewOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request.viewOptions; // byte array
+            }
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("CreateView", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/view";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            var postBody = SerializationHelper.Serialize(request.viewOptions); // http body (model) parameter
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "POST", 
-                postBody, 
-                null, 
-                null);
+            return new ApiResponse<ViewResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ViewResult) _apiClient.Deserialize(localVarResponse, typeof(ViewResult)));
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Create new view if it not exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of ViewResult</returns>
+        public async System.Threading.Tasks.Task<ViewResult> CreateViewAsync(CreateViewRequest request)
+        {
+             ApiResponse<ViewResult> localVarResponse = await CreateViewAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create new view if it not exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of ApiResponse (ViewResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ViewResult>> CreateViewAsyncWithHttpInfo(CreateViewRequest request)
+        {
+            // verify the required parameter 'CreateView.viewOptions' is set
+            if (request.viewOptions == null)
+                throw new ApiException(400, "Missing required parameter 'CreateView.viewOptions' when calling ViewerApi->CreateView");
+
+            var localVarPath = "./viewer/view";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.viewOptions != null && request.viewOptions.GetType() != typeof(byte[]))
             {
-                return (ViewResult)SerializationHelper.Deserialize(response, typeof(ViewResult));
+                localVarPostBody = _apiClient.Serialize(request.viewOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request.viewOptions; // byte array
+            }
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("CreateView", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<ViewResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ViewResult) _apiClient.Deserialize(localVarResponse, typeof(ViewResult)));
         }
 
         /// <summary>
         /// Delete view 
         /// </summary>
-        /// <param name="request">Request. <see cref="DeleteViewRequest" /></param>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns></returns>
         public void DeleteView(DeleteViewRequest request)
         {
-            // verify the required parameter 'deleteViewOptions' is set
-            if (request.deleteViewOptions == null) 
+             DeleteViewWithHttpInfo(request);
+        }
+
+        /// <summary>
+        /// Delete view 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteViewWithHttpInfo(DeleteViewRequest request)
+        {
+            // verify the required parameter 'DeleteView.deleteViewOptions' is set
+            if (request.deleteViewOptions == null)
+                throw new ApiException(400, "Missing required parameter 'DeleteView.deleteViewOptions' when calling ViewerApi->DeleteView");
+
+            var localVarPath = "./viewer/view";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.deleteViewOptions != null && request.deleteViewOptions.GetType() != typeof(byte[]))
             {
-                throw new ApiException(400, "Missing required parameter 'deleteViewOptions' when calling DeleteView");
+                localVarPostBody = _apiClient.Serialize(request.deleteViewOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request.deleteViewOptions; // byte array
+            }
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("DeleteView", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/view";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            var postBody = SerializationHelper.Serialize(request.deleteViewOptions); // http body (model) parameter
-            this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "DELETE", 
-                postBody, 
-                null, 
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Delete view 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteViewAsync(DeleteViewRequest request)
+        {
+             await DeleteViewAsyncWithHttpInfo(request);
+
+        }
+
+        /// <summary>
+        /// Delete view 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deleteViewOptions">Delete options</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteViewAsyncWithHttpInfo(DeleteViewRequest request)
+        {
+            // verify the required parameter 'DeleteView.deleteViewOptions' is set
+            if (request.deleteViewOptions == null)
+                throw new ApiException(400, "Missing required parameter 'DeleteView.deleteViewOptions' when calling ViewerApi->DeleteView");
+
+            var localVarPath = "./viewer/view";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.deleteViewOptions != null && request.deleteViewOptions.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = _apiClient.Serialize(request.deleteViewOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request.deleteViewOptions; // byte array
+            }
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("DeleteView", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 null);
         }
 
         /// <summary>
         /// Get information about view 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetInfoRequest" /></param>
-        /// <returns><see cref="InfoResult"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>InfoResult</returns>
         public InfoResult GetInfo(GetInfoRequest request)
         {
-            // verify the required parameter 'viewOptions' is set
-            if (request.viewOptions == null) 
+             ApiResponse<InfoResult> localVarResponse = GetInfoWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get information about view 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>ApiResponse of InfoResult</returns>
+        public ApiResponse<InfoResult> GetInfoWithHttpInfo(GetInfoRequest request)
+        {
+            // verify the required parameter 'GetInfo.viewOptions' is set
+            if (request.viewOptions == null)
+                throw new ApiException(400, "Missing required parameter 'GetInfo.viewOptions' when calling ViewerApi->GetInfo");
+
+            var localVarPath = "./viewer/info";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.viewOptions != null && request.viewOptions.GetType() != typeof(byte[]))
             {
-                throw new ApiException(400, "Missing required parameter 'viewOptions' when calling GetInfo");
+                localVarPostBody = _apiClient.Serialize(request.viewOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request.viewOptions; // byte array
+            }
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("GetInfo", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/info";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            var postBody = SerializationHelper.Serialize(request.viewOptions); // http body (model) parameter
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "POST", 
-                postBody, 
-                null, 
-                null);
+            return new ApiResponse<InfoResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InfoResult) _apiClient.Deserialize(localVarResponse, typeof(InfoResult)));
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Get information about view 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of InfoResult</returns>
+        public async System.Threading.Tasks.Task<InfoResult> GetInfoAsync(GetInfoRequest request)
+        {
+             ApiResponse<InfoResult> localVarResponse = await GetInfoAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get information about view 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="viewOptions">View options</param>
+        /// <returns>Task of ApiResponse (InfoResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InfoResult>> GetInfoAsyncWithHttpInfo(GetInfoRequest request)
+        {
+            // verify the required parameter 'GetInfo.viewOptions' is set
+            if (request.viewOptions == null)
+                throw new ApiException(400, "Missing required parameter 'GetInfo.viewOptions' when calling ViewerApi->GetInfo");
+
+            var localVarPath = "./viewer/info";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.viewOptions != null && request.viewOptions.GetType() != typeof(byte[]))
             {
-                return (InfoResult)SerializationHelper.Deserialize(response, typeof(InfoResult));
+                localVarPostBody = _apiClient.Serialize(request.viewOptions); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = request.viewOptions; // byte array
+            }
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("GetInfo", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<InfoResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (InfoResult) _apiClient.Deserialize(localVarResponse, typeof(InfoResult)));
         }
 
         /// <summary>
         /// Get supported file formats 
         /// </summary>
-        /// <returns><see cref="FormatsResult"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>FormatsResult</returns>
         public FormatsResult GetSupportedFileFormats()
         {
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/formats";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "GET", 
-                null, 
-                null, 
-                null);
+             ApiResponse<FormatsResult> localVarResponse = GetSupportedFileFormatsWithHttpInfo();
+             return localVarResponse.Data;
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Get supported file formats 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of FormatsResult</returns>
+        public ApiResponse<FormatsResult> GetSupportedFileFormatsWithHttpInfo()
+        {
+
+            var localVarPath = "./viewer/formats";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                return (FormatsResult)SerializationHelper.Deserialize(response, typeof(FormatsResult));
+                Exception exception = _exceptionFactory("GetSupportedFileFormats", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<FormatsResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (FormatsResult) _apiClient.Deserialize(localVarResponse, typeof(FormatsResult)));
         }
+
+        /// <summary>
+        /// Get supported file formats 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of FormatsResult</returns>
+        public async System.Threading.Tasks.Task<FormatsResult> GetSupportedFileFormatsAsync()
+        {
+             ApiResponse<FormatsResult> localVarResponse = await GetSupportedFileFormatsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get supported file formats 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (FormatsResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FormatsResult>> GetSupportedFileFormatsAsyncWithHttpInfo()
+        {
+
+            var localVarPath = "./viewer/formats";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("GetSupportedFileFormats", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<FormatsResult>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (FormatsResult) _apiClient.Deserialize(localVarResponse, typeof(FormatsResult)));
+        }
+
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -240,7 +891,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
           {
               this.viewOptions = viewOptions;
           }
-          
+
           /// <summary>
           /// View options
           /// </summary>  
@@ -296,7 +947,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
           {
               this.deleteViewOptions = deleteViewOptions;
           }
-          
+
           /// <summary>
           /// Delete options
           /// </summary>  
@@ -352,7 +1003,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
           {
               this.viewOptions = viewOptions;
           }
-          
+
           /// <summary>
           /// View options
           /// </summary>  

@@ -23,43 +23,61 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// File upload result
-    /// </summary>  
-    public class FilesUploadResult 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class FilesUploadResult
+    {
         /// <summary>
         /// List of uploaded file names
-        /// </summary>  
+        /// </summary>
+        /// <value>List of uploaded file names</value>
+        [DataMember(Name="Uploaded", EmitDefaultValue=false)]
         public List<string> Uploaded { get; set; }
 
         /// <summary>
         /// List of errors.
-        /// </summary>  
+        /// </summary>
+        /// <value>List of errors.</value>
+        [DataMember(Name="Errors", EmitDefaultValue=false)]
         public List<Error> Errors { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class FilesUploadResult {\n");
-          sb.Append("  Uploaded: ").Append(this.Uploaded).Append("\n");
-          sb.Append("  Errors: ").Append(this.Errors).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class FilesUploadResult {\n");
+            sb.Append("  Uploaded: ").Append(Uploaded).Append("\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

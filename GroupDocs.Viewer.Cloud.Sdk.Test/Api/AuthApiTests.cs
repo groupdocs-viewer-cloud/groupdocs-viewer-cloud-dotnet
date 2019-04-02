@@ -23,6 +23,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using GroupDocs.Viewer.Cloud.Sdk.Api;
 using GroupDocs.Viewer.Cloud.Sdk.Client;
 
@@ -48,12 +49,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             var viewerApi = new ViewerApi(viewerConfig);
 
-            var ex = Assert.Throws<ApiException>(() =>
+            var ex = Assert.Throws<AggregateException>(() =>
             {
                 viewerApi.GetSupportedFileFormats();
             });
 
-            Assert.AreEqual("invalid_client", ex.Message);
+            Assert.AreEqual("One or more errors occurred. ({\"error\":\"invalid_client\"})", ex.Message);
         }
 
         /// <summary>
@@ -72,12 +73,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             var viewerApi = new ViewerApi(viewerConfig);
 
-            var ex = Assert.Throws<ApiException>(() =>
+            var ex = Assert.Throws<AggregateException>(() =>
             {
                 viewerApi.GetSupportedFileFormats();
             });
 
-            Assert.AreEqual("invalid_client", ex.Message);
+            Assert.AreEqual("One or more errors occurred. ({\"error\":\"invalid_client\"})", ex.Message);
         }
     }
 }

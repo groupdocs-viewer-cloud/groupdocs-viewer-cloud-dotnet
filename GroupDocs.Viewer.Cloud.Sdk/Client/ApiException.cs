@@ -23,40 +23,29 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace GroupDocs.Viewer.Cloud.Sdk.Client
 {
-    using System;
-
     /// <summary>
-    /// API exception.
+    /// API Exception
     /// </summary>
     public class ApiException : Exception
     {
-        private readonly int errorCode;
+        /// <summary>
+        /// Gets or sets the error code (HTTP status code)
+        /// </summary>
+        /// <value>The error code (HTTP status code).</value>
+        public int ErrorCode { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiException"/> class.
         /// </summary>
-        /// <param name="errorCode">
-        /// The error code.
-        /// </param>
-        /// <param name="message">
-        /// The message.
-        /// </param>
+        /// <param name="errorCode">HTTP status code.</param>
+        /// <param name="message">Error message.</param>
         public ApiException(int errorCode, string message) : base(message)
         {
-            this.errorCode = errorCode;
-        }
-
-        /// <summary>
-        /// Error code.
-        /// </summary>
-        public int ErrorCode
-        {
-            get
-            {
-                return this.errorCode;
-            }
+            this.ErrorCode = errorCode;
         }
     }
 }

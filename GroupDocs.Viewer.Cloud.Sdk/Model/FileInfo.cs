@@ -23,55 +23,77 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// File info
-    /// </summary>  
-    public class FileInfo 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class FileInfo
+    {
         /// <summary>
         /// File path in storage
-        /// </summary>  
+        /// </summary>
+        /// <value>File path in storage</value>
+        [DataMember(Name="FilePath", EmitDefaultValue=false)]
         public string FilePath { get; set; }
 
         /// <summary>
         /// Storage name
-        /// </summary>  
+        /// </summary>
+        /// <value>Storage name</value>
+        [DataMember(Name="StorageName", EmitDefaultValue=false)]
         public string StorageName { get; set; }
 
         /// <summary>
         /// Version ID
-        /// </summary>  
+        /// </summary>
+        /// <value>Version ID</value>
+        [DataMember(Name="VersionId", EmitDefaultValue=false)]
         public string VersionId { get; set; }
 
         /// <summary>
         /// Password to open file
-        /// </summary>  
+        /// </summary>
+        /// <value>Password to open file</value>
+        [DataMember(Name="Password", EmitDefaultValue=false)]
         public string Password { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class FileInfo {\n");
-          sb.Append("  FilePath: ").Append(this.FilePath).Append("\n");
-          sb.Append("  StorageName: ").Append(this.StorageName).Append("\n");
-          sb.Append("  VersionId: ").Append(this.VersionId).Append("\n");
-          sb.Append("  Password: ").Append(this.Password).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class FileInfo {\n");
+            sb.Append("  FilePath: ").Append(FilePath).Append("\n");
+            sb.Append("  StorageName: ").Append(StorageName).Append("\n");
+            sb.Append("  VersionId: ").Append(VersionId).Append("\n");
+            sb.Append("  Password: ").Append(Password).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

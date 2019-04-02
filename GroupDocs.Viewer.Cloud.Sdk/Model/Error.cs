@@ -23,55 +23,77 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Error
-    /// </summary>  
-    public class Error 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class Error
+    {
         /// <summary>
         /// Code             
-        /// </summary>  
+        /// </summary>
+        /// <value>Code             </value>
+        [DataMember(Name="Code", EmitDefaultValue=false)]
         public string Code { get; set; }
 
         /// <summary>
         /// Message             
-        /// </summary>  
+        /// </summary>
+        /// <value>Message             </value>
+        [DataMember(Name="Message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
         /// <summary>
         /// Description             
-        /// </summary>  
+        /// </summary>
+        /// <value>Description             </value>
+        [DataMember(Name="Description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Inner Error             
-        /// </summary>  
+        /// </summary>
+        /// <value>Inner Error             </value>
+        [DataMember(Name="InnerError", EmitDefaultValue=false)]
         public ErrorDetails InnerError { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Error {\n");
-          sb.Append("  Code: ").Append(this.Code).Append("\n");
-          sb.Append("  Message: ").Append(this.Message).Append("\n");
-          sb.Append("  Description: ").Append(this.Description).Append("\n");
-          sb.Append("  InnerError: ").Append(this.InnerError).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Error {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  InnerError: ").Append(InnerError).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

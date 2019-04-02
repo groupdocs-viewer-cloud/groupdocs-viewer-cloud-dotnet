@@ -23,43 +23,62 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// File Version
-    /// </summary>  
-    public class FileVersion : StorageFile 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class FileVersion : StorageFile
+    {
         /// <summary>
         /// File Version ID.
-        /// </summary>  
+        /// </summary>
+        /// <value>File Version ID.</value>
+        [DataMember(Name="VersionId", EmitDefaultValue=false)]
         public string VersionId { get; set; }
 
         /// <summary>
         /// Specifies whether the file is (true) or is not (false) the latest version of an file.
-        /// </summary>  
+        /// </summary>
+        /// <value>Specifies whether the file is (true) or is not (false) the latest version of an file.</value>
+        [DataMember(Name="IsLatest", EmitDefaultValue=false)]
         public bool? IsLatest { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class FileVersion {\n");
-          sb.Append("  VersionId: ").Append(this.VersionId).Append("\n");
-          sb.Append("  IsLatest: ").Append(this.IsLatest).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class FileVersion {\n");
+            sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  VersionId: ").Append(VersionId).Append("\n");
+            sb.Append("  IsLatest: ").Append(IsLatest).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public override string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

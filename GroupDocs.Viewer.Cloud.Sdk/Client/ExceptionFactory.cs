@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="FileVersions.cs">
+// <copyright company="Aspose Pty Ltd" file="ExceptionFactory.cs">
 //  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -24,52 +24,41 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+using Newtonsoft.Json.Linq;
+using RestSharp.Portable;
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model
+namespace GroupDocs.Viewer.Cloud.Sdk.Client
 {
     /// <summary>
-    /// File versions FileVersion.
+    /// A delegate to ExceptionFactory method
     /// </summary>
-    [DataContract]
-    public partial class FileVersions
-    {
-        /// <summary>
-        /// File versions FileVersion.
-        /// </summary>
-        /// <value>File versions FileVersion.</value>
-        [DataMember(Name="Value", EmitDefaultValue=false)]
-        public List<FileVersion> Value { get; set; }
+    /// <param name="methodName">Method name</param>
+    /// <param name="response">Response</param>
+    /// <returns>Exceptions</returns>
+    public delegate Exception ExceptionFactoryDelegate(string methodName, IRestResponse response);
 
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
+    /// <summary>
+    /// Default factory of exceptions for a given method name and response object
+    /// </summary>
+    public class ExceptionFactory
+    {
+        public static readonly ExceptionFactoryDelegate Default = (methodName, response) =>
         {
-            var sb = new StringBuilder();
-            sb.Append("class FileVersions {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-  
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
-        }
+            var status = (int)response.StatusCode;
+            if (status >= 400)
+            {
+                var errorResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+
+                var error = errorResponse["error"];
+                var message = error == null
+                    ? response.Content
+                    : error["message"] == null ? response.Content : error["message"].Value<string>();
+
+                return new ApiException(status, message);
+            }
+
+            return null;
+        };
     }
-} 
+}

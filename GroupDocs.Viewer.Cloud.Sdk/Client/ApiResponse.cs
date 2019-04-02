@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="Format.cs">
+// <copyright company="Aspose Pty Ltd" file="ApiResponse.cs">
 //  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -23,61 +23,44 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model
+namespace GroupDocs.Viewer.Cloud.Sdk.Client
 {
     /// <summary>
-    /// File-format
+    /// API Response
     /// </summary>
-    [DataContract]
-    public partial class Format
+    public class ApiResponse<T>
     {
         /// <summary>
-        /// File extension
+        /// Gets or sets the status code (HTTP status code)
         /// </summary>
-        /// <value>File extension</value>
-        [DataMember(Name="Extension", EmitDefaultValue=false)]
-        public string Extension { get; set; }
+        /// <value>The status code.</value>
+        public int StatusCode { get; private set; }
 
         /// <summary>
-        /// File format
+        /// Gets or sets the HTTP headers
         /// </summary>
-        /// <value>File format</value>
-        [DataMember(Name="FileFormat", EmitDefaultValue=false)]
-        public string FileFormat { get; set; }
+        /// <value>HTTP headers</value>
+        public IDictionary<string, string> Headers { get; private set; }
 
         /// <summary>
-        /// Returns the string presentation of the object
+        /// Gets or sets the data (parsed HTTP body)
         /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append("class Format {\n");
-            sb.Append("  Extension: ").Append(Extension).Append("\n");
-            sb.Append("  FileFormat: ").Append(FileFormat).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-  
+        /// <value>The data.</value>
+        public T Data { get; private set; }
+
         /// <summary>
-        /// Returns the JSON string presentation of the object
+        /// Initializes a new instance of the <see cref="ApiResponse&lt;T&gt;" /> class.
         /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        /// <param name="statusCode">HTTP status code.</param>
+        /// <param name="headers">HTTP headers.</param>
+        /// <param name="data">Data (parsed HTTP body)</param>
+        public ApiResponse(int statusCode, IDictionary<string, string> headers, T data)
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            this.StatusCode= statusCode;
+            this.Headers = headers;
+            this.Data = data;
         }
     }
-} 
+}

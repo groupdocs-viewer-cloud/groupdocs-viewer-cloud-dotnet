@@ -23,49 +23,69 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// View result information
-    /// </summary>  
-    public class ViewResult 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class ViewResult
+    {
         /// <summary>
         /// View result pages
-        /// </summary>  
+        /// </summary>
+        /// <value>View result pages</value>
+        [DataMember(Name="Pages", EmitDefaultValue=false)]
         public List<PageView> Pages { get; set; }
 
         /// <summary>
         /// Attachments
-        /// </summary>  
+        /// </summary>
+        /// <value>Attachments</value>
+        [DataMember(Name="Attachments", EmitDefaultValue=false)]
         public List<AttachmentView> Attachments { get; set; }
 
         /// <summary>
         /// ULR to retrieve file.
-        /// </summary>  
+        /// </summary>
+        /// <value>ULR to retrieve file.</value>
+        [DataMember(Name="File", EmitDefaultValue=false)]
         public Resource File { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ViewResult {\n");
-          sb.Append("  Pages: ").Append(this.Pages).Append("\n");
-          sb.Append("  Attachments: ").Append(this.Attachments).Append("\n");
-          sb.Append("  File: ").Append(this.File).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ViewResult {\n");
+            sb.Append("  Pages: ").Append(Pages).Append("\n");
+            sb.Append("  Attachments: ").Append(Attachments).Append("\n");
+            sb.Append("  File: ").Append(File).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

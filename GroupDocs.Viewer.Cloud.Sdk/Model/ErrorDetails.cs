@@ -23,43 +23,61 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// The error details
-    /// </summary>  
-    public class ErrorDetails 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class ErrorDetails
+    {
         /// <summary>
         /// The request id
-        /// </summary>  
+        /// </summary>
+        /// <value>The request id</value>
+        [DataMember(Name="RequestId", EmitDefaultValue=false)]
         public string RequestId { get; set; }
 
         /// <summary>
         /// Date
-        /// </summary>  
+        /// </summary>
+        /// <value>Date</value>
+        [DataMember(Name="Date", EmitDefaultValue=false)]
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ErrorDetails {\n");
-          sb.Append("  RequestId: ").Append(this.RequestId).Append("\n");
-          sb.Append("  Date: ").Append(this.Date).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ErrorDetails {\n");
+            sb.Append("  RequestId: ").Append(RequestId).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

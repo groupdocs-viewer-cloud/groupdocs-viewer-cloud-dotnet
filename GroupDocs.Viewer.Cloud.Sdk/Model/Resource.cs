@@ -23,43 +23,66 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using JsonSubTypes;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Reference to resource
-    /// </summary>  
-    public class Resource 
-    {                       
+    /// </summary>
+    [DataContract]
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
+    [JsonSubtypes.KnownSubType(typeof(PageView), "PageView")]
+    [JsonSubtypes.KnownSubType(typeof(AttachmentView), "AttachmentView")]
+    [JsonSubtypes.KnownSubType(typeof(HtmlResource), "HtmlResource")]
+    public partial class Resource
+    {
         /// <summary>
         /// Path of resource file in storage
-        /// </summary>  
+        /// </summary>
+        /// <value>Path of resource file in storage</value>
+        [DataMember(Name="Path", EmitDefaultValue=false)]
         public string Path { get; set; }
 
         /// <summary>
         /// ULR to retrieve resource.
-        /// </summary>  
+        /// </summary>
+        /// <value>ULR to retrieve resource.</value>
+        [DataMember(Name="DownloadUrl", EmitDefaultValue=false)]
         public string DownloadUrl { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Resource {\n");
-          sb.Append("  Path: ").Append(this.Path).Append("\n");
-          sb.Append("  DownloadUrl: ").Append(this.DownloadUrl).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Resource {\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  DownloadUrl: ").Append(DownloadUrl).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

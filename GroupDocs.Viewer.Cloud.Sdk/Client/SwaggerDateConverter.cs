@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="FilesList.cs">
+// <copyright company="Aspose Pty Ltd" file="SwaggerDateConverter.cs">
 //  Copyright (c) 2003-2019 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -23,53 +23,23 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model
+namespace GroupDocs.Viewer.Cloud.Sdk.Client
 {
     /// <summary>
-    /// Files list
+    /// Formatter for 'date' swagger formats as defined by full-date - RFC3339
+    /// see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types
     /// </summary>
-    [DataContract]
-    public partial class FilesList
+    public class SwaggerDateConverter : IsoDateTimeConverter
     {
         /// <summary>
-        /// Files and folders contained by folder StorageFile.
+        /// Initializes a new instance of the <see cref="SwaggerDateConverter" /> class.
         /// </summary>
-        /// <value>Files and folders contained by folder StorageFile.</value>
-        [DataMember(Name="Value", EmitDefaultValue=false)]
-        public List<StorageFile> Value { get; set; }
-
-        /// <summary>
-        /// Returns the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
-        public override string ToString()
+        public SwaggerDateConverter()
         {
-            var sb = new StringBuilder();
-            sb.Append("class FilesList {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
-        }
-  
-        /// <summary>
-        /// Returns the JSON string presentation of the object
-        /// </summary>
-        /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
-        {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            // full-date   = date-fullyear "-" date-month "-" date-mday
+            DateTimeFormat = "yyyy-MM-dd";
         }
     }
-} 
+}

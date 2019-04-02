@@ -48,7 +48,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [Test]
-        public void TestStorageExist()
+        public void TestGetIsStorageExist()
         {
             // Arrange
             var request = new StorageExistsRequest {storageName = StorageName};
@@ -75,7 +75,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [Test]
-        public void TestObjectExists()
+        public void TestGetObjectExists()
         {
             // Arrange
             var testFile = TestFiles.OnePageDocx;

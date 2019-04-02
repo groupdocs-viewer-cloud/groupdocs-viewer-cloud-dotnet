@@ -23,43 +23,61 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Object exists
-    /// </summary>  
-    public class ObjectExist 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class ObjectExist
+    {
         /// <summary>
         /// Indicates that the file or folder exists.
-        /// </summary>  
+        /// </summary>
+        /// <value>Indicates that the file or folder exists.</value>
+        [DataMember(Name="Exists", EmitDefaultValue=false)]
         public bool? Exists { get; set; }
 
         /// <summary>
         /// True if it is a folder, false if it is a file.
-        /// </summary>  
+        /// </summary>
+        /// <value>True if it is a folder, false if it is a file.</value>
+        [DataMember(Name="IsFolder", EmitDefaultValue=false)]
         public bool? IsFolder { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ObjectExist {\n");
-          sb.Append("  Exists: ").Append(this.Exists).Append("\n");
-          sb.Append("  IsFolder: ").Append(this.IsFolder).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ObjectExist {\n");
+            sb.Append("  Exists: ").Append(Exists).Append("\n");
+            sb.Append("  IsFolder: ").Append(IsFolder).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

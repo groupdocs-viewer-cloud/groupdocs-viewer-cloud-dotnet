@@ -23,55 +23,77 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Page information
-    /// </summary>  
-    public class PageInfo 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class PageInfo
+    {
         /// <summary>
         /// Page number
-        /// </summary>  
+        /// </summary>
+        /// <value>Page number</value>
+        [DataMember(Name="Number", EmitDefaultValue=false)]
         public int? Number { get; set; }
 
         /// <summary>
         /// Image Page width
-        /// </summary>  
+        /// </summary>
+        /// <value>Image Page width</value>
+        [DataMember(Name="Width", EmitDefaultValue=false)]
         public int? Width { get; set; }
 
         /// <summary>
         /// Image Page height
-        /// </summary>  
+        /// </summary>
+        /// <value>Image Page height</value>
+        [DataMember(Name="Height", EmitDefaultValue=false)]
         public int? Height { get; set; }
 
         /// <summary>
         /// Image Page rows
-        /// </summary>  
+        /// </summary>
+        /// <value>Image Page rows</value>
+        [DataMember(Name="Rows", EmitDefaultValue=false)]
         public List<Row> Rows { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class PageInfo {\n");
-          sb.Append("  Number: ").Append(this.Number).Append("\n");
-          sb.Append("  Width: ").Append(this.Width).Append("\n");
-          sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("  Rows: ").Append(this.Rows).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class PageInfo {\n");
+            sb.Append("  Number: ").Append(Number).Append("\n");
+            sb.Append("  Width: ").Append(Width).Append("\n");
+            sb.Append("  Height: ").Append(Height).Append("\n");
+            sb.Append("  Rows: ").Append(Rows).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

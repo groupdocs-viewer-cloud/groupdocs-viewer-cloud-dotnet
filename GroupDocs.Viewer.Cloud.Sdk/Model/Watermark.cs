@@ -23,55 +23,77 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// Text watermark
-    /// </summary>  
-    public class Watermark 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class Watermark
+    {
         /// <summary>
         /// Watermark text.
-        /// </summary>  
+        /// </summary>
+        /// <value>Watermark text.</value>
+        [DataMember(Name="Text", EmitDefaultValue=false)]
         public string Text { get; set; }
 
         /// <summary>
-        /// Watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \"Red\".
-        /// </summary>  
+        /// Watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \&quot;Red\&quot;.
+        /// </summary>
+        /// <value>Watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \&quot;Red\&quot;.</value>
+        [DataMember(Name="Color", EmitDefaultValue=false)]
         public string Color { get; set; }
 
         /// <summary>
-        /// Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \"Diagonal\".
-        /// </summary>  
+        /// Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \&quot;Diagonal\&quot;.
+        /// </summary>
+        /// <value>Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \&quot;Diagonal\&quot;.</value>
+        [DataMember(Name="Position", EmitDefaultValue=false)]
         public string Position { get; set; }
 
         /// <summary>
         /// Watermark size in percents. Default value is 100.
-        /// </summary>  
+        /// </summary>
+        /// <value>Watermark size in percents. Default value is 100.</value>
+        [DataMember(Name="Size", EmitDefaultValue=false)]
         public int? Size { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Watermark {\n");
-          sb.Append("  Text: ").Append(this.Text).Append("\n");
-          sb.Append("  Color: ").Append(this.Color).Append("\n");
-          sb.Append("  Position: ").Append(this.Position).Append("\n");
-          sb.Append("  Size: ").Append(this.Size).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Watermark {\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Color: ").Append(Color).Append("\n");
+            sb.Append("  Position: ").Append(Position).Append("\n");
+            sb.Append("  Size: ").Append(Size).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

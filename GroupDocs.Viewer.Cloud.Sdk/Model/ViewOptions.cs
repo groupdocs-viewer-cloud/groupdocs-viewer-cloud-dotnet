@@ -23,94 +23,124 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace GroupDocs.Viewer.Cloud.Sdk.Model 
+using System;
+using System.Linq;
+using System.IO;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SwaggerDateConverter = GroupDocs.Viewer.Cloud.Sdk.Client.SwaggerDateConverter;
+
+namespace GroupDocs.Viewer.Cloud.Sdk.Model
 {
-    using System;  
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    using System.Text;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    
     /// <summary>
     /// View options
-    /// </summary>  
-    public class ViewOptions 
-    {                       
+    /// </summary>
+    [DataContract]
+    public partial class ViewOptions
+    {
         /// <summary>
         /// View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.
         /// </summary>
         /// <value>View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ViewFormatEnum
-        { 
+        {
+            
             /// <summary>
             /// Enum HTML for "HTML"
-            /// </summary>            
+            /// </summary>
+            [EnumMember(Value = "HTML")]
             HTML,
             
             /// <summary>
             /// Enum PNG for "PNG"
-            /// </summary>            
+            /// </summary>
+            [EnumMember(Value = "PNG")]
             PNG,
             
             /// <summary>
             /// Enum JPG for "JPG"
-            /// </summary>            
+            /// </summary>
+            [EnumMember(Value = "JPG")]
             JPG,
             
             /// <summary>
             /// Enum BMP for "BMP"
-            /// </summary>            
+            /// </summary>
+            [EnumMember(Value = "BMP")]
             BMP,
             
             /// <summary>
             /// Enum PDF for "PDF"
-            /// </summary>            
-            PDF            
+            /// </summary>
+            [EnumMember(Value = "PDF")]
+            PDF
         }
 
         /// <summary>
         /// View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.
         /// </summary>
-        public ViewFormatEnum? ViewFormat { get; set; }
-
+        /// <value>View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.</value>
+        [DataMember(Name="ViewFormat", EmitDefaultValue=false)]
+        public ViewFormatEnum ViewFormat { get; set; }
         /// <summary>
         /// File info
-        /// </summary>  
+        /// </summary>
+        /// <value>File info</value>
+        [DataMember(Name="FileInfo", EmitDefaultValue=false)]
         public FileInfo FileInfo { get; set; }
+
 
         /// <summary>
         /// The path to directory containing custom fonts in storage
-        /// </summary>  
+        /// </summary>
+        /// <value>The path to directory containing custom fonts in storage</value>
+        [DataMember(Name="FontsPath", EmitDefaultValue=false)]
         public string FontsPath { get; set; }
 
         /// <summary>
         /// Text watermark
-        /// </summary>  
+        /// </summary>
+        /// <value>Text watermark</value>
+        [DataMember(Name="Watermark", EmitDefaultValue=false)]
         public Watermark Watermark { get; set; }
 
         /// <summary>
         /// Rendering options
-        /// </summary>  
+        /// </summary>
+        /// <value>Rendering options</value>
+        [DataMember(Name="RenderOptions", EmitDefaultValue=false)]
         public RenderOptions RenderOptions { get; set; }
 
         /// <summary>
-        /// Get the string presentation of the object
+        /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
-        public override string ToString()  
+        public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ViewOptions {\n");
-          sb.Append("  FileInfo: ").Append(this.FileInfo).Append("\n");
-          sb.Append("  ViewFormat: ").Append(this.ViewFormat).Append("\n");
-          sb.Append("  FontsPath: ").Append(this.FontsPath).Append("\n");
-          sb.Append("  Watermark: ").Append(this.Watermark).Append("\n");
-          sb.Append("  RenderOptions: ").Append(this.RenderOptions).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ViewOptions {\n");
+            sb.Append("  FileInfo: ").Append(FileInfo).Append("\n");
+            sb.Append("  ViewFormat: ").Append(ViewFormat).Append("\n");
+            sb.Append("  FontsPath: ").Append(FontsPath).Append("\n");
+            sb.Append("  Watermark: ").Append(Watermark).Append("\n");
+            sb.Append("  RenderOptions: ").Append(RenderOptions).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+  
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     }
-}
+} 

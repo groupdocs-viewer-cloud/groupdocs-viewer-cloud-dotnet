@@ -23,22 +23,231 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using RestSharp.Portable;
+using GroupDocs.Viewer.Cloud.Sdk.Client;
+using GroupDocs.Viewer.Cloud.Sdk.Model;
+using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
+
 namespace GroupDocs.Viewer.Cloud.Sdk.Api
 {
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
-    using GroupDocs.Viewer.Cloud.Sdk.Client;
-    using GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers;
-    using GroupDocs.Viewer.Cloud.Sdk.Model;
-    using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
-    
     /// <summary>
-    /// GroupDocs.Viewer Cloud API.
+    /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public class StorageApi
-    {        
-        private readonly ApiInvoker apiInvoker;
-        private readonly Configuration configuration;     
+    public interface IStorageApi
+    {
+        #region Synchronous Operations
+        /// <summary>
+        /// Get disc usage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>DiscUsage</returns>
+        DiscUsage GetDiscUsage(GetDiscUsageRequest request);
+
+        /// <summary>
+        /// Get disc usage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of DiscUsage</returns>
+        ApiResponse<DiscUsage> GetDiscUsageWithHttpInfo (GetDiscUsageRequest request);
+        /// <summary>
+        /// Get file versions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>FileVersions</returns>
+        FileVersions GetFileVersions(GetFileVersionsRequest request);
+
+        /// <summary>
+        /// Get file versions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of FileVersions</returns>
+        ApiResponse<FileVersions> GetFileVersionsWithHttpInfo (GetFileVersionsRequest request);
+        /// <summary>
+        /// Check if file or folder exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>ObjectExist</returns>
+        ObjectExist ObjectExists(ObjectExistsRequest request);
+
+        /// <summary>
+        /// Check if file or folder exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>ApiResponse of ObjectExist</returns>
+        ApiResponse<ObjectExist> ObjectExistsWithHttpInfo (ObjectExistsRequest request);
+        /// <summary>
+        /// Check if storage exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>StorageExist</returns>
+        StorageExist StorageExists(StorageExistsRequest request);
+
+        /// <summary>
+        /// Check if storage exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>ApiResponse of StorageExist</returns>
+        ApiResponse<StorageExist> StorageExistsWithHttpInfo (StorageExistsRequest request);
+        #endregion Synchronous Operations
+        #region Asynchronous Operations
+        /// <summary>
+        /// Get disc usage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of DiscUsage</returns>
+        System.Threading.Tasks.Task<DiscUsage> GetDiscUsageAsync(GetDiscUsageRequest request);
+
+        /// <summary>
+        /// Get disc usage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse (DiscUsage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DiscUsage>> GetDiscUsageAsyncWithHttpInfo(GetDiscUsageRequest request);
+        /// <summary>
+        /// Get file versions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of FileVersions</returns>
+        System.Threading.Tasks.Task<FileVersions> GetFileVersionsAsync(GetFileVersionsRequest request);
+
+        /// <summary>
+        /// Get file versions
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse (FileVersions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<FileVersions>> GetFileVersionsAsyncWithHttpInfo(GetFileVersionsRequest request);
+        /// <summary>
+        /// Check if file or folder exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>Task of ObjectExist</returns>
+        System.Threading.Tasks.Task<ObjectExist> ObjectExistsAsync(ObjectExistsRequest request);
+
+        /// <summary>
+        /// Check if file or folder exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>Task of ApiResponse (ObjectExist)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ObjectExist>> ObjectExistsAsyncWithHttpInfo(ObjectExistsRequest request);
+        /// <summary>
+        /// Check if storage exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>Task of StorageExist</returns>
+        System.Threading.Tasks.Task<StorageExist> StorageExistsAsync(StorageExistsRequest request);
+
+        /// <summary>
+        /// Check if storage exists
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>Task of ApiResponse (StorageExist)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StorageExist>> StorageExistsAsyncWithHttpInfo(StorageExistsRequest request);
+        #endregion Asynchronous Operations
+    }
+
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    public partial class StorageApi : IStorageApi
+    {
+        private GroupDocs.Viewer.Cloud.Sdk.Client.ExceptionFactoryDelegate _exceptionFactory = GroupDocs.Viewer.Cloud.Sdk.Client.ExceptionFactory.Default;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.Configuration _configuration;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.ApiClient _apiClient;
+        private GroupDocs.Viewer.Cloud.Sdk.Client.IAuthorization _authorization;
+        private List<Parameter> _defaultParameters = new List<Parameter>
+        {
+            new Parameter
+            {
+                Type = ParameterType.HttpHeader,
+                Name = "x-groupdocs-client",
+                Value = ".net standard sdk"
+            },
+            new Parameter
+            {
+                Type = ParameterType.HttpHeader,
+                Name = "x-groupdocs-client-version",
+                Value = "19.3.1"
+            }
+        };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageApi"/> class.
@@ -51,160 +260,586 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StorageApi"/> class.
-        /// </summary>    
-        /// <param name="configuration">Configuration settings</param>
+        /// Initializes a new instance of the <see cref="StorageApi"/> class
+        /// using Configuration object
+        /// </summary>
+        /// <param name="configuration">An instance of Configuration</param>
+        /// <returns></returns>
         public StorageApi(Configuration configuration)
         {
-            this.configuration = configuration;
-            
-            var requestHandlers = new List<IRequestHandler>();
-            requestHandlers.Add(new AuthRequestHandler(this.configuration));
-            requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
-            requestHandlers.Add(new ApiExceptionRequestHandler());
-            this.apiInvoker = new ApiInvoker(requestHandlers, this.configuration.Timeout);
-        }                            
+            this._configuration = configuration;
+            this._apiClient = new ApiClient(configuration, _defaultParameters);
+            this._authorization = new Auth(configuration, _defaultParameters);
+        }
 
         /// <summary>
         /// Get disc usage 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
-        /// <returns><see cref="DiscUsage"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>DiscUsage</returns>
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/disc";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "GET", 
-                null, 
-                null, 
-                null);
+             ApiResponse<DiscUsage> localVarResponse = GetDiscUsageWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Get disc usage 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of DiscUsage</returns>
+        public ApiResponse<DiscUsage> GetDiscUsageWithHttpInfo(GetDiscUsageRequest request)
+        {
+
+            var localVarPath = "./viewer/storage/disc";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                return (DiscUsage)SerializationHelper.Deserialize(response, typeof(DiscUsage));
+                Exception exception = _exceptionFactory("GetDiscUsage", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<DiscUsage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (DiscUsage) _apiClient.Deserialize(localVarResponse, typeof(DiscUsage)));
+        }
+
+        /// <summary>
+        /// Get disc usage 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of DiscUsage</returns>
+        public async System.Threading.Tasks.Task<DiscUsage> GetDiscUsageAsync(GetDiscUsageRequest request)
+        {
+             ApiResponse<DiscUsage> localVarResponse = await GetDiscUsageAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get disc usage 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse (DiscUsage)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<DiscUsage>> GetDiscUsageAsyncWithHttpInfo(GetDiscUsageRequest request)
+        {
+
+            var localVarPath = "./viewer/storage/disc";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("GetDiscUsage", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<DiscUsage>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (DiscUsage) _apiClient.Deserialize(localVarResponse, typeof(DiscUsage)));
         }
 
         /// <summary>
         /// Get file versions 
         /// </summary>
-        /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
-        /// <returns><see cref="FileVersions"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>FileVersions</returns>
         public FileVersions GetFileVersions(GetFileVersionsRequest request)
         {
-            // verify the required parameter 'path' is set
-            if (request.path == null) 
+             ApiResponse<FileVersions> localVarResponse = GetFileVersionsWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file versions 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>ApiResponse of FileVersions</returns>
+        public ApiResponse<FileVersions> GetFileVersionsWithHttpInfo(GetFileVersionsRequest request)
+        {
+            // verify the required parameter 'GetFileVersions.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'GetFileVersions.path' when calling StorageApi->GetFileVersions");
+
+            var localVarPath = "./viewer/storage/version/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'path' when calling GetFileVersions");
+                Exception exception = _exceptionFactory("GetFileVersions", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/version/{path}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "GET", 
-                null, 
-                null, 
-                null);
+            return new ApiResponse<FileVersions>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (FileVersions) _apiClient.Deserialize(localVarResponse, typeof(FileVersions)));
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Get file versions 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of FileVersions</returns>
+        public async System.Threading.Tasks.Task<FileVersions> GetFileVersionsAsync(GetFileVersionsRequest request)
+        {
+             ApiResponse<FileVersions> localVarResponse = await GetFileVersionsAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get file versions 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File path e.g. &#39;/file.ext&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <returns>Task of ApiResponse (FileVersions)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<FileVersions>> GetFileVersionsAsyncWithHttpInfo(GetFileVersionsRequest request)
+        {
+            // verify the required parameter 'GetFileVersions.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'GetFileVersions.path' when calling StorageApi->GetFileVersions");
+
+            var localVarPath = "./viewer/storage/version/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                return (FileVersions)SerializationHelper.Deserialize(response, typeof(FileVersions));
+                Exception exception = _exceptionFactory("GetFileVersions", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<FileVersions>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (FileVersions) _apiClient.Deserialize(localVarResponse, typeof(FileVersions)));
         }
 
         /// <summary>
         /// Check if file or folder exists 
         /// </summary>
-        /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
-        /// <returns><see cref="ObjectExist"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>ObjectExist</returns>
         public ObjectExist ObjectExists(ObjectExistsRequest request)
         {
-            // verify the required parameter 'path' is set
-            if (request.path == null) 
+             ApiResponse<ObjectExist> localVarResponse = ObjectExistsWithHttpInfo(request);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check if file or folder exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>ApiResponse of ObjectExist</returns>
+        public ApiResponse<ObjectExist> ObjectExistsWithHttpInfo(ObjectExistsRequest request)
+        {
+            // verify the required parameter 'ObjectExists.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'ObjectExists.path' when calling StorageApi->ObjectExists");
+
+            var localVarPath = "./viewer/storage/exist/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            if (request.versionId != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "versionId", request.versionId)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                throw new ApiException(400, "Missing required parameter 'path' when calling ObjectExists");
+                Exception exception = _exceptionFactory("ObjectExists", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/exist/{path}";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-            
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "GET", 
-                null, 
-                null, 
-                null);
+            return new ApiResponse<ObjectExist>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ObjectExist) _apiClient.Deserialize(localVarResponse, typeof(ObjectExist)));
+        }
 
-            if (response != null)
+        /// <summary>
+        /// Check if file or folder exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>Task of ObjectExist</returns>
+        public async System.Threading.Tasks.Task<ObjectExist> ObjectExistsAsync(ObjectExistsRequest request)
+        {
+             ApiResponse<ObjectExist> localVarResponse = await ObjectExistsAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check if file or folder exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
+        /// <param name="storageName">Storage name (optional)</param>
+        /// <param name="versionId">File version ID (optional)</param>
+        /// <returns>Task of ApiResponse (ObjectExist)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ObjectExist>> ObjectExistsAsyncWithHttpInfo(ObjectExistsRequest request)
+        {
+            // verify the required parameter 'ObjectExists.path' is set
+            if (request.path == null)
+                throw new ApiException(400, "Missing required parameter 'ObjectExists.path' when calling StorageApi->ObjectExists");
+
+            var localVarPath = "./viewer/storage/exist/{path}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.path != null) localVarPathParams.Add("path", _apiClient.ParameterToString(request.path)); // path parameter
+            if (request.storageName != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "storageName", request.storageName)); // query parameter
+            if (request.versionId != null) localVarQueryParams.AddRange(_apiClient.ParameterToKeyValuePairs("", "versionId", request.versionId)); // query parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
             {
-                return (ObjectExist)SerializationHelper.Deserialize(response, typeof(ObjectExist));
+                Exception exception = _exceptionFactory("ObjectExists", localVarResponse);
+                if (exception != null) 
+                    throw exception;
             }
 
-            return null;
+            return new ApiResponse<ObjectExist>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (ObjectExist) _apiClient.Deserialize(localVarResponse, typeof(ObjectExist)));
         }
 
         /// <summary>
         /// Check if storage exists 
         /// </summary>
-        /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
-        /// <returns><see cref="StorageExist"/></returns>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>StorageExist</returns>
         public StorageExist StorageExists(StorageExistsRequest request)
         {
-            // verify the required parameter 'storageName' is set
-            if (request.storageName == null) 
-            {
-                throw new ApiException(400, "Missing required parameter 'storageName' when calling StorageExists");
-            }
-
-            // create path and map variables
-            var resourcePath = this.configuration.GetServerUrl() + "/viewer/storage/{storageName}/exist";
-            resourcePath = Regex
-                        .Replace(resourcePath, "\\*", string.Empty)
-                        .Replace("&amp;", "&")
-                        .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "storageName", request.storageName);
-            
-            var response = this.apiInvoker.InvokeApi(
-                resourcePath, 
-                "GET", 
-                null, 
-                null, 
-                null);
-
-            if (response != null)
-            {
-                return (StorageExist)SerializationHelper.Deserialize(response, typeof(StorageExist));
-            }
-
-            return null;
+             ApiResponse<StorageExist> localVarResponse = StorageExistsWithHttpInfo(request);
+             return localVarResponse.Data;
         }
+
+        /// <summary>
+        /// Check if storage exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>ApiResponse of StorageExist</returns>
+        public ApiResponse<StorageExist> StorageExistsWithHttpInfo(StorageExistsRequest request)
+        {
+            // verify the required parameter 'StorageExists.storageName' is set
+            if (request.storageName == null)
+                throw new ApiException(400, "Missing required parameter 'StorageExists.storageName' when calling StorageApi->StorageExists");
+
+            var localVarPath = "./viewer/storage/{storageName}/exist";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.storageName != null) localVarPathParams.Add("storageName", _apiClient.ParameterToString(request.storageName)); // path parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) _apiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("StorageExists", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<StorageExist>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (StorageExist) _apiClient.Deserialize(localVarResponse, typeof(StorageExist)));
+        }
+
+        /// <summary>
+        /// Check if storage exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>Task of StorageExist</returns>
+        public async System.Threading.Tasks.Task<StorageExist> StorageExistsAsync(StorageExistsRequest request)
+        {
+             ApiResponse<StorageExist> localVarResponse = await StorageExistsAsyncWithHttpInfo(request);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Check if storage exists 
+        /// </summary>
+        /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="storageName">Storage name</param>
+        /// <returns>Task of ApiResponse (StorageExist)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<StorageExist>> StorageExistsAsyncWithHttpInfo(StorageExistsRequest request)
+        {
+            // verify the required parameter 'StorageExists.storageName' is set
+            if (request.storageName == null)
+                throw new ApiException(400, "Missing required parameter 'StorageExists.storageName' when calling StorageApi->StorageExists");
+
+            var localVarPath = "./viewer/storage/{storageName}/exist";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>();
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = _apiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = _apiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (request.storageName != null) localVarPathParams.Add("storageName", _apiClient.ParameterToString(request.storageName)); // path parameter
+            // apply Authorization to header or query parameters
+            _authorization.ApplyToParams(localVarQueryParams, localVarHeaderParams);
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await _apiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (_exceptionFactory != null)
+            {
+                Exception exception = _exceptionFactory("StorageExists", localVarResponse);
+                if (exception != null) 
+                    throw exception;
+            }
+
+            return new ApiResponse<StorageExist>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (StorageExist) _apiClient.Deserialize(localVarResponse, typeof(StorageExist)));
+        }
+
     }
 }
 // --------------------------------------------------------------------------------------------------------------------
@@ -256,7 +891,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
           {
               this.storageName = storageName;
           }
-          
+
           /// <summary>
           /// Storage name
           /// </summary>  
@@ -314,7 +949,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.path = path;
               this.storageName = storageName;
           }
-          
+
           /// <summary>
           /// File path e.g. '/file.ext'
           /// </summary>  
@@ -379,7 +1014,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
               this.storageName = storageName;
               this.versionId = versionId;
           }
-          
+
           /// <summary>
           /// File or folder path e.g. '/file.ext' or '/folder'
           /// </summary>  
@@ -445,7 +1080,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
           {
               this.storageName = storageName;
           }
-          
+
           /// <summary>
           /// Storage name
           /// </summary>  

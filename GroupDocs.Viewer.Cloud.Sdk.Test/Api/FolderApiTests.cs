@@ -31,7 +31,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
     public class FolderApiTests : BaseApiTest
     {
         [Test]
-        public void TestGetFilesList()
+        public void TestGetListFiles()
         {
             // Arrange
             var request = new GetFilesListRequest("cad");
@@ -42,7 +42,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [Test]
-        public void TestCopyMoveFiles()
+        public void TestCopyMoveFolder()
         {
             // Create temp folder
             var cRequest = new CreateFolderRequest("temp");

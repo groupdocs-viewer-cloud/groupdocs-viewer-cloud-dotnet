@@ -23,65 +23,43 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System;
+
 namespace GroupDocs.Viewer.Cloud.Sdk.Client
 {
-    using System;
-
     /// <summary>
     /// Represents a set of configuration settings.
     /// </summary>
     public class Configuration
     {
-        private const string ApiVersion = "/v2.0";
+        private string _apiVersion = "/v2.0";
         private string _apiBaseUrl = "https://api.groupdocs.cloud";
 
         /// <summary>
-        /// Request timeout, default value is 100000 ms 
+        /// Gets or sets the HTTP timeout (milliseconds) of ApiClient. Default to 100000 milliseconds.
         /// </summary>
         public int Timeout { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Configuration" /> class.
-        /// </summary>
-        /// <param name="appSid">Application identifier (App SID)</param>
-        /// <param name="appKey">Application private key (App Key)</param>
-        public Configuration(string appSid, string appKey)
-        {
-            if (string.IsNullOrEmpty(appSid))
-            {
-                throw new ArgumentNullException(nameof(appSid),
-                    "Get your App SID and App Key at https://dashboard.groupdocs.cloud");
-            }
-
-            if (string.IsNullOrEmpty(appKey))
-            {
-                throw new ArgumentNullException(nameof(appKey),
-                    "Get your App SID and App Key at https://dashboard.groupdocs.cloud");
-            }
-
-            AppSid = appSid;
-            AppKey = appKey;
-            Timeout = 100000;
-        }
 
         /// <summary>
         /// Server URL, default value is https://api.groupdocs.cloud
         /// </summary>
         public string ApiBaseUrl
         {
-            get => _apiBaseUrl;
-
+            get
+            {
+                return this._apiBaseUrl;
+            }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    _apiBaseUrl = value.TrimEnd('/');
+                    this._apiBaseUrl = value.TrimEnd('/');
                 }
 
-                _apiBaseUrl = value;
+                this._apiBaseUrl = value;
             }
         }
-
+        
         /// <summary>
         /// Application identifier (App SID)
         /// </summary>
@@ -93,17 +71,37 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
         public string AppKey { get; set; }
 
         /// <summary>
-        /// Enables printing out additional information about each request
+        /// Initializes a new instance of the <see cref="Configuration" /> class.
         /// </summary>
-        public bool DebugMode { get; set; }
+        /// <param name="appSid">Application identifier (App SID)</param>
+        /// <param name="appKey">Application private key (App Key)</param>
+        public Configuration(string appSid, string appKey)
+        {
+            if (string.IsNullOrEmpty(appSid))
+            {
+                throw new ArgumentNullException("appSid",
+                    "Get your App SID and App Key at https://dashboard.groupdocs.cloud");
+            }
+
+            if (string.IsNullOrEmpty(appKey))
+            {
+                throw new ArgumentNullException("appKey",
+                    "Get your App SID and App Key at https://dashboard.groupdocs.cloud");
+            }
+
+            this.AppSid = appSid;
+            this.AppKey = appKey;
+
+            Timeout = 1000 * 100;
+        }
 
         /// <summary>
-        /// Retrieves server URL e.g. https://api.groupdocs.cloud/v1
+        /// Retrieves server URL e.g. https://api.groupdocs.cloud/v2.0
         /// </summary>
         /// <returns>Server URL</returns>
         internal string GetServerUrl()
         {
-            return _apiBaseUrl.TrimEnd('/') + ApiVersion;
+            return _apiBaseUrl.TrimEnd('/') + _apiVersion;
         }
     }
 }
