@@ -337,5 +337,39 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             Assert.AreEqual(1, page.Number);
             Assert.Greater(page.Resources.Count, 0);
         }
+
+        [Test]
+        public void TestCreateViewWithResponsiveOption()
+        {
+            TestCompareOptions(TestFiles.OnePageDocx, new HtmlOptions(), new HtmlOptions { IsResponsive = true });
+        }
+
+        /// <summary>
+        /// Tests create view against two options with compare results
+        /// </summary>
+        private void TestCompareOptions(TestFile testFile, RenderOptions options1, RenderOptions options2)
+        {
+            var viewOptions1 = new ViewOptions
+            {
+                FileInfo = testFile.ToFileInfo(),
+                RenderOptions = options1
+            };            
+            var viewResult1 = ViewerApi.CreateView(new CreateViewRequest(viewOptions1));
+            var response1 = FileApi.DownloadFile(new DownloadFileRequest { path = viewResult1.Pages[0].Path });
+            Assert.Greater(response1.Length, 0);
+
+            Cleanup();
+
+            var viewOptions2 = new ViewOptions
+            {
+                FileInfo = testFile.ToFileInfo(),
+                RenderOptions = options2
+            };
+            var viewResult2 = ViewerApi.CreateView(new CreateViewRequest(viewOptions2));
+            var response2 = FileApi.DownloadFile(new DownloadFileRequest { path = viewResult2.Pages[0].Path });
+            Assert.Greater(response2.Length, 0);
+
+            Assert.AreNotEqual(response1.Length, response2.Length);
+        }
     }
 }

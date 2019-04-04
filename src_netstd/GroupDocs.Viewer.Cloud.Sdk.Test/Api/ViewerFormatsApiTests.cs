@@ -27,7 +27,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 {
     using NUnit.Framework;
 
-    public class FormatsApiTests : BaseApiTest
+    public class ViewerFormatsApiTests : BaseApiTest
     {
         /// <summary>
         /// Test GetSupportedFileFormats

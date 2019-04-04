@@ -58,6 +58,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public string ResourcePath { get; set; }
 
         /// <summary>
+        /// Indicates whether rendering will provide responsive web pages, that look well on different device types. Default value is false.
+        /// </summary>
+        /// <value>Indicates whether rendering will provide responsive web pages, that look well on different device types. Default value is false.</value>
+        [DataMember(Name="IsResponsive", EmitDefaultValue=false)]
+        public bool? IsResponsive { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -68,6 +75,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  ExternalResources: ").Append(ExternalResources).Append("\n");
             sb.Append("  ResourcePath: ").Append(ResourcePath).Append("\n");
+            sb.Append("  IsResponsive: ").Append(IsResponsive).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

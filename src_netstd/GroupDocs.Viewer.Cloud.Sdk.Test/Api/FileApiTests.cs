@@ -50,7 +50,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [Test]
-        public void TestGetDownloadFile()
+        public void TestDownloadFile()
         {
             // Arrange
             var testFile = TestFiles.FourPagesDocx;
@@ -62,7 +62,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [Test]
-        public void TestPutCopyMoveFile()
+        public void TestCopyMoveFile()
         {
             var testFile = TestFiles.FourPagesDocx;
 

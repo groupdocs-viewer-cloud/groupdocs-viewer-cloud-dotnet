@@ -315,7 +315,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             {
                 Type = ParameterType.HttpHeader,
                 Name = "x-groupdocs-client-version",
-                Value = "19.3.1"
+                Value = "19.3.2"
             }
         };
 

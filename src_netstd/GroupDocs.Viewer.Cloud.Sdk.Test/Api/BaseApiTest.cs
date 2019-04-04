@@ -82,7 +82,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             }
         }
 
-        private void Cleanup()
+        protected void Cleanup()
         {
             DeleteFolderFromStorage("viewer");
         }
