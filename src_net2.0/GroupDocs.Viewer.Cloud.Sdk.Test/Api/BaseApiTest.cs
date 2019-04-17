@@ -48,6 +48,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         protected FolderApi FolderApi;
         protected StorageApi StorageApi;
 
+        protected const string DefaultOutputPath = "viewer";
+
         [OneTimeSetUp]
         public void BeforeAllTests()
         {
@@ -65,9 +67,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [TearDown]
-        public void AfterEachTest()
+        public void Cleanup()
         {
-            Cleanup();
+            DeleteFolderFromStorage(DefaultOutputPath);
         }
 
         private void UploadTestFiles()
@@ -82,12 +84,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             }
         }
 
-        protected void Cleanup()
-        {
-            DeleteFolderFromStorage("viewer");
-        }
-
-        private void DeleteFolderFromStorage(string folderName)
+        protected void DeleteFolderFromStorage(string folderName)
         {
             var request = new DeleteFolderRequest(folderName, null, true);
             FolderApi.DeleteFolder(request);                        

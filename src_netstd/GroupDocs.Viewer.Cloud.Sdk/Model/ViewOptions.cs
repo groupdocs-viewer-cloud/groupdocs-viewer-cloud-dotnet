@@ -97,6 +97,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
 
 
         /// <summary>
+        /// The output path. Default value is &#39;viewer\\{input file path}_{file extension}\\&#39;
+        /// </summary>
+        /// <value>The output path. Default value is &#39;viewer\\{input file path}_{file extension}\\&#39;</value>
+        [DataMember(Name="OutputPath", EmitDefaultValue=false)]
+        public string OutputPath { get; set; }
+
+        /// <summary>
         /// The path to directory containing custom fonts in storage
         /// </summary>
         /// <value>The path to directory containing custom fonts in storage</value>
@@ -127,6 +134,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
             sb.Append("class ViewOptions {\n");
             sb.Append("  FileInfo: ").Append(FileInfo).Append("\n");
             sb.Append("  ViewFormat: ").Append(ViewFormat).Append("\n");
+            sb.Append("  OutputPath: ").Append(OutputPath).Append("\n");
             sb.Append("  FontsPath: ").Append(FontsPath).Append("\n");
             sb.Append("  Watermark: ").Append(Watermark).Append("\n");
             sb.Append("  RenderOptions: ").Append(RenderOptions).Append("\n");

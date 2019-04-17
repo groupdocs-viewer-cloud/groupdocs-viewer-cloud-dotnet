@@ -40,7 +40,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create new view if it not exists
+        /// Render document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -51,7 +51,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         ViewResult CreateView(CreateViewRequest request);
 
         /// <summary>
-        /// Create new view if it not exists
+        /// Render document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -61,7 +61,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         /// <returns>ApiResponse of ViewResult</returns>
         ApiResponse<ViewResult> CreateViewWithHttpInfo (CreateViewRequest request);
         /// <summary>
-        /// Delete view
+        /// Delete rendered pages
         /// </summary>
         /// <remarks>
         /// 
@@ -72,7 +72,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         void DeleteView(DeleteViewRequest request);
 
         /// <summary>
-        /// Delete view
+        /// Delete rendered pages
         /// </summary>
         /// <remarks>
         /// 
@@ -82,7 +82,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteViewWithHttpInfo (DeleteViewRequest request);
         /// <summary>
-        /// Get information about view
+        /// Retrieve information about document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -93,7 +93,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         InfoResult GetInfo(GetInfoRequest request);
 
         /// <summary>
-        /// Get information about view
+        /// Retrieve information about document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -103,7 +103,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         /// <returns>ApiResponse of InfoResult</returns>
         ApiResponse<InfoResult> GetInfoWithHttpInfo (GetInfoRequest request);
         /// <summary>
-        /// Get supported file formats
+        /// List supported file formats
         /// </summary>
         /// <remarks>
         /// 
@@ -113,7 +113,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         FormatsResult GetSupportedFileFormats();
 
         /// <summary>
-        /// Get supported file formats
+        /// List supported file formats
         /// </summary>
         /// <remarks>
         /// 
@@ -124,7 +124,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create new view if it not exists
+        /// Render document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -135,7 +135,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         System.Threading.Tasks.Task<ViewResult> CreateViewAsync(CreateViewRequest request);
 
         /// <summary>
-        /// Create new view if it not exists
+        /// Render document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -145,7 +145,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         /// <returns>Task of ApiResponse (ViewResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<ViewResult>> CreateViewAsyncWithHttpInfo(CreateViewRequest request);
         /// <summary>
-        /// Delete view
+        /// Delete rendered pages
         /// </summary>
         /// <remarks>
         /// 
@@ -156,7 +156,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         System.Threading.Tasks.Task DeleteViewAsync(DeleteViewRequest request);
 
         /// <summary>
-        /// Delete view
+        /// Delete rendered pages
         /// </summary>
         /// <remarks>
         /// 
@@ -166,7 +166,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteViewAsyncWithHttpInfo(DeleteViewRequest request);
         /// <summary>
-        /// Get information about view
+        /// Retrieve information about document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -177,7 +177,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         System.Threading.Tasks.Task<InfoResult> GetInfoAsync(GetInfoRequest request);
 
         /// <summary>
-        /// Get information about view
+        /// Retrieve information about document pages
         /// </summary>
         /// <remarks>
         /// 
@@ -187,7 +187,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         /// <returns>Task of ApiResponse (InfoResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<InfoResult>> GetInfoAsyncWithHttpInfo(GetInfoRequest request);
         /// <summary>
-        /// Get supported file formats
+        /// List supported file formats
         /// </summary>
         /// <remarks>
         /// 
@@ -197,7 +197,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         System.Threading.Tasks.Task<FormatsResult> GetSupportedFileFormatsAsync();
 
         /// <summary>
-        /// Get supported file formats
+        /// List supported file formats
         /// </summary>
         /// <remarks>
         /// 
@@ -229,7 +229,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
             {
                 Type = ParameterType.HttpHeader,
                 Name = "x-groupdocs-client-version",
-                Value = "19.3.2"
+                Value = "19.4"
             }
         };
 
@@ -257,7 +257,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Create new view if it not exists 
+        /// Render document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -269,7 +269,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Create new view if it not exists 
+        /// Render document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -333,7 +333,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Create new view if it not exists 
+        /// Render document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -346,7 +346,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Create new view if it not exists 
+        /// Render document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -410,7 +410,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Delete view 
+        /// Delete rendered pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteViewOptions">Delete options</param>
@@ -421,7 +421,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Delete view 
+        /// Delete rendered pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteViewOptions">Delete options</param>
@@ -485,7 +485,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Delete view 
+        /// Delete rendered pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteViewOptions">Delete options</param>
@@ -497,7 +497,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Delete view 
+        /// Delete rendered pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteViewOptions">Delete options</param>
@@ -561,7 +561,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get information about view 
+        /// Retrieve information about document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -573,7 +573,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get information about view 
+        /// Retrieve information about document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -637,7 +637,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get information about view 
+        /// Retrieve information about document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -650,7 +650,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get information about view 
+        /// Retrieve information about document pages 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="viewOptions">View options</param>
@@ -714,7 +714,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get supported file formats 
+        /// List supported file formats 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>FormatsResult</returns>
@@ -725,7 +725,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get supported file formats 
+        /// List supported file formats 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of FormatsResult</returns>
@@ -777,7 +777,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get supported file formats 
+        /// List supported file formats 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of FormatsResult</returns>
@@ -789,7 +789,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get supported file formats 
+        /// List supported file formats 
         /// </summary>
         /// <exception cref="GroupDocs.Viewer.Cloud.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (FormatsResult)</returns>

@@ -60,6 +60,7 @@ OpenAPI spec version: 1.0
     <Compile Include="Api\ViewerDeleteViewApiTests.cs" />
     <Compile Include="Api\ViewerCreateViewApiTests.cs" />
     <Compile Include="Api\ViewerGetInfoApiTests.cs" />
+    <Compile Include="Api\ViewerOutputPathTests.cs" />
     <Compile Include="Config.cs" />
   </ItemGroup>
   <ItemGroup>

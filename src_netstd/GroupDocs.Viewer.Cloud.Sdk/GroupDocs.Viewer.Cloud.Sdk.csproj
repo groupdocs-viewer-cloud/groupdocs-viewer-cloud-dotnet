@@ -4,7 +4,7 @@
     <ProjectGuid>{811E0D0A-FEDF-4DF6-8D62-C9E566214004}</ProjectGuid>
     <RootNamespace>GroupDocs.Viewer.Cloud.Sdk</RootNamespace>
     <AssemblyName>GroupDocs.Viewer.Cloud.Sdk</AssemblyName>
-    <Version>19.3.2</Version>
+    <Version>19.4</Version>
     <Copyright>Copyright Aspose Pty Ltd</Copyright>
     <Company>Aspose Pty Ltd</Company>
     <Authors>Aspose Pty Ltd</Authors>

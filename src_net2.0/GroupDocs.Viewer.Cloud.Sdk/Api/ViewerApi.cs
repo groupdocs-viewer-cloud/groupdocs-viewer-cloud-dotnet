@@ -66,7 +66,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }                            
 
         /// <summary>
-        /// Create new view if it not exists 
+        /// Render document pages 
         /// </summary>
         /// <param name="request">Request. <see cref="CreateViewRequest" /></param>
         /// <returns><see cref="ViewResult"/></returns>
@@ -101,7 +101,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Delete view 
+        /// Delete rendered pages 
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteViewRequest" /></param>
         public void DeleteView(DeleteViewRequest request)
@@ -128,7 +128,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get information about view 
+        /// Retrieve information about document pages 
         /// </summary>
         /// <param name="request">Request. <see cref="GetInfoRequest" /></param>
         /// <returns><see cref="InfoResult"/></returns>
@@ -163,7 +163,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Get supported file formats 
+        /// List supported file formats 
         /// </summary>
         /// <returns><see cref="FormatsResult"/></returns>
         public FormatsResult GetSupportedFileFormats()
