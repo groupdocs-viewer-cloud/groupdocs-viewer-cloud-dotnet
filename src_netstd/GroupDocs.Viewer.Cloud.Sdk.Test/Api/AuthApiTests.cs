@@ -47,11 +47,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 ApiBaseUrl = Config.ApiBaseUrl
             };
 
-            var viewerApi = new ViewerApi(viewerConfig);
+            var infoApi = new InfoApi(viewerConfig);
 
             var ex = Assert.Throws<AggregateException>(() =>
             {
-                viewerApi.GetSupportedFileFormats();
+                infoApi.GetSupportedFileFormats();
             });
 
             Assert.AreEqual("One or more errors occurred. ({\"error\":\"invalid_client\"})", ex.Message);
@@ -71,11 +71,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 ApiBaseUrl = Config.ApiBaseUrl
             };
 
-            var viewerApi = new ViewerApi(viewerConfig);
+            var infoApi = new InfoApi(viewerConfig);
 
             var ex = Assert.Throws<AggregateException>(() =>
             {
-                viewerApi.GetSupportedFileFormats();
+                infoApi.GetSupportedFileFormats();
             });
 
             Assert.AreEqual("One or more errors occurred. ({\"error\":\"invalid_client\"})", ex.Message);

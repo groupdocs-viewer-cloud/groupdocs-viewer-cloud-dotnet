@@ -86,8 +86,9 @@
   <ItemGroup>
     <Compile Include="Api\FileApi.cs" />
     <Compile Include="Api\FolderApi.cs" />
+    <Compile Include="Api\InfoApi.cs" />
     <Compile Include="Api\StorageApi.cs" />
-    <Compile Include="Api\ViewerApi.cs" />
+    <Compile Include="Api\ViewApi.cs" />
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiInvoker.cs" />
     <Compile Include="Client\Configuration.cs" />

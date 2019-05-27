@@ -46,7 +46,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 ApiBaseUrl = Config.ApiBaseUrl
             };
 
-            var viewerApi = new ViewerApi(viewerConfig);
+            var viewerApi = new InfoApi(viewerConfig);
 
             var ex = Assert.Throws<ApiException>(() =>
             {
@@ -70,7 +70,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 ApiBaseUrl = Config.ApiBaseUrl
             };
 
-            var viewerApi = new ViewerApi(viewerConfig);
+            var viewerApi = new InfoApi(viewerConfig);
 
             var ex = Assert.Throws<ApiException>(() =>
             {

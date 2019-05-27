@@ -43,7 +43,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         private readonly string _appKey = Config.AppKey;
         private readonly string _apiBaseUrl = Config.ApiBaseUrl;
 
-        protected ViewerApi ViewerApi;
+        protected InfoApi InfoApi;
+        protected ViewApi ViewApi;
         protected FileApi FileApi;
         protected FolderApi FolderApi;
         protected StorageApi StorageApi;
@@ -58,7 +59,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 ApiBaseUrl = _apiBaseUrl
             };
 
-            ViewerApi = new ViewerApi(config);
+            InfoApi = new InfoApi(config);
+            ViewApi = new ViewApi(config);
             FileApi = new FileApi(config);
             FolderApi = new FolderApi(config);
             StorageApi = new StorageApi(config);

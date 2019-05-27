@@ -24,7 +24,7 @@ namespace Example
             var appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
             var appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
-            var api = new ViewerApi(appSid, appKey);
+            var api = new InfoApi(appSid, appKey);
 
             try
             {

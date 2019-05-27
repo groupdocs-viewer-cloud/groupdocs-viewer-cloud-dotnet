@@ -35,7 +35,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         [Test]
         public void GetSupportedFileFormatsTest()
         {
-            var response = ViewerApi.GetSupportedFileFormats();
+            var response = InfoApi.GetSupportedFileFormats();
 
             Assert.IsTrue(response.Formats.Count > 0);
             foreach (var entry in response.Formats)

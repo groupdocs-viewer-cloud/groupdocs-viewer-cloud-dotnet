@@ -45,7 +45,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 FileInfo = testFile.ToFileInfo(),
             };
             var request = new CreateViewRequest(viewOptions);
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(1, viewResult.Pages.Count);
 
             // Delete view
@@ -54,7 +54,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 FileInfo = testFile.ToFileInfo()
             };
             var deleteRequest = new DeleteViewRequest(deleteOptions);
-            ViewerApi.DeleteView(deleteRequest);
+            ViewApi.DeleteView(deleteRequest);
         }
     }
 }

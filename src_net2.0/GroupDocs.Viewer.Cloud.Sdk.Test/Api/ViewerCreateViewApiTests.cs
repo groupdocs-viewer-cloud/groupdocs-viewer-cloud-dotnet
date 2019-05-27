@@ -43,7 +43,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert    
             Assert.Throws<ApiException>(() => {
-                ViewerApi.CreateView(request);
+                ViewApi.CreateView(request);
             });
         }
 
@@ -59,7 +59,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert
             Assert.Throws<ApiException>(() => {
-                ViewerApi.CreateView(request);
+                ViewApi.CreateView(request);
             });
         }
 
@@ -74,7 +74,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(4, viewResult.Pages.Count);
             Assert.AreEqual(0, viewResult.Attachments.Count);
@@ -98,7 +98,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
             Assert.AreEqual(0, viewResult.Attachments.Count);
@@ -121,7 +121,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
             Assert.AreEqual(0, viewResult.Attachments.Count);
@@ -145,7 +145,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
             Assert.AreEqual(0, viewResult.Attachments.Count);
@@ -170,7 +170,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(3, viewResult.Pages.Count);
         }
@@ -195,7 +195,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(2, viewResult.Pages.Count);
         }
 
@@ -220,7 +220,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(3, viewResult.Pages.Count);
         }
 
@@ -243,7 +243,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(3, viewResult.Pages.Count);
         }
 
@@ -269,7 +269,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(2, viewResult.Pages.Count);
         }
 
@@ -287,7 +287,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(1, viewResult.Pages.Count);
         }
 
@@ -308,7 +308,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.AreEqual(2, viewResult.Pages.Count);
             var page = viewResult.Pages[0];
             Assert.AreEqual(2, page.Number);
@@ -328,7 +328,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
             Assert.AreEqual(0, viewResult.Attachments.Count);
@@ -354,7 +354,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 FileInfo = testFile.ToFileInfo(),
                 RenderOptions = options1
             };            
-            var viewResult1 = ViewerApi.CreateView(new CreateViewRequest(viewOptions1));
+            var viewResult1 = ViewApi.CreateView(new CreateViewRequest(viewOptions1));
             var response1 = FileApi.DownloadFile(new DownloadFileRequest { path = viewResult1.Pages[0].Path });
             Assert.Greater(response1.Length, 0);
 
@@ -365,7 +365,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 FileInfo = testFile.ToFileInfo(),
                 RenderOptions = options2
             };
-            var viewResult2 = ViewerApi.CreateView(new CreateViewRequest(viewOptions2));
+            var viewResult2 = ViewApi.CreateView(new CreateViewRequest(viewOptions2));
             var response2 = FileApi.DownloadFile(new DownloadFileRequest { path = viewResult2.Pages[0].Path });
             Assert.Greater(response2.Length, 0);
 

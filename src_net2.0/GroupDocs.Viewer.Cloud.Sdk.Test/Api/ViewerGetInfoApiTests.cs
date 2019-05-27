@@ -43,7 +43,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert    
             Assert.Throws<ApiException>(() => {
-                ViewerApi.GetInfo(request);
+                InfoApi.GetInfo(request);
             });
         }
 
@@ -59,7 +59,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert
             Assert.Throws<ApiException>(() => {
-                ViewerApi.GetInfo(request);
+                InfoApi.GetInfo(request);
             });
         }
 
@@ -74,7 +74,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
 
             Assert.AreEqual(4, infoResult.Pages.Count);
             Assert.AreEqual(0, infoResult.Attachments.Count);
@@ -93,7 +93,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
 
             Assert.AreEqual(1, infoResult.Pages.Count);
             Assert.AreEqual(0, infoResult.Attachments.Count);
@@ -116,7 +116,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
 
             Assert.AreEqual(1, infoResult.Pages.Count);
             Assert.AreEqual(0, infoResult.Attachments.Count);
@@ -141,7 +141,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
 
             Assert.AreEqual(1, infoResult.Pages.Count);
             Assert.AreEqual(0, infoResult.Attachments.Count);
@@ -167,7 +167,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
 
             Assert.AreEqual(3, infoResult.Pages.Count);
         }
@@ -192,7 +192,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
             Assert.AreEqual(2, infoResult.Pages.Count);
         }
 
@@ -217,7 +217,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
             Assert.AreEqual(3, infoResult.Pages.Count);
         }
 
@@ -240,7 +240,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
             Assert.AreEqual(3, infoResult.Pages.Count);
         }
 
@@ -266,7 +266,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
             Assert.AreEqual(2, infoResult.Pages.Count);
         }
 
@@ -286,7 +286,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new GetInfoRequest(viewOptions);
 
             // Act & Assert
-            var infoResult = ViewerApi.GetInfo(request);
+            var infoResult = InfoApi.GetInfo(request);
 
             Assert.AreEqual(1, infoResult.Pages.Count);
             Assert.AreEqual(0, infoResult.Attachments.Count);

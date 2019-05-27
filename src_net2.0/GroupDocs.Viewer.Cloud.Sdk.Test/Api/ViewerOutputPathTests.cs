@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GroupDocs.Viewer.Cloud.Sdk.Model;
+﻿using GroupDocs.Viewer.Cloud.Sdk.Model;
 using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
 using GroupDocs.Viewer.Cloud.Sdk.Test.Api.Internal;
 using NUnit.Framework;
@@ -27,7 +22,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
 
@@ -49,7 +44,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
 
@@ -72,7 +67,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
 
             Assert.AreEqual(1, viewResult.Pages.Count);
 
@@ -95,7 +90,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            var viewResult = ViewerApi.CreateView(request);
+            var viewResult = ViewApi.CreateView(request);
             Assert.IsTrue(viewResult.File.Path.StartsWith(OutputPath));
         }
 
