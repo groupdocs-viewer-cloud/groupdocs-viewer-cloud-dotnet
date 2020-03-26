@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ViewOptions.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,9 +39,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class ViewOptions 
     {                       
         /// <summary>
-        /// View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.
+        /// View format (HTML, PNG, JPG, or PDF) Default value is HTML.
         /// </summary>
-        /// <value>View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.</value>
+        /// <value>View format (HTML, PNG, JPG, or PDF) Default value is HTML.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ViewFormatEnum
         { 
@@ -61,18 +61,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
             JPG,
             
             /// <summary>
-            /// Enum BMP for "BMP"
-            /// </summary>            
-            BMP,
-            
-            /// <summary>
             /// Enum PDF for "PDF"
             /// </summary>            
             PDF            
         }
 
         /// <summary>
-        /// View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.
+        /// View format (HTML, PNG, JPG, or PDF) Default value is HTML.
         /// </summary>
         public ViewFormatEnum? ViewFormat { get; set; }
 
@@ -82,7 +77,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public FileInfo FileInfo { get; set; }
 
         /// <summary>
-        /// The output path. Default value is 'viewer\\{input file path}_{file extension}\\'
+        /// The output path Default value is 'viewer\\{input file path}_{file extension}\\'
         /// </summary>  
         public string OutputPath { get; set; }
 

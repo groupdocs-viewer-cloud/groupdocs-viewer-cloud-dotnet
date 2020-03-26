@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PageInfo.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,24 +39,29 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class PageInfo 
     {                       
         /// <summary>
-        /// Page number
+        /// The page number
         /// </summary>  
         public int? Number { get; set; }
 
         /// <summary>
-        /// Image Page width
+        /// The width of the page in pixels when viewing as JPG or PNG
         /// </summary>  
         public int? Width { get; set; }
 
         /// <summary>
-        /// Image Page height
+        /// The height of the page in pixels when viewing as JPG or PNG
         /// </summary>  
         public int? Height { get; set; }
 
         /// <summary>
-        /// Image Page rows
+        /// The page visibility indicator
         /// </summary>  
-        public List<Row> Rows { get; set; }
+        public bool? Visible { get; set; }
+
+        /// <summary>
+        /// The lines contained by the page when viewing as JPG or PNG with enabled Text Extraction
+        /// </summary>  
+        public List<Line> Lines { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -69,7 +74,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  Number: ").Append(this.Number).Append("\n");
           sb.Append("  Width: ").Append(this.Width).Append("\n");
           sb.Append("  Height: ").Append(this.Height).Append("\n");
-          sb.Append("  Rows: ").Append(this.Rows).Append("\n");
+          sb.Append("  Visible: ").Append(this.Visible).Append("\n");
+          sb.Append("  Lines: ").Append(this.Lines).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

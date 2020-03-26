@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="SerializationHelper.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,9 +64,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
                     }
                 }
 
-                System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
-                xmlDoc.LoadXml(json);
-                return JsonConvert.SerializeXmlNode(xmlDoc);
+                return null;
             }
             catch (IOException e)
             {

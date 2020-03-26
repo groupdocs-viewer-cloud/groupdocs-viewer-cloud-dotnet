@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="Watermark.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,6 +39,54 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class Watermark 
     {                       
         /// <summary>
+        /// Watermark position. Default value is \&quot;Diagonal\&quot;.
+        /// </summary>
+        /// <value>Watermark position. Default value is \&quot;Diagonal\&quot;.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PositionEnum
+        { 
+            /// <summary>
+            /// Enum Diagonal for "Diagonal"
+            /// </summary>            
+            Diagonal,
+            
+            /// <summary>
+            /// Enum TopLeft for "TopLeft"
+            /// </summary>            
+            TopLeft,
+            
+            /// <summary>
+            /// Enum TopCenter for "TopCenter"
+            /// </summary>            
+            TopCenter,
+            
+            /// <summary>
+            /// Enum TopRight for "TopRight"
+            /// </summary>            
+            TopRight,
+            
+            /// <summary>
+            /// Enum BottomLeft for "BottomLeft"
+            /// </summary>            
+            BottomLeft,
+            
+            /// <summary>
+            /// Enum BottomCenter for "BottomCenter"
+            /// </summary>            
+            BottomCenter,
+            
+            /// <summary>
+            /// Enum BottomRight for "BottomRight"
+            /// </summary>            
+            BottomRight            
+        }
+
+        /// <summary>
+        /// Watermark position. Default value is \&quot;Diagonal\&quot;.
+        /// </summary>
+        public PositionEnum? Position { get; set; }
+
+        /// <summary>
         /// Watermark text.
         /// </summary>  
         public string Text { get; set; }
@@ -47,11 +95,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         /// Watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \"Red\".
         /// </summary>  
         public string Color { get; set; }
-
-        /// <summary>
-        /// Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \"Diagonal\".
-        /// </summary>  
-        public string Position { get; set; }
 
         /// <summary>
         /// Watermark size in percents. Default value is 100.

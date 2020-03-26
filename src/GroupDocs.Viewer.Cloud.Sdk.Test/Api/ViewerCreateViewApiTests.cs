@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -130,7 +130,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             Assert.AreEqual(1, page.Number);
         }
 
-        [TestCase(ViewOptions.ViewFormatEnum.BMP)]
         [TestCase(ViewOptions.ViewFormatEnum.JPG)]
         [TestCase(ViewOptions.ViewFormatEnum.PNG)]
         public void TestCreateViewWithImageViewFormat(ViewOptions.ViewFormatEnum format)
@@ -259,8 +258,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
                 {
                     ProjectManagementOptions = new ProjectManagementOptions
                     {
-                        PageSize = "Unknown",
-                        TimeUnit = "Months",
+                        PageSize = ProjectManagementOptions.PageSizeEnum.Unspecified,
+                        TimeUnit = ProjectManagementOptions.TimeUnitEnum.Months,
                         StartDate = new DateTime(2008, 7, 1),
                         EndDate = new DateTime(2008, 7, 31)
                     }
@@ -270,7 +269,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert
             var viewResult = ViewApi.CreateView(request);
-            Assert.AreEqual(2, viewResult.Pages.Count);
+            Assert.AreEqual(1, viewResult.Pages.Count);
         }
 
         [Test]

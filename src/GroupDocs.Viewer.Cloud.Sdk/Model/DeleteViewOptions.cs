@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeleteViewOptions.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,6 +44,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public FileInfo FileInfo { get; set; }
 
         /// <summary>
+        /// The output path Default value is 'viewer\\{input file path}_{file extension}\\'
+        /// </summary>  
+        public string OutputPath { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -52,6 +57,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           var sb = new StringBuilder();
           sb.Append("class DeleteViewOptions {\n");
           sb.Append("  FileInfo: ").Append(this.FileInfo).Append("\n");
+          sb.Append("  OutputPath: ").Append(this.OutputPath).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

@@ -4,6 +4,26 @@ This repository contains GroupDocs.Viewer Cloud SDK for .NET source code. This S
 ## How to use the SDK?
 The complete source code is available in this repository folder, you can either directly use it in your project via NuGet package manager. For more details, please visit our [documentation website](https://docs.groupdocs.cloud/display/viewercloud/Available+SDKs#AvailableSDKs-.NET).
 
+## Installation
+
+Install GroupDocs.Viewer-Cloud via NuGet
+
+From the command line:
+
+	nuget install GroupDocs.Viewer-Cloud
+
+From Package Manager:
+
+	PM> Install-Package GroupDocs.Viewer-Cloud
+
+From within Visual Studio:
+
+1. Open the Solution Explorer.
+2. Right-click on a project within your solution.
+3. Click on *Manage NuGet Packages...*
+4. Click on the *Browse* tab and search for "GroupDocs.Viewer-Cloud".
+5. Click on the GroupDocs.Viewer-Cloud package, select the appropriate version in the right-tab and click *Install*.
+
 ## Dependencies
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json)
 

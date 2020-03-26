@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="SpreadsheetOptions.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,6 +38,39 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     /// </summary>  
     public class SpreadsheetOptions 
     {                       
+        /// <summary>
+        /// The text overflow mode for rendering spreadsheet documents into HTML
+        /// </summary>
+        /// <value>The text overflow mode for rendering spreadsheet documents into HTML</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TextOverflowModeEnum
+        { 
+            /// <summary>
+            /// Enum Overlay for "Overlay"
+            /// </summary>            
+            Overlay,
+            
+            /// <summary>
+            /// Enum OverlayIfNextIsEmpty for "OverlayIfNextIsEmpty"
+            /// </summary>            
+            OverlayIfNextIsEmpty,
+            
+            /// <summary>
+            /// Enum AutoFitColumn for "AutoFitColumn"
+            /// </summary>            
+            AutoFitColumn,
+            
+            /// <summary>
+            /// Enum HideText for "HideText"
+            /// </summary>            
+            HideText            
+        }
+
+        /// <summary>
+        /// The text overflow mode for rendering spreadsheet documents into HTML
+        /// </summary>
+        public TextOverflowModeEnum? TextOverflowMode { get; set; }
+
         /// <summary>
         /// Allows to enable worksheets pagination. By default one worksheet is rendered into one page.
         /// </summary>  
@@ -94,6 +127,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  RenderHiddenRows: ").Append(this.RenderHiddenRows).Append("\n");
           sb.Append("  RenderHiddenColumns: ").Append(this.RenderHiddenColumns).Append("\n");
           sb.Append("  RenderPrintAreaOnly: ").Append(this.RenderPrintAreaOnly).Append("\n");
+          sb.Append("  TextOverflowMode: ").Append(this.TextOverflowMode).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

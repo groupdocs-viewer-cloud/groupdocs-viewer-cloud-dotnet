@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="HtmlOptions.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,6 +54,21 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? IsResponsive { get; set; }
 
         /// <summary>
+        /// Enables HTML content and HTML resources minification
+        /// </summary>  
+        public bool? Minify { get; set; }
+
+        /// <summary>
+        /// When enabled prevents adding any fonts into HTML document             
+        /// </summary>  
+        public bool? ExcludeFonts { get; set; }
+
+        /// <summary>
+        /// This option is supported for presentations only. The list of font names, to exclude from HTML document             
+        /// </summary>  
+        public List<string> FontsToExclude { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -64,6 +79,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  ExternalResources: ").Append(this.ExternalResources).Append("\n");
           sb.Append("  ResourcePath: ").Append(this.ResourcePath).Append("\n");
           sb.Append("  IsResponsive: ").Append(this.IsResponsive).Append("\n");
+          sb.Append("  Minify: ").Append(this.Minify).Append("\n");
+          sb.Append("  ExcludeFonts: ").Append(this.ExcludeFonts).Append("\n");
+          sb.Append("  FontsToExclude: ").Append(this.FontsToExclude).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

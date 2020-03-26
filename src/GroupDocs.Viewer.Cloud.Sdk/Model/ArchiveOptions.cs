@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="Row.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+// <copyright company="Aspose Pty Ltd" file="ArchiveOptions.cs">
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,44 +34,14 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Page row with text
+    /// Provides options for rendering archive files
     /// </summary>  
-    public class Row 
+    public class ArchiveOptions 
     {                       
         /// <summary>
-        /// Row text
+        /// The folder inside the archive to be rendered
         /// </summary>  
-        public string Text { get; set; }
-
-        /// <summary>
-        /// Row left coordinate
-        /// </summary>  
-        public double? RowLeft { get; set; }
-
-        /// <summary>
-        /// Row top coordinate
-        /// </summary>  
-        public double? RowTop { get; set; }
-
-        /// <summary>
-        /// Row width
-        /// </summary>  
-        public double? RowWidth { get; set; }
-
-        /// <summary>
-        /// Row height
-        /// </summary>  
-        public double? RowHeight { get; set; }
-
-        /// <summary>
-        /// Text coordinates
-        /// </summary>  
-        public List<double?> TextCoordinates { get; set; }
-
-        /// <summary>
-        /// Characters coordinates
-        /// </summary>  
-        public List<double?> CharacterCoordinates { get; set; }
+        public string Folder { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -80,14 +50,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class Row {\n");
-          sb.Append("  Text: ").Append(this.Text).Append("\n");
-          sb.Append("  RowLeft: ").Append(this.RowLeft).Append("\n");
-          sb.Append("  RowTop: ").Append(this.RowTop).Append("\n");
-          sb.Append("  RowWidth: ").Append(this.RowWidth).Append("\n");
-          sb.Append("  RowHeight: ").Append(this.RowHeight).Append("\n");
-          sb.Append("  TextCoordinates: ").Append(this.TextCoordinates).Append("\n");
-          sb.Append("  CharacterCoordinates: ").Append(this.CharacterCoordinates).Append("\n");
+          sb.Append("class ArchiveOptions {\n");
+          sb.Append("  Folder: ").Append(this.Folder).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

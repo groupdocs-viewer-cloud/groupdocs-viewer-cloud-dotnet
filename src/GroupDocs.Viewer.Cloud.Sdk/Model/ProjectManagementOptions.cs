@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ProjectManagementOptions.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +39,90 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class ProjectManagementOptions 
     {                       
         /// <summary>
-        /// The size of the page. Supported values {Unknown|Letter|Ledger|A0|A1|A2|A3}: 1. Unknown - the default, unspecified page size. 2. Letter - the size of the Letter page in points is 792x612. 3. Ledger - the size of the Letter page in points is 1224x792. 4. A0 - the size of the A0 page in points is 3371x2384. 5. A1 - the size of the A1 page in points is 2384x1685. 6. A2 - the size of the A2 page in points is 1684x1190. 7. A3 - the size of the A3 page in points is 1190x842. 8. A4 - the size of the A4 page in points is 842x595.
-        /// </summary>  
-        public string PageSize { get; set; }
+        /// The size of the page.
+        /// </summary>
+        /// <value>The size of the page.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PageSizeEnum
+        { 
+            /// <summary>
+            /// Enum Unspecified for "Unspecified"
+            /// </summary>            
+            Unspecified,
+            
+            /// <summary>
+            /// Enum Letter for "Letter"
+            /// </summary>            
+            Letter,
+            
+            /// <summary>
+            /// Enum Ledger for "Ledger"
+            /// </summary>            
+            Ledger,
+            
+            /// <summary>
+            /// Enum A0 for "A0"
+            /// </summary>            
+            A0,
+            
+            /// <summary>
+            /// Enum A1 for "A1"
+            /// </summary>            
+            A1,
+            
+            /// <summary>
+            /// Enum A2 for "A2"
+            /// </summary>            
+            A2,
+            
+            /// <summary>
+            /// Enum A3 for "A3"
+            /// </summary>            
+            A3,
+            
+            /// <summary>
+            /// Enum A4 for "A4"
+            /// </summary>            
+            A4            
+        }
 
         /// <summary>
-        /// The time unit to use as minimal point. Supported values {Unknown|Days|ThirdsOfMonths|Months}: 1. Unknown - unknown, unspecified time scale. 2. Days - one day interval. 3. ThirdsOfMonths - one third of the month. 4. Months - one month interval.
-        /// </summary>  
-        public string TimeUnit { get; set; }
+        /// The time unit to use as minimal point.
+        /// </summary>
+        /// <value>The time unit to use as minimal point.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TimeUnitEnum
+        { 
+            /// <summary>
+            /// Enum Unspecified for "Unspecified"
+            /// </summary>            
+            Unspecified,
+            
+            /// <summary>
+            /// Enum Days for "Days"
+            /// </summary>            
+            Days,
+            
+            /// <summary>
+            /// Enum ThirdsOfMonths for "ThirdsOfMonths"
+            /// </summary>            
+            ThirdsOfMonths,
+            
+            /// <summary>
+            /// Enum Months for "Months"
+            /// </summary>            
+            Months            
+        }
+
+        /// <summary>
+        /// The size of the page.
+        /// </summary>
+        public PageSizeEnum? PageSize { get; set; }
+
+        /// <summary>
+        /// The time unit to use as minimal point.
+        /// </summary>
+        public TimeUnitEnum? TimeUnit { get; set; }
 
         /// <summary>
         /// The start date of a Gantt Chart View to render.        

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PageRotation.cs">
-//  Copyright (c) 2003-2019 Aspose Pty Ltd
+//  Copyright (c) 2003-2020 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +39,37 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class PageRotation 
     {                       
         /// <summary>
+        /// Rotation angle
+        /// </summary>
+        /// <value>Rotation angle</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RotationAngleEnum
+        { 
+            /// <summary>
+            /// Enum On90Degree for "On90Degree"
+            /// </summary>            
+            On90Degree,
+            
+            /// <summary>
+            /// Enum On180Degree for "On180Degree"
+            /// </summary>            
+            On180Degree,
+            
+            /// <summary>
+            /// Enum On270Degree for "On270Degree"
+            /// </summary>            
+            On270Degree            
+        }
+
+        /// <summary>
+        /// Rotation angle
+        /// </summary>
+        public RotationAngleEnum? RotationAngle { get; set; }
+
+        /// <summary>
         /// Page number to rotate
         /// </summary>  
         public int? PageNumber { get; set; }
-
-        /// <summary>
-        /// Rotation angle, supported values are 90, 180 and 270
-        /// </summary>  
-        public int? RotationAngle { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
