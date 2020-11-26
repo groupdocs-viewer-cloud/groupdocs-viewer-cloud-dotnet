@@ -53,42 +53,32 @@ First create an account at [GroupDocs for Cloud](https://dashboard.groupdocs.clo
 
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json)
 
-## Get a List of Viewable File Formats
+## Add Watermark to DOCX Pages before Rendering
 
 ```csharp
-using System;
-using System.Diagnostics;
-using GroupDocs.Viewer.Cloud.Sdk.Api;
+// For complete examples and data files, please go to https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-dotnet-samples
+// Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+string MyClientSecret = ""; 
+string MyClientId = ""; 
 
-namespace Example
+var configuration = new Configuration(MyClientId, MyClientSecret);
+var apiInstance = new ViewApi(configuration);
+
+var viewOptions = new ViewOptions
 {
-    public class Example
+    FileInfo = new FileInfo
     {
-        public void Main()
-        {
-            //TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
-            var appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-            var appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+        FilePath = "SampleFiles/sample.docx"
+    },
+    ViewFormat = ViewOptions.ViewFormatEnum.HTML,
 
-            var api = new InfoApi(appSid, appKey);
-
-            try
-            {
-                // Get supported file formats
-                var response = api.GetSupportedFileFormats();
-
-                foreach (var format in response.Formats)
-                {
-                    Debug.Print(format.ToString());
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Something went wrong: " + e.Message);
-            }
-        }
+    Watermark = new Watermark
+    {
+        Text = "This is a watermark"
     }
-}
+};
+
+var response = apiInstance.CreateView(new CreateViewRequest(viewOptions));
 ```
 
 ## GroupDocs.Viewer Cloud SDKs in Popular Languages
