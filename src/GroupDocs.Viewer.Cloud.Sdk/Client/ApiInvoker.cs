@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ApiInvoker.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,6 +46,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client
             this.AddDefaultHeader(GroupDocsClientVersionHeaderName, string.Format("{0}.{1}", sdkVersion.Major, sdkVersion.Minor));
             this.requestHandlers = requestHandlers;
             this._timeout = timeout;
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType) (0xc0 | 0x300 | 0xc00);
         }
 
         public string InvokeApi(

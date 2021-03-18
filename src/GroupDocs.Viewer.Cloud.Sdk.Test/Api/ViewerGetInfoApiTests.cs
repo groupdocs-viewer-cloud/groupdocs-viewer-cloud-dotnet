@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -191,7 +191,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert
             var infoResult = InfoApi.GetInfo(request);
-            Assert.AreEqual(2, infoResult.Pages.Count);
+            Assert.AreEqual(3, infoResult.Pages.Count);
         }
 
         [Test]

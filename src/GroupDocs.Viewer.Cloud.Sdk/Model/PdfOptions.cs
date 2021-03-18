@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PdfOptions.cs">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,44 +39,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class PdfOptions : RenderOptions 
     {                       
         /// <summary>
-        /// The PDF document permissions such as printing, modification and data extraction
-        /// </summary>
-        /// <value>The PDF document permissions such as printing, modification and data extraction</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum PermissionsEnum
-        { 
-            /// <summary>
-            /// Enum AllowAll for "AllowAll"
-            /// </summary>            
-            AllowAll,
-            
-            /// <summary>
-            /// Enum DenyPrinting for "DenyPrinting"
-            /// </summary>            
-            DenyPrinting,
-            
-            /// <summary>
-            /// Enum DenyModification for "DenyModification"
-            /// </summary>            
-            DenyModification,
-            
-            /// <summary>
-            /// Enum DenyDataExtraction for "DenyDataExtraction"
-            /// </summary>            
-            DenyDataExtraction,
-            
-            /// <summary>
-            /// Enum DenyAll for "DenyAll"
-            /// </summary>            
-            DenyAll            
-        }
-
-        /// <summary>
-        /// The PDF document permissions such as printing, modification and data extraction
-        /// </summary>
-        public PermissionsEnum? Permissions { get; set; }
-
-        /// <summary>
         /// The quality of the JPG images contained by output PDF document; Valid values are between 1 and 100; Default value is 90
         /// </summary>  
         public int? JpgQuality { get; set; }
@@ -90,6 +52,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         /// The password required to change permission settings; Using a permissions password  you can restrict printing, modification and data extraction
         /// </summary>  
         public string PermissionsPassword { get; set; }
+
+        /// <summary>
+        /// The array of PDF document permissions. Allowed values are: AllowAll, DenyPrinting, DenyModification, DenyDataExtraction, DenyAll Default value is AllowAll, if now permissions are set.
+        /// </summary>  
+        public List<string> Permissions { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object

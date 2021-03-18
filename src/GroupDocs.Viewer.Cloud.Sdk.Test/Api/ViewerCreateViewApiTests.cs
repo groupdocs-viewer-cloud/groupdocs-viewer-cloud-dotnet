@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd">
-//  Copyright (c) 2003-2020 Aspose Pty Ltd
+//  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 using GroupDocs.Viewer.Cloud.Sdk.Client;
 using GroupDocs.Viewer.Cloud.Sdk.Model;
 using GroupDocs.Viewer.Cloud.Sdk.Model.Requests;
@@ -195,7 +196,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
             // Act & Assert
             var viewResult = ViewApi.CreateView(request);
-            Assert.AreEqual(2, viewResult.Pages.Count);
+            Assert.AreEqual(3, viewResult.Pages.Count);
         }
 
         [Test]
@@ -369,6 +370,30 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             Assert.Greater(response2.Length, 0);
 
             Assert.AreNotEqual(response1.Length, response2.Length);
+        }
+
+        [Test]
+        public void TestCreateViewWithPdfViewOptions()
+        {
+            // Arrange
+            var testFile = TestFiles.OnePageDocx;
+            var viewOptions = new ViewOptions
+            {
+                FileInfo = testFile.ToFileInfo(),
+                ViewFormat = ViewOptions.ViewFormatEnum.PDF,
+                RenderOptions = new PdfOptions
+                {
+                    PermissionsPassword = "12345",
+                    Permissions = new List<string> { "DenyPrinting" }
+                }
+            };
+
+            var request = new CreateViewRequest(viewOptions);
+
+            // Act & Assert
+            var viewResult = ViewApi.CreateView(request);
+
+            Assert.NotNull(viewResult.File.DownloadUrl);
         }
     }
 }
