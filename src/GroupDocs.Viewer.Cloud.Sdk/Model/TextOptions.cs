@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="ArchiveOptions.cs">
+// <copyright company="Aspose Pty Ltd" file="TextOptions.cs">
 //  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,24 +34,19 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Provides options for rendering archive files
+    /// Provides options for rendering text documents
     /// </summary>  
-    public class ArchiveOptions 
+    public class TextOptions 
     {                       
         /// <summary>
-        /// The folder inside the archive to be rendered
+        /// Max chars per row on page. Default value is 85.
         /// </summary>  
-        public string Folder { get; set; }
+        public int? MaxCharsPerRow { get; set; }
 
         /// <summary>
-        /// The filename to display in the header. By default the name of the source file is displayed.
+        /// Max rows per page. Default value is 55.
         /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// Number of records per page (for rendering to HTML only)             
-        /// </summary>  
-        public int? ItemsPerPage { get; set; }
+        public int? MaxRowsPerPage { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -60,10 +55,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class ArchiveOptions {\n");
-          sb.Append("  Folder: ").Append(this.Folder).Append("\n");
-          sb.Append("  FileName: ").Append(this.FileName).Append("\n");
-          sb.Append("  ItemsPerPage: ").Append(this.ItemsPerPage).Append("\n");
+          sb.Append("class TextOptions {\n");
+          sb.Append("  MaxCharsPerRow: ").Append(this.MaxCharsPerRow).Append("\n");
+          sb.Append("  MaxRowsPerPage: ").Append(this.MaxRowsPerPage).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="ArchiveOptions.cs">
+// <copyright company="Aspose Pty Ltd" file="VisioRenderingOptions.cs">
 //  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,24 +34,19 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Provides options for rendering archive files
+    /// The Visio files processing documents view options.
     /// </summary>  
-    public class ArchiveOptions 
+    public class VisioRenderingOptions 
     {                       
         /// <summary>
-        /// The folder inside the archive to be rendered
+        /// Render only Visio figures, not a diagram.
         /// </summary>  
-        public string Folder { get; set; }
+        public bool? RenderFiguresOnly { get; set; }
 
         /// <summary>
-        /// The filename to display in the header. By default the name of the source file is displayed.
+        /// Figure width, height will be calculated automatically. Default value is 100.
         /// </summary>  
-        public string FileName { get; set; }
-
-        /// <summary>
-        /// Number of records per page (for rendering to HTML only)             
-        /// </summary>  
-        public int? ItemsPerPage { get; set; }
+        public int? FigureWidth { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -60,10 +55,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class ArchiveOptions {\n");
-          sb.Append("  Folder: ").Append(this.Folder).Append("\n");
-          sb.Append("  FileName: ").Append(this.FileName).Append("\n");
-          sb.Append("  ItemsPerPage: ").Append(this.ItemsPerPage).Append("\n");
+          sb.Append("class VisioRenderingOptions {\n");
+          sb.Append("  RenderFiguresOnly: ").Append(this.RenderFiguresOnly).Append("\n");
+          sb.Append("  FigureWidth: ").Append(this.FigureWidth).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

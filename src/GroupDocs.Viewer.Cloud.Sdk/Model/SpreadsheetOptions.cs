@@ -82,6 +82,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public int? CountRowsPerPage { get; set; }
 
         /// <summary>
+        /// The columns count to include into each page when splitting worksheet into pages.
+        /// </summary>  
+        public int? CountColumnsPerPage { get; set; }
+
+        /// <summary>
         /// Indicates whether to render grid lines
         /// </summary>  
         public bool? RenderGridLines { get; set; }
@@ -107,6 +112,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderHiddenColumns { get; set; }
 
         /// <summary>
+        /// Enables headings rendering.
+        /// </summary>  
+        public bool? RenderHeadings { get; set; }
+
+        /// <summary>
         /// Enables rendering worksheet(s) sections which is defined as print area. Renders each print area in a worksheet as a separate page.
         /// </summary>  
         public bool? RenderPrintAreaOnly { get; set; }
@@ -121,11 +131,13 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("class SpreadsheetOptions {\n");
           sb.Append("  PaginateSheets: ").Append(this.PaginateSheets).Append("\n");
           sb.Append("  CountRowsPerPage: ").Append(this.CountRowsPerPage).Append("\n");
+          sb.Append("  CountColumnsPerPage: ").Append(this.CountColumnsPerPage).Append("\n");
           sb.Append("  RenderGridLines: ").Append(this.RenderGridLines).Append("\n");
           sb.Append("  RenderEmptyRows: ").Append(this.RenderEmptyRows).Append("\n");
           sb.Append("  RenderEmptyColumns: ").Append(this.RenderEmptyColumns).Append("\n");
           sb.Append("  RenderHiddenRows: ").Append(this.RenderHiddenRows).Append("\n");
           sb.Append("  RenderHiddenColumns: ").Append(this.RenderHiddenColumns).Append("\n");
+          sb.Append("  RenderHeadings: ").Append(this.RenderHeadings).Append("\n");
           sb.Append("  RenderPrintAreaOnly: ").Append(this.RenderPrintAreaOnly).Append("\n");
           sb.Append("  TextOverflowMode: ").Append(this.TextOverflowMode).Append("\n");
           sb.Append("}\n");

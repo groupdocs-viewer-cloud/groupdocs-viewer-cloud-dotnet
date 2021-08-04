@@ -124,6 +124,21 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public ArchiveOptions ArchiveOptions { get; set; }
 
         /// <summary>
+        /// Rendering options for Text source file formats
+        /// </summary>  
+        public TextOptions TextOptions { get; set; }
+
+        /// <summary>
+        /// Rendering options for Mail storage (Lotus Notes, MBox) data files.
+        /// </summary>  
+        public MailStorageOptions MailStorageOptions { get; set; }
+
+        /// <summary>
+        /// Rendering options for Visio source file formats
+        /// </summary>  
+        public VisioRenderingOptions VisioRenderingOptions { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,6 +163,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  WordProcessingOptions: ").Append(this.WordProcessingOptions).Append("\n");
           sb.Append("  OutlookOptions: ").Append(this.OutlookOptions).Append("\n");
           sb.Append("  ArchiveOptions: ").Append(this.ArchiveOptions).Append("\n");
+          sb.Append("  TextOptions: ").Append(this.TextOptions).Append("\n");
+          sb.Append("  MailStorageOptions: ").Append(this.MailStorageOptions).Append("\n");
+          sb.Append("  VisioRenderingOptions: ").Append(this.VisioRenderingOptions).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

@@ -97,6 +97,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public List<FieldLabel> FieldLabels { get; set; }
 
         /// <summary>
+        /// Time Format (can be include TimeZone) for example: 'MM d yyyy HH:mm tt', if not set - current system format is used
+        /// </summary>  
+        public string DateTimeFormat { get; set; }
+
+        /// <summary>
+        /// Message time zone offset. Format should be compatible with .net TimeSpan
+        /// </summary>  
+        public string TimeZoneOffset { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +116,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("class EmailOptions {\n");
           sb.Append("  PageSize: ").Append(this.PageSize).Append("\n");
           sb.Append("  FieldLabels: ").Append(this.FieldLabels).Append("\n");
+          sb.Append("  DateTimeFormat: ").Append(this.DateTimeFormat).Append("\n");
+          sb.Append("  TimeZoneOffset: ").Append(this.TimeZoneOffset).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

@@ -59,6 +59,26 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public List<string> Permissions { get; set; }
 
         /// <summary>
+        /// Max width of an output image in pixels. (When converting single image to HTML only)
+        /// </summary>  
+        public int? ImageMaxWidth { get; set; }
+
+        /// <summary>
+        /// Max height of an output image in pixels. (When converting single image to HTML only)
+        /// </summary>  
+        public int? ImageMaxHeight { get; set; }
+
+        /// <summary>
+        /// The width of the output image in pixels. (When converting single image to HTML only)
+        /// </summary>  
+        public int? ImageWidth { get; set; }
+
+        /// <summary>
+        /// The height of an output image in pixels. (When converting single image to HTML only)
+        /// </summary>  
+        public int? ImageHeight { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +90,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  DocumentOpenPassword: ").Append(this.DocumentOpenPassword).Append("\n");
           sb.Append("  PermissionsPassword: ").Append(this.PermissionsPassword).Append("\n");
           sb.Append("  Permissions: ").Append(this.Permissions).Append("\n");
+          sb.Append("  ImageMaxWidth: ").Append(this.ImageMaxWidth).Append("\n");
+          sb.Append("  ImageMaxHeight: ").Append(this.ImageMaxHeight).Append("\n");
+          sb.Append("  ImageWidth: ").Append(this.ImageWidth).Append("\n");
+          sb.Append("  ImageHeight: ").Append(this.ImageHeight).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

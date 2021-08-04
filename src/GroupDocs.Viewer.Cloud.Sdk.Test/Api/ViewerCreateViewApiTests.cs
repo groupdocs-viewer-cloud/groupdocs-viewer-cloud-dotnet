@@ -43,9 +43,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert    
-            Assert.Throws<ApiException>(() => {
+            var ex = Assert.Throws<ApiException>(() => {
                 ViewApi.CreateView(request);
             });
+            Assert.AreEqual("Parameter 'FileInfo' is not specified.", ex.Message);
         }
 
         [Test]
@@ -59,9 +60,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
             var request = new CreateViewRequest(viewOptions);
 
             // Act & Assert
-            Assert.Throws<ApiException>(() => {
+            var ex = Assert.Throws<ApiException>(() => {
                 ViewApi.CreateView(request);
             });
+            Assert.AreEqual("Can't find file located at 'some-folder/NotExist.docx'.", ex.Message);
         }
 
         [Test]

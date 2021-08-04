@@ -59,6 +59,16 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public int? JpegQuality { get; set; }
 
         /// <summary>
+        /// Max width of an output image in pixels
+        /// </summary>  
+        public int? MaxWidth { get; set; }
+
+        /// <summary>
+        /// Max height of an output image in pixels
+        /// </summary>  
+        public int? MaxHeight { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -70,6 +80,8 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  Height: ").Append(this.Height).Append("\n");
           sb.Append("  ExtractText: ").Append(this.ExtractText).Append("\n");
           sb.Append("  JpegQuality: ").Append(this.JpegQuality).Append("\n");
+          sb.Append("  MaxWidth: ").Append(this.MaxWidth).Append("\n");
+          sb.Append("  MaxHeight: ").Append(this.MaxHeight).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

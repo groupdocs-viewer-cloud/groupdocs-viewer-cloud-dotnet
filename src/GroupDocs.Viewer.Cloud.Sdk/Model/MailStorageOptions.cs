@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="ArchiveOptions.cs">
+// <copyright company="Aspose Pty Ltd" file="MailStorageOptions.cs">
 //  Copyright (c) 2003-2021 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,24 +34,24 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Provides options for rendering archive files
+    /// Provides options for rendering Mail storage (Lotus Notes, MBox) data files.
     /// </summary>  
-    public class ArchiveOptions 
+    public class MailStorageOptions 
     {                       
         /// <summary>
-        /// The folder inside the archive to be rendered
+        /// The keywords used to filter messages.
         /// </summary>  
-        public string Folder { get; set; }
+        public string TextFilter { get; set; }
 
         /// <summary>
-        /// The filename to display in the header. By default the name of the source file is displayed.
+        /// The email-address used to filter messages by sender or recipient.
         /// </summary>  
-        public string FileName { get; set; }
+        public string AddressFilter { get; set; }
 
         /// <summary>
-        /// Number of records per page (for rendering to HTML only)             
+        /// The maximum number of messages or items for render. Default value is 0 - all messages will be rendered
         /// </summary>  
-        public int? ItemsPerPage { get; set; }
+        public int? MaxItems { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -60,10 +60,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class ArchiveOptions {\n");
-          sb.Append("  Folder: ").Append(this.Folder).Append("\n");
-          sb.Append("  FileName: ").Append(this.FileName).Append("\n");
-          sb.Append("  ItemsPerPage: ").Append(this.ItemsPerPage).Append("\n");
+          sb.Append("class MailStorageOptions {\n");
+          sb.Append("  TextFilter: ").Append(this.TextFilter).Append("\n");
+          sb.Append("  AddressFilter: ").Append(this.AddressFilter).Append("\n");
+          sb.Append("  MaxItems: ").Append(this.MaxItems).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

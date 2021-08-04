@@ -87,6 +87,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderOriginalPageSize { get; set; }
 
         /// <summary>
+        /// When this option is set to true, the text is rendered as an image in the output HTML. Enable this option to make text unselectable or to fix characters rendering and make HTML look like PDF. The default value is false. This option is supported when rendering into HTML.
+        /// </summary>  
+        public bool? RenderTextAsImage { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -99,6 +104,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  EnableFontHinting: ").Append(this.EnableFontHinting).Append("\n");
           sb.Append("  RenderOriginalPageSize: ").Append(this.RenderOriginalPageSize).Append("\n");
           sb.Append("  ImageQuality: ").Append(this.ImageQuality).Append("\n");
+          sb.Append("  RenderTextAsImage: ").Append(this.RenderTextAsImage).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
