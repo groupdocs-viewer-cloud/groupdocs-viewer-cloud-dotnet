@@ -84,6 +84,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Client.RequestHandlers
                     }
 
                     if (SerializationHelper
+                        .Deserialize(responseData, typeof(ApiErrorResponse)) is ApiErrorResponse apiErrorResponse && apiErrorResponse.Error?.Message != null)
+                    {
+                        throw new ApiException(statusCode, apiErrorResponse.Error.Message);
+                    }
+
+                    if (SerializationHelper
                         .Deserialize(responseData, typeof(Error)) is Error apiError)
                     {
                         throw new ApiException(statusCode, apiError.Message);

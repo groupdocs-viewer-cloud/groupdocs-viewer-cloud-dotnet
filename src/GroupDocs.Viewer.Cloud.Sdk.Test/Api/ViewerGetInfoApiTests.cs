@@ -67,6 +67,24 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
         }
 
         [Test]
+        public void TestGetInfoPasswordProtected()
+        {
+            // Arrange
+            var viewOptions = new ViewOptions
+            {
+                FileInfo = TestFiles.PasswordProtectedDocx.ToFileInfo()
+            };
+            viewOptions.FileInfo.Password = null;
+            var request = new GetInfoRequest(viewOptions);
+
+            // Act & Assert
+            var ex = Assert.Throws<ApiException>(() => {
+                InfoApi.GetInfo(request);
+            });
+            Assert.AreEqual("Please specify password to load the document.", ex.Message);
+        }
+
+        [Test]
         public void TestGetInfoWithMinimalViewOptions()
         {
             // Arrange
