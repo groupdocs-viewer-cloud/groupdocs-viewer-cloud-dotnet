@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="Watermark.cs">
+// <copyright company="Aspose Pty Ltd" file="WebDocumentOptions.cs">
 //  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,72 +34,82 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Text watermark
+    /// This rendering options enables you to customize the appearance of the output HTML/PDF/PNG/JPEG when rendering Web documents.
     /// </summary>  
-    public class Watermark 
+    public class WebDocumentOptions 
     {                       
         /// <summary>
-        /// Watermark position. Default value is \&quot;Diagonal\&quot;.
+        /// The size of the output page. The default value is GroupDocs.Viewer.Options.PageSize.Letter 792 x 612 points. When contents does not fit set a larger page size e.g. GroupDocs.Viewer.Options.PageSize.A3.             
         /// </summary>
-        /// <value>Watermark position. Default value is \&quot;Diagonal\&quot;.</value>
+        /// <value>The size of the output page. The default value is GroupDocs.Viewer.Options.PageSize.Letter 792 x 612 points. When contents does not fit set a larger page size e.g. GroupDocs.Viewer.Options.PageSize.A3.             </value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum PositionEnum
+        public enum PageSizeEnum
         { 
             /// <summary>
-            /// Enum Diagonal for "Diagonal"
+            /// Enum Unspecified for "Unspecified"
             /// </summary>            
-            Diagonal,
+            Unspecified,
             
             /// <summary>
-            /// Enum TopLeft for "TopLeft"
+            /// Enum Letter for "Letter"
             /// </summary>            
-            TopLeft,
+            Letter,
             
             /// <summary>
-            /// Enum TopCenter for "TopCenter"
+            /// Enum Ledger for "Ledger"
             /// </summary>            
-            TopCenter,
+            Ledger,
             
             /// <summary>
-            /// Enum TopRight for "TopRight"
+            /// Enum A0 for "A0"
             /// </summary>            
-            TopRight,
+            A0,
             
             /// <summary>
-            /// Enum BottomLeft for "BottomLeft"
+            /// Enum A1 for "A1"
             /// </summary>            
-            BottomLeft,
+            A1,
             
             /// <summary>
-            /// Enum BottomCenter for "BottomCenter"
+            /// Enum A2 for "A2"
             /// </summary>            
-            BottomCenter,
+            A2,
             
             /// <summary>
-            /// Enum BottomRight for "BottomRight"
+            /// Enum A3 for "A3"
             /// </summary>            
-            BottomRight            
+            A3,
+            
+            /// <summary>
+            /// Enum A4 for "A4"
+            /// </summary>            
+            A4            
         }
 
         /// <summary>
-        /// Watermark position. Default value is \&quot;Diagonal\&quot;.
+        /// The size of the output page. The default value is GroupDocs.Viewer.Options.PageSize.Letter 792 x 612 points. When contents does not fit set a larger page size e.g. GroupDocs.Viewer.Options.PageSize.A3.             
         /// </summary>
-        public PositionEnum? Position { get; set; }
+        public PageSizeEnum? PageSize { get; set; }
 
         /// <summary>
-        /// Watermark text.
+        /// The distance (in points) between the left edge of the page and the left boundary  of the body text. The default value is 5 points.
         /// </summary>  
-        public string Text { get; set; }
+        public double? LeftMargin { get; set; }
 
         /// <summary>
-        /// Watermark color. Supported formats {Magenta|(112,222,11)|(50,112,222,11)}. Default value is \"Red\".
+        /// The distance (in points) between the right edge of the page and the right boundary of the body text. The default value is 5 points.
         /// </summary>  
-        public string Color { get; set; }
+        public double? RightMargin { get; set; }
 
         /// <summary>
-        /// Watermark size in percents. Default value is 100.
+        /// The distance (in points) between the top edge of the page and the top boundary of the body text. The default value is 72 points.
         /// </summary>  
-        public int? Size { get; set; }
+        public double? TopMargin { get; set; }
+
+        /// <summary>
+        /// The distance (in points) between the bottom edge of the page and the bottom boundary of the body text. The default value is 72 points.
+        /// </summary>  
+        public double? BottomMargin { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -108,11 +118,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class Watermark {\n");
-          sb.Append("  Text: ").Append(this.Text).Append("\n");
-          sb.Append("  Color: ").Append(this.Color).Append("\n");
-          sb.Append("  Position: ").Append(this.Position).Append("\n");
-          sb.Append("  Size: ").Append(this.Size).Append("\n");
+          sb.Append("class WebDocumentOptions {\n");
+          sb.Append("  PageSize: ").Append(this.PageSize).Append("\n");
+          sb.Append("  LeftMargin: ").Append(this.LeftMargin).Append("\n");
+          sb.Append("  RightMargin: ").Append(this.RightMargin).Append("\n");
+          sb.Append("  TopMargin: ").Append(this.TopMargin).Append("\n");
+          sb.Append("  BottomMargin: ").Append(this.BottomMargin).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

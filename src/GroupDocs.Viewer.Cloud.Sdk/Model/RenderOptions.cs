@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="RenderOptions.cs">
-//  Copyright (c) 2003-2021 Aspose Pty Ltd
+//  Copyright (c) 2003-2023 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -67,6 +67,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         /// Default encoding for the plain text files such as .csv, .txt and .eml files when encoding is not specified in header
         /// </summary>  
         public string DefaultEncoding { get; set; }
+
+        /// <summary>
+        /// This option enables TXT, TSV, and CSV files encoding detection. In case the encoding can't be detected the DefaultEncoding is used.
+        /// </summary>  
+        public bool? DetectEncoding { get; set; }
 
         /// <summary>
         /// When enabled comments will be rendered to the output
@@ -139,6 +144,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public VisioRenderingOptions VisioRenderingOptions { get; set; }
 
         /// <summary>
+        /// This rendering options enables you to customize the appearance of the output HTML/PDF/PNG/JPEG when rendering Web documents.
+        /// </summary>  
+        public WebDocumentOptions WebDocumentOptions { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +162,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  PageRotations: ").Append(this.PageRotations).Append("\n");
           sb.Append("  DefaultFontName: ").Append(this.DefaultFontName).Append("\n");
           sb.Append("  DefaultEncoding: ").Append(this.DefaultEncoding).Append("\n");
+          sb.Append("  DetectEncoding: ").Append(this.DetectEncoding).Append("\n");
           sb.Append("  RenderComments: ").Append(this.RenderComments).Append("\n");
           sb.Append("  RenderNotes: ").Append(this.RenderNotes).Append("\n");
           sb.Append("  RenderHiddenPages: ").Append(this.RenderHiddenPages).Append("\n");
@@ -166,6 +177,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  TextOptions: ").Append(this.TextOptions).Append("\n");
           sb.Append("  MailStorageOptions: ").Append(this.MailStorageOptions).Append("\n");
           sb.Append("  VisioRenderingOptions: ").Append(this.VisioRenderingOptions).Append("\n");
+          sb.Append("  WebDocumentOptions: ").Append(this.WebDocumentOptions).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

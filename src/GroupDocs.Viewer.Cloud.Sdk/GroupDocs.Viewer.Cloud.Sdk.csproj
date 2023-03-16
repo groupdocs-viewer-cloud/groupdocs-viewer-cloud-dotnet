@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net20</TargetFrameworks>
-    <AssemblyVersion>21.12.0.0</AssemblyVersion>
-    <FileVersion>21.12.0.0</FileVersion>
-    <Version>21.12.0</Version>
+    <AssemblyVersion>23.3.0.0</AssemblyVersion>
+    <FileVersion>23.3.0.0</FileVersion>
+    <Version>23.3.0</Version>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <Company>GroupDocs</Company>
     <Authors>GroupDocs Product Team</Authors>
@@ -13,6 +13,7 @@
     <PackageLicenseUrl>https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://products.groupdocs.cloud/viewer/family</PackageProjectUrl>
     <RepositoryUrl>https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-dotnet</RepositoryUrl>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
