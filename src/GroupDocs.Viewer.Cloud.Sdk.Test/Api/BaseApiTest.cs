@@ -126,7 +126,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Test.Api
 
         private static string GetTestDataPath()
         {
-            var uri = new Uri(Assembly.GetExecutingAssembly().CodeBase);
+            var uri = new Uri(Assembly.GetExecutingAssembly().Location);
             var workingDir = Path.GetDirectoryName(uri.LocalPath) ?? Directory.GetCurrentDirectory();
 
             var baseDir = Path.Combine(workingDir, "Resources", "TestData");

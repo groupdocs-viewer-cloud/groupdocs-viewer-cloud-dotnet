@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net20</TargetFrameworks>
-    <AssemblyVersion>23.7.0.0</AssemblyVersion>
-    <FileVersion>23.7.0.0</FileVersion>
-    <Version>23.7.0</Version>
+    <AssemblyVersion>23.10.0.0</AssemblyVersion>
+    <FileVersion>23.10.0.0</FileVersion>
+    <Version>23.10.0</Version>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <Company>GroupDocs</Company>
     <Authors>GroupDocs Product Team</Authors>
@@ -16,7 +16,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net20'">
     <Reference Include="System.Web" />
