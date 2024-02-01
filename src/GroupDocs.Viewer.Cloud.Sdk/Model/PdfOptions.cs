@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="PdfOptions.cs">
-//  Copyright (c) 2003-2023 Aspose Pty Ltd
+//  Copyright (c) 2003-2024 Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,11 +39,6 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class PdfOptions : RenderOptions 
     {                       
         /// <summary>
-        /// The quality of the JPG images contained by output PDF document; Valid values are between 1 and 100; Default value is 90
-        /// </summary>  
-        public int? JpgQuality { get; set; }
-
-        /// <summary>
         /// The password required to open the PDF document
         /// </summary>  
         public string DocumentOpenPassword { get; set; }
@@ -57,6 +52,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         /// The array of PDF document permissions. Allowed values are: AllowAll, DenyPrinting, DenyModification, DenyDataExtraction, DenyAll Default value is AllowAll, if now permissions are set.
         /// </summary>  
         public List<string> Permissions { get; set; }
+
+        /// <summary>
+        /// Contains options for rendering documents into PDF format.
+        /// </summary>  
+        public PdfOptimizationOptions PdfOptimizationOptions { get; set; }
 
         /// <summary>
         /// Max width of an output image in pixels. (When converting single image to HTML only)
@@ -86,10 +86,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         {
           var sb = new StringBuilder();
           sb.Append("class PdfOptions {\n");
-          sb.Append("  JpgQuality: ").Append(this.JpgQuality).Append("\n");
           sb.Append("  DocumentOpenPassword: ").Append(this.DocumentOpenPassword).Append("\n");
           sb.Append("  PermissionsPassword: ").Append(this.PermissionsPassword).Append("\n");
           sb.Append("  Permissions: ").Append(this.Permissions).Append("\n");
+          sb.Append("  PdfOptimizationOptions: ").Append(this.PdfOptimizationOptions).Append("\n");
           sb.Append("  ImageMaxWidth: ").Append(this.ImageMaxWidth).Append("\n");
           sb.Append("  ImageMaxHeight: ").Append(this.ImageMaxHeight).Append("\n");
           sb.Append("  ImageWidth: ").Append(this.ImageWidth).Append("\n");
