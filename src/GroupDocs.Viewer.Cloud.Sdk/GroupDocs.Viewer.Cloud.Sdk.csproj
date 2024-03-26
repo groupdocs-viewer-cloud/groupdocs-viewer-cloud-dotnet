@@ -2,9 +2,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net20</TargetFrameworks>
-    <AssemblyVersion>24.2.0.0</AssemblyVersion>
-    <FileVersion>24.2.0.0</FileVersion>
-    <Version>24.2.0</Version>
+    <AssemblyVersion>24.3.0.0</AssemblyVersion>
+    <FileVersion>24.3.0.0</FileVersion>
+    <Version>24.3.0</Version>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <Company>GroupDocs</Company>
     <Authors>GroupDocs Product Team</Authors>

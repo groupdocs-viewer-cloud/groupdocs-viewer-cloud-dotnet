@@ -92,6 +92,21 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderTextAsImage { get; set; }
 
         /// <summary>
+        /// Enables rendering the PDF and EPUB documents to HTML with a fixed layout.
+        /// </summary>  
+        public bool? FixedLayout { get; set; }
+
+        /// <summary>
+        /// Enables wrapping each image in the output HTML document in SVG tag to improve the output quality.
+        /// </summary>  
+        public bool? WrapImagesInSvg { get; set; }
+
+        /// <summary>
+        /// Disables any license restrictions for all fonts in the current XPS/OXPS document.
+        /// </summary>  
+        public bool? DisableFontLicenseVerifications { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +120,9 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  RenderOriginalPageSize: ").Append(this.RenderOriginalPageSize).Append("\n");
           sb.Append("  ImageQuality: ").Append(this.ImageQuality).Append("\n");
           sb.Append("  RenderTextAsImage: ").Append(this.RenderTextAsImage).Append("\n");
+          sb.Append("  FixedLayout: ").Append(this.FixedLayout).Append("\n");
+          sb.Append("  WrapImagesInSvg: ").Append(this.WrapImagesInSvg).Append("\n");
+          sb.Append("  DisableFontLicenseVerifications: ").Append(this.DisableFontLicenseVerifications).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

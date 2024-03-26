@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose Pty Ltd" file="PdfOptions.cs">
+// <copyright company="Aspose Pty Ltd" file="ApiError.cs">
 //  Copyright (c) 2003-2024 Aspose Pty Ltd
 // </copyright>
 // <summary>
@@ -34,49 +34,34 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     using Newtonsoft.Json.Converters;
     
     /// <summary>
-    /// Options for rendering document into PDF
+    /// 
     /// </summary>  
-    public class PdfOptions : RenderOptions 
+    public class ApiError 
     {                       
         /// <summary>
-        /// The password required to open the PDF document
+        /// Gets or sets Code
         /// </summary>  
-        public string DocumentOpenPassword { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
-        /// The password required to change permission settings; Using a permissions password  you can restrict printing, modification and data extraction
+        /// Gets or sets Message
         /// </summary>  
-        public string PermissionsPassword { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
-        /// The array of PDF document permissions. Allowed values are: AllowAll, DenyPrinting, DenyModification, DenyDataExtraction, DenyAll Default value is AllowAll, if now permissions are set.
+        /// Gets or sets Description
         /// </summary>  
-        public List<string> Permissions { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
-        /// Contains options for rendering documents into PDF format.
+        /// Gets or sets DateTime
         /// </summary>  
-        public PdfOptimizationOptions PdfOptimizationOptions { get; set; }
+        public DateTime? DateTime { get; set; }
 
         /// <summary>
-        /// Max width of an output image in pixels. (When converting single image to PDF only)
+        /// Gets or sets InnerError
         /// </summary>  
-        public int? ImageMaxWidth { get; set; }
-
-        /// <summary>
-        /// Max height of an output image in pixels. (When converting single image to PDF only)
-        /// </summary>  
-        public int? ImageMaxHeight { get; set; }
-
-        /// <summary>
-        /// The width of the output image in pixels. (When converting single image to PDF only)
-        /// </summary>  
-        public int? ImageWidth { get; set; }
-
-        /// <summary>
-        /// The height of an output image in pixels. (When converting single image to PDF only)
-        /// </summary>  
-        public int? ImageHeight { get; set; }
+        public ApiError InnerError { get; set; }
 
         /// <summary>
         /// Get the string presentation of the object
@@ -85,15 +70,12 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public override string ToString()  
         {
           var sb = new StringBuilder();
-          sb.Append("class PdfOptions {\n");
-          sb.Append("  DocumentOpenPassword: ").Append(this.DocumentOpenPassword).Append("\n");
-          sb.Append("  PermissionsPassword: ").Append(this.PermissionsPassword).Append("\n");
-          sb.Append("  Permissions: ").Append(this.Permissions).Append("\n");
-          sb.Append("  PdfOptimizationOptions: ").Append(this.PdfOptimizationOptions).Append("\n");
-          sb.Append("  ImageMaxWidth: ").Append(this.ImageMaxWidth).Append("\n");
-          sb.Append("  ImageMaxHeight: ").Append(this.ImageMaxHeight).Append("\n");
-          sb.Append("  ImageWidth: ").Append(this.ImageWidth).Append("\n");
-          sb.Append("  ImageHeight: ").Append(this.ImageHeight).Append("\n");
+          sb.Append("class ApiError {\n");
+          sb.Append("  Code: ").Append(this.Code).Append("\n");
+          sb.Append("  Message: ").Append(this.Message).Append("\n");
+          sb.Append("  Description: ").Append(this.Description).Append("\n");
+          sb.Append("  DateTime: ").Append(this.DateTime).Append("\n");
+          sb.Append("  InnerError: ").Append(this.InnerError).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
