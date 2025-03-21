@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="HtmlOptions.cs">
-//  Copyright (c) 2003-2024 Aspose Pty Ltd
+//  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -99,6 +99,11 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public bool? RenderToSinglePage { get; set; }
 
         /// <summary>
+        /// Allows to remove the JavaScript source code from the links in resultant HTML documents, when rendering input documents, which have the scripts. By default is enabled (true).             
+        /// </summary>  
+        public bool? RemoveJavaScript { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +123,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  ImageMaxHeight: ").Append(this.ImageMaxHeight).Append("\n");
           sb.Append("  ImageMaxWidth: ").Append(this.ImageMaxWidth).Append("\n");
           sb.Append("  RenderToSinglePage: ").Append(this.RenderToSinglePage).Append("\n");
+          sb.Append("  RemoveJavaScript: ").Append(this.RemoveJavaScript).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }

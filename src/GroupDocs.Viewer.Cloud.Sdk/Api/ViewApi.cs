@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ViewApi.cs">
-//  Copyright (c) 2003-2024 Aspose Pty Ltd
+//  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -173,7 +173,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Api
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="ConvertAndDownloadRequest.cs">
-//  Copyright (c) 2003-2024 Aspose Pty Ltd
+//  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -250,7 +250,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="CreateViewRequest.cs">
-//  Copyright (c) 2003-2024 Aspose Pty Ltd
+//  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -306,7 +306,7 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model.Requests
 }
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="DeleteViewRequest.cs">
-//  Copyright (c) 2003-2024 Aspose Pty Ltd
+//  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose Pty Ltd" file="WordProcessingOptions.cs">
-//  Copyright (c) 2003-2024 Aspose Pty Ltd
+//  Copyright (c) Aspose Pty Ltd
 // </copyright>
 // <summary>
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,6 +39,59 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
     public class WordProcessingOptions 
     {                       
         /// <summary>
+        /// The size of the page.
+        /// </summary>
+        /// <value>The size of the page.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PageSizeEnum
+        { 
+            /// <summary>
+            /// Enum Unspecified for "Unspecified"
+            /// </summary>            
+            Unspecified,
+            
+            /// <summary>
+            /// Enum Letter for "Letter"
+            /// </summary>            
+            Letter,
+            
+            /// <summary>
+            /// Enum Ledger for "Ledger"
+            /// </summary>            
+            Ledger,
+            
+            /// <summary>
+            /// Enum A0 for "A0"
+            /// </summary>            
+            A0,
+            
+            /// <summary>
+            /// Enum A1 for "A1"
+            /// </summary>            
+            A1,
+            
+            /// <summary>
+            /// Enum A2 for "A2"
+            /// </summary>            
+            A2,
+            
+            /// <summary>
+            /// Enum A3 for "A3"
+            /// </summary>            
+            A3,
+            
+            /// <summary>
+            /// Enum A4 for "A4"
+            /// </summary>            
+            A4            
+        }
+
+        /// <summary>
+        /// The size of the page.
+        /// </summary>
+        public PageSizeEnum? PageSize { get; set; }
+
+        /// <summary>
         /// Enables tracked changes (revisions) rendering
         /// </summary>  
         public bool? RenderTrackedChanges { get; set; }
@@ -64,6 +117,21 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
         public double? BottomMargin { get; set; }
 
         /// <summary>
+        /// This option enables kerning and other OpenType Features when rendering Arabic, Hebrew, Indian Latin-based, or Cyrillic-based scripts.
+        /// </summary>  
+        public bool? EnableOpenTypeFeatures { get; set; }
+
+        /// <summary>
+        /// When rendering to HTML or PDF, you can set this option to `true` to disable navigation from the table of contents. For HTML rendering, `a` tags with relative links will be replaced with `span` tags, removing functionality but preserving visual appearance. For PDF rendering, the table of contents will be rendered as plain text without links to document sections.             
+        /// </summary>  
+        public bool? UnlinkTableOfContents { get; set; }
+
+        /// <summary>
+        /// Determines if fields of certain types should be updated before saving the input WordProcessing document to the HTML, PDF, PNG, or JPEG output formats. Default value for this property is true — fields will be updated before saving.             
+        /// </summary>  
+        public bool? UpdateFields { get; set; }
+
+        /// <summary>
         /// Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +144,10 @@ namespace GroupDocs.Viewer.Cloud.Sdk.Model
           sb.Append("  RightMargin: ").Append(this.RightMargin).Append("\n");
           sb.Append("  TopMargin: ").Append(this.TopMargin).Append("\n");
           sb.Append("  BottomMargin: ").Append(this.BottomMargin).Append("\n");
+          sb.Append("  PageSize: ").Append(this.PageSize).Append("\n");
+          sb.Append("  EnableOpenTypeFeatures: ").Append(this.EnableOpenTypeFeatures).Append("\n");
+          sb.Append("  UnlinkTableOfContents: ").Append(this.UnlinkTableOfContents).Append("\n");
+          sb.Append("  UpdateFields: ").Append(this.UpdateFields).Append("\n");
           sb.Append("}\n");
           return sb.ToString();
         }
